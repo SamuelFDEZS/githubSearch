@@ -1,0 +1,22 @@
+:root{
+    // Fonts
+    --font-size-base: 1rem;
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.75rem;
+    --font-size-h4: 1.5rem;
+    --font-size-h5: 1.25rem;
+    --font-size-h6: 1rem;
+    --font-size-paragraph: 1.25rem;
+    --font-size-small: 0.8rem;
+
+    // Spacing
+    --container-vertical-margin: 10vh;
+    --container-horizontal-margin: 10vw;
+
+    // Colours
+    --font-text-color: #ffffff;
+    --item-bg-color: linear-gradient(90deg, rgba(237,225,167,1) 0%, rgba(255,255,255,1) 0%, rgba(233,233,233,1) 32%, rgba(142,142,142,1) 83%);
+}
+
+$body-bg: url("../../assets/body_background.webp");
