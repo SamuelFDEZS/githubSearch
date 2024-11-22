@@ -21,31 +21,3 @@ $breakpoints: (
         @error "Oops, seems like the breakpoint #{$size} isn't defined yet";
     }
 }
-
-/*-- Search --*/
-
-@mixin search-input-breakpoints {
-    width: 90%;
-    border-radius: 9px;
-    margin-left: 2%;
-    height: 60%;
-    background-color: #ffffff;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-    font-size: 1.3rem;
-    @content;
-}
-
-@mixin search-button-breakpoints {
-    content: "\f002";
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    @content;
-}
-
-/*-- Main --*/
-@mixin create-breakpoints {
-    width: 97%;
-    margin: 0;
-    border-radius: 30px;
-    @content;
-}
