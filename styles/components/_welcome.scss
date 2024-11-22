@@ -1,0 +1,35 @@
+.welcome{
+    width: 100vw;
+    margin-top: var(--container-vertical-margin);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__title{
+        font-size: var(--font-size-h1);
+        text-align: center;
+    }
+
+    &__paragraph{
+        text-align: center;
+        margin-top: 2%;
+        font-size: var(--font-size-paragraph);
+    }
+
+    &__login-btn{
+        margin-top: 3%;
+        width: 25%;
+        height: 7vh;
+        font-size: var(--font-size-list-item);
+        border-radius: 10px;
+        color: var(--font-text-color);
+        background-color: var(--button-bg);
+        border: 0;
+        outline: none;
+        transition: 0.3s;
+
+        &:hover{
+            cursor: pointer;
+            background-color: var(--button-bg-hover);;
+        }
+    }
+}
