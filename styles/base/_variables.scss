@@ -9,6 +9,7 @@
     --font-size-h6: 1rem;
     --font-size-paragraph: 1.25rem;
     --font-size-small: 0.8rem;
+    --font-size-list-item: 1.2rem;
 
     // Spacing
     --container-vertical-margin: 10vh;
@@ -16,7 +17,15 @@
 
     // Colours
     --font-text-color: #ffffff;
+    --font-text-hover-color: #c1c1c1;
     --item-bg-color: linear-gradient(90deg, rgba(237,225,167,1) 0%, rgba(255,255,255,1) 0%, rgba(233,233,233,1) 32%, rgba(142,142,142,1) 83%);
+
+    --button-bg: #009fd9;
+    --button-bg-hover: #007fad;
+
+    --font-style-logo: 'Titilium-Title';
+    --font-style-semiBold: 'Titilium-SemiBold';
 }
 
-$body-bg: url("../../assets/body_background.webp");
+$body-bg: url("../../assets/images/body_background.webp");
+$page-logo: url("../../assets/images/Inquiro_logo.png");
