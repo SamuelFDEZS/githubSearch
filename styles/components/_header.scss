@@ -1,0 +1,104 @@
+.header {
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    position: relative;
+    z-index: 5;
+    justify-content: space-between;
+    align-items: center;
+
+    &> *{
+        z-index: 10;
+    }
+
+    &__filter{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        filter: blur(5px);
+        top: 0;
+        background-color: #f9f9f9;
+        opacity: 0.1;
+        left: 0;
+        z-index: 2;
+    }
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 10%;
+        height: 100%;
+        margin-left: 2%;
+        text-decoration: none;
+        color: var(--font-text-color);
+
+        &__image {
+            width: 80%;
+            height: 150%;
+        }
+
+        &__title {
+            font-size: var(--font-size-h1);
+            font-family: var(--font-style-logo);
+            letter-spacing: 2px;
+        }
+    }
+
+    &__nav {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__list {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            gap: 15%;
+            justify-content: center;
+            align-items: center;
+
+            &__item {
+                font-size: var(--font-size-list-item);
+                font-family: var(--font-style-semiBold);
+                letter-spacing: 1px;
+
+                &__link {
+                    text-decoration: none;
+                    color: var(--font-text-color);
+                    transition: 0.2s;
+
+                    &:hover {
+                        color: var(--font-text-hover-color);
+                    }
+                }
+            }
+        }
+    }
+
+    &__btn-container{
+        width: 18%;
+        height: 100%;
+        margin-right: 2%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & > button{
+            width: 40%;
+            height: 65%;
+            background-color: var(--button-bg);
+            outline: none;
+            border: 0;
+            border-radius: 30px;
+            transition: 0.3s;
+
+            &:hover{
+                cursor: pointer;
+                background-color: var(--button-bg-hover);;
+            }
+        }
+    }
+}

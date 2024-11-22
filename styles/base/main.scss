@@ -1,3 +1,5 @@
-@use "./variables";
-@use "../utils/reset";
-@use "../components/body";
+@import "./variables";
+@import "../utils/reset";
+@import "../utils/fonts";
+@import "../components/body";
+@import "../components/header";
