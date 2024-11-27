@@ -5,4 +5,16 @@ body{
     color: var(--font-text-color);
     overflow-x: hidden;
     font-family: var(--font-style-regular);
+
+    & h1{
+        font-size: var(--font-size-h1);
+    }
+
+    & h2{
+        font-size: var(--font-size-h2);
+    }
+
+    & p{
+        font-size: var(--font-size-paragraph);
+    }
 }
