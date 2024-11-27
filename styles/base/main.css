@@ -175,6 +175,15 @@ body {
   overflow-x: hidden;
   font-family: var(--font-style-regular);
 }
+body h1 {
+  font-size: var(--font-size-h1);
+}
+body h2 {
+  font-size: var(--font-size-h2);
+}
+body p {
+  font-size: var(--font-size-paragraph);
+}
 
 .header {
   width: 100vw;
@@ -283,7 +292,7 @@ body {
 .welcome__paragraph {
   text-align: center;
   margin-top: 2%;
-  font-size: var(--font-size-paragraph);
+  font-size: var(--font-size-list-item);
 }
 .welcome__login-btn {
   margin-top: 3%;
@@ -300,4 +309,75 @@ body {
 .welcome__login-btn:hover {
   cursor: pointer;
   background-color: var(--button-bg-hover);
+}
+
+.benefit {
+  width: 94vw;
+  margin-top: 15vh;
+  margin-left: 2vw;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+.benefit__title {
+  text-align: center;
+}
+.benefit__item {
+  display: flex;
+  width: 100%;
+  gap: 5%;
+}
+.benefit__item__content {
+  width: 45%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+  margin-top: 9%;
+  margin-right: 5%;
+}
+.benefit__item__content__title {
+  line-height: 120%;
+}
+.benefit__item__content__description {
+  line-height: 150%;
+}
+.benefit__item__content__button-container {
+  margin-top: 6%;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  gap: 20%;
+}
+.benefit__item__content__button-container__button {
+  outline: none;
+  width: 35%;
+  height: 70%;
+  border: 2px solid white;
+  background: transparent;
+  color: var(--font-text-color);
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+.benefit__item__content__button-container__button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.benefit__item__image {
+  width: 60%;
+  height: 90vh;
+  border-radius: 15px;
+}
+.benefit__item__image:first-of-type {
+  width: 60%;
+}
+.benefit__second-item {
+  flex-direction: row-reverse;
+}
+.benefit__second-item > .benefit__item__content {
+  margin-right: 0;
+  margin-left: 5%;
+  margin-top: 15%;
+  align-self: center;
 }/*# sourceMappingURL=main.css.map */
