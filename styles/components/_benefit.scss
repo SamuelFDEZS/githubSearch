@@ -60,8 +60,9 @@
 
         &__image {
             width: 60%;
-            height: 90vh;
+            height: 80vh;
             border-radius: 15px;
+            object-fit: cover;
 
             &:first-of-type {
                 width: 60%;

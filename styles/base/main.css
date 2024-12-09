@@ -5,8 +5,10 @@
   --font-size-h3: 1.75rem;
   --font-size-h4: 1.5rem;
   --font-size-h5: 1.25rem;
-  --font-size-h6: 1rem;
+  --font-size-h6: 1.1rem;
   --font-size-paragraph: 1.25rem;
+  --font-size-large: 3rem;
+  --font-size-medium: 1.6rem;
   --font-size-small: 0.8rem;
   --font-size-list-item: 1.2rem;
   --container-vertical-margin: 6vh;
@@ -366,8 +368,10 @@ body p {
 }
 .benefit__item__image {
   width: 60%;
-  height: 90vh;
+  height: 80vh;
   border-radius: 15px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .benefit__item__image:first-of-type {
   width: 60%;
@@ -380,4 +384,61 @@ body p {
   margin-left: 5%;
   margin-top: 15%;
   align-self: center;
+}
+
+.testimonials {
+  width: 94vw;
+  margin-left: 2vw;
+  margin-top: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.testimonials__title {
+  width: 45%;
+  font-size: var(--font-size-large);
+  line-height: 125%;
+  margin-left: 7%;
+}
+.testimonials__group {
+  width: 100%;
+  display: flex;
+  gap: 5vh;
+  justify-content: space-around;
+  align-items: center;
+}
+.testimonials__group__card {
+  margin-top: 5%;
+  width: 35%;
+  height: 60vh;
+  background-color: #d7e6ee;
+  color: black;
+  position: relative;
+}
+.testimonials__group__card__content {
+  margin-left: 5%;
+  margin-top: 6%;
+}
+.testimonials__group__card__content__subtitle {
+  font-size: var(--font-size-h5);
+  width: 90%;
+}
+.testimonials__group__card__content__stars {
+  width: 100%;
+  margin-top: 1%;
+}
+.testimonials__group__card__content__stars svg {
+  width: 24px;
+}
+.testimonials__group__card__content__description {
+  width: 80%;
+  margin-top: 10%;
+  word-spacing: 2px;
+  line-height: 135%;
+  font-size: var(--font-size-medium);
+}
+.testimonials__group__card__content__name {
+  position: absolute;
+  bottom: 5%;
+  font-size: var(--font-size-h6);
 }/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,65 @@
+.testimonials {
+    width: 94vw;
+    margin-left: 2vw;
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__title {
+        width: 45%;
+        font-size: var(--font-size-large);
+        line-height: 125%;
+        margin-left: 7%;
+    }
+
+    &__group {
+        width: 100%;
+        display: flex;
+        gap: 5vh;
+        justify-content: space-around;
+        align-items: center;
+
+        &__card {
+            margin-top: 5%;
+            width: 35%;
+            height: 60vh;
+            background-color: #d7e6ee;
+            color: black;
+            position: relative;
+
+            &__content {
+                margin-left: 5%;
+                margin-top: 6%;
+
+                &__subtitle {
+                    font-size: var(--font-size-h5);
+                    width: 90%;
+                }
+
+                &__stars {
+                    width: 100%;
+                    margin-top: 1%;
+
+                    & svg {
+                        width: 24px;
+                    }
+                }
+
+                &__description {
+                    width: 80%;
+                    margin-top: 10%;
+                    word-spacing: 2px;
+                    line-height: 135%;
+                    font-size: var(--font-size-medium);
+                }
+
+                &__name{
+                    position: absolute;
+                    bottom: 5%;
+                    font-size: var(--font-size-h6);
+                }
+            }
+        }
+    }
+}
