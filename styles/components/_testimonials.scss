@@ -8,9 +8,10 @@
 
     &__title {
         width: 45%;
-        font-size: var(--font-size-large);
+        font-size: var(--font-size-h1);
         line-height: 125%;
-        margin-left: 7%;
+        text-align: center;
+        align-self: center;
     }
 
     &__group {
@@ -27,6 +28,7 @@
             background-color: #d7e6ee;
             color: black;
             position: relative;
+            border-radius: 10px;
 
             &__content {
                 margin-left: 5%;

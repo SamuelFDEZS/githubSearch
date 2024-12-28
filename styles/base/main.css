@@ -1,6 +1,6 @@
 :root {
   --font-size-base: 1rem;
-  --font-size-h1: 2.5rem;
+  --font-size-h1: 3.5rem;
   --font-size-h2: 2rem;
   --font-size-h3: 1.75rem;
   --font-size-h4: 1.5rem;
@@ -396,9 +396,10 @@ body p {
 }
 .testimonials__title {
   width: 45%;
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-h1);
   line-height: 125%;
-  margin-left: 7%;
+  text-align: center;
+  align-self: center;
 }
 .testimonials__group {
   width: 100%;
@@ -414,6 +415,7 @@ body p {
   background-color: #d7e6ee;
   color: black;
   position: relative;
+  border-radius: 10px;
 }
 .testimonials__group__card__content {
   margin-left: 5%;
@@ -441,4 +443,112 @@ body p {
   position: absolute;
   bottom: 5%;
   font-size: var(--font-size-h6);
+}
+
+.footer {
+  width: 100%;
+  border: 5px solid white;
+  margin-top: 12%;
+  width: 100%;
+  display: flex;
+  position: relative;
+  height: 70vh;
+  background-color: #252424;
+}
+.footer__left {
+  width: 25%;
+  height: 100%;
+  position: relative;
+}
+.footer__left__link {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  flex-direction: column;
+  text-decoration: none;
+  margin-top: 20%;
+  position: relative;
+  z-index: 3;
+}
+.footer__left__link__image {
+  width: 100%;
+  height: 100%;
+  background-image: url("../../assets/images/Inquiro_logo.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.footer__left__link__image__title {
+  margin-bottom: 10%;
+  color: white;
+}
+.footer__left__copyright {
+  position: absolute;
+  left: 4%;
+  bottom: 2%;
+  font-size: 0.9rem;
+}
+.footer__left__vertical-line {
+  width: 100%;
+  height: 60%;
+  border-right: 3px solid white;
+  position: absolute;
+  top: 45%;
+  transform: translate(0, -50%);
+  z-index: 1;
+}
+.footer__list-container {
+  width: 100%;
+  display: flex;
+  gap: 10%;
+  position: relative;
+  margin-top: 8%;
+  justify-content: center;
+  position: relative;
+}
+.footer__list-container__list {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5%;
+}
+.footer__list-container__list__title {
+  font-size: var(--font-size-list-item);
+}
+.footer__list-container__list__item {
+  display: block;
+  font-size: var(--font-size-base);
+  transition: all 0.3s;
+}
+.footer__list-container__list__item:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.footer__list-container__social-media {
+  position: absolute;
+  right: 0;
+  bottom: 3%;
+  display: flex;
+  gap: 5%;
+  justify-content: center;
+  width: 15%;
+}
+.footer__list-container__social-media span {
+  cursor: pointer;
+  display: block;
+  font-size: 1.1rem;
+}
+.footer__horizontal-line {
+  position: absolute;
+  width: 95%;
+  border-top: 1px solid white;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 8%;
 }/*# sourceMappingURL=main.css.map */
