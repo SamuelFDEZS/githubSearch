@@ -1,7 +1,6 @@
 body{
     background-image: $body-bg;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     color: var(--font-text-color);
     overflow-x: hidden;
     font-family: var(--font-style-regular);

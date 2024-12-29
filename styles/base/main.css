@@ -171,8 +171,7 @@ table {
 }
 body {
   background-image: url("../../assets/images/body_background.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   color: var(--font-text-color);
   overflow-x: hidden;
   font-family: var(--font-style-regular);
@@ -274,6 +273,7 @@ body p {
   border-radius: 30px;
   transition: 0.3s;
   color: var(--font-text-color);
+  font-size: 1.1rem;
 }
 .header__btn-container > button:hover {
   cursor: pointer;
@@ -447,7 +447,6 @@ body p {
 
 .footer {
   width: 100%;
-  border: 5px solid white;
   margin-top: 12%;
   width: 100%;
   display: flex;
