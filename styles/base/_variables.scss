@@ -27,8 +27,11 @@
 
     --font-style-logo: 'Titilium-Title';
     --font-style-semiBold: 'Titilium-SemiBold';
-    --font-style-regular: 'Ttitilium-Regular';
+    --font-style-regular: 'Titilium-Regular';
+    --font-style-login-regular: 'Poppins-Regular';
+    --font-style-login-light: 'Poppins-Light';
 }
 
-$body-bg: url("../../assets/images/body_background.webp");
+$home-body-bg: url("../../assets/images/body_background.webp");
+$login-body-bg: url("../../assets/images/Shiny_Overlay.svg");
 $page-logo: url("../../assets/images/Inquiro_logo.png");
