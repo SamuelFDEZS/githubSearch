@@ -1,9 +1,16 @@
+// Home Styles
+
 @import "./variables";
 @import "../utils/reset";
 @import "../utils/fonts";
-@import "../components/body";
-@import "../components/header";
-@import "../components/welcome";
-@import "../components/benefit";
-@import "../components/testimonials";
-@import "../components/footer";
+@import "../components/home/body";
+@import "../components/home/header";
+@import "../components/home/welcome";
+@import "../components/home/benefit";
+@import "../components/home/testimonials";
+@import "../components/home/footer";
+
+// Login Styles
+
+@import "../components/login/body";
+@import "../components/login/login";

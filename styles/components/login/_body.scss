@@ -1,0 +1,8 @@
+body.login{
+    background-image: $login-body-bg;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    overflow-x: hidden;
+    font-family: var(--font-style-login-regular);
+}

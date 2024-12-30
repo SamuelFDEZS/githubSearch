@@ -20,7 +20,9 @@
   --button-bg-hover: #007fad;
   --font-style-logo: "Titilium-Title";
   --font-style-semiBold: "Titilium-SemiBold";
-  --font-style-regular: "Ttitilium-Regular";
+  --font-style-regular: "Titilium-Regular";
+  --font-style-login-regular: "Poppins-Regular";
+  --font-style-login-light: "Poppins-Light";
 }
 
 * {
@@ -166,23 +168,31 @@ table {
   src: url("../../assets/fonts/TitilliumWeb-SemiBold.ttf");
 }
 @font-face {
-  font-family: "Ttilium-Regular";
+  font-family: "Titilium-Regular";
   src: url("../../assets/fonts/TitilliumWeb-Regular.ttf");
 }
-body {
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("../../assets/fonts/Poppins-Regular.ttf");
+}
+@font-face {
+  font-family: "Poppins-Light";
+  src: url("../../assets/fonts/Poppins-Light.ttf");
+}
+body.home {
   background-image: url("../../assets/images/body_background.webp");
   background-size: contain;
   color: var(--font-text-color);
   overflow-x: hidden;
   font-family: var(--font-style-regular);
 }
-body h1 {
+body.home h1 {
   font-size: var(--font-size-h1);
 }
-body h2 {
+body.home h2 {
   font-size: var(--font-size-h2);
 }
-body p {
+body.home p {
   font-size: var(--font-size-paragraph);
 }
 
@@ -550,4 +560,91 @@ body p {
   left: 50%;
   transform: translate(-50%, 0);
   bottom: 8%;
+}
+
+body.login {
+  background-image: url("../../assets/images/Shiny_Overlay.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-style-login-regular);
+}
+
+.login-container {
+  width: 25%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.35);
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.login-container__title {
+  margin-top: 70%;
+  color: white;
+  font-size: var(--font-size-h1);
+  font-family: var(--font-style-login-light);
+}
+.login-container__subtitle {
+  margin-top: 3%;
+  font-size: var(--font-size-h5);
+  color: rgba(135, 135, 135, 0.669);
+}
+.login-container__username {
+  margin-top: 8%;
+}
+.login-container__password {
+  margin-top: 3%;
+}
+.login-container__input {
+  width: 60%;
+  height: 5%;
+  border-radius: 10px;
+  background-color: rgba(46, 65, 86, 0.4274509804);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border: 0;
+  padding-left: 3%;
+  outline: none;
+  color: white;
+  font-size: 1rem;
+}
+.login-container__input:focus {
+  border: 0;
+}
+.login-container__checkbox-container {
+  margin-top: 3%;
+  width: 60%;
+  color: rgba(135, 135, 135, 0.669);
+  display: flex;
+  gap: 2%;
+  align-items: center;
+}
+.login-container__checkbox-container__text {
+  transition: all 0.3s;
+}
+.login-container__checkbox-container__checkbox {
+  transform: scale(1.5);
+}
+.login-container__checkbox-container__checkbox:checked ~ span {
+  color: white;
+}
+.login-container__login-btn {
+  margin-top: 8%;
+  width: 62%;
+  height: 5%;
+  background-color: #2289ae;
+  color: white;
+  font-size: var(--font-size-list-item);
+  letter-spacing: 1px;
+  outline: none;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.login-container__login-btn:hover {
+  background-color: rgba(32, 115, 143, 0.9529411765);
 }/*# sourceMappingURL=main.css.map */
