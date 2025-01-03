@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github search signup</title>
+    <link rel="stylesheet" href="../styles/base/main.css">
+</head>
+
+<body class="signup">
+    <form class="signup-container">
+        <h1 class="signup-container__title">Sign up</h1>
+        <h4 class="signup-container__subtitle">Enter your credentials</h4>
+
+        <div class="signup-container__input-container">
+            <input type="email"
+                class="signup-container__input-container__input signup-container__input-container__username"
+                placeholder="Username" required>
+            <input type="text" class="signup-container__input-container__input signup-container__input-container__nick"
+                placeholder="Nickname" required pattern="^\S{5,}$" minlength="8"
+                title="Must be at least 5 characters and no spaces">
+            <input type="password"
+                class="signup-container__input-container__input signup-container__input-container__password"
+                placeholder="Password" required>
+            <input type="tel"
+                class="signup-container__input-container__input signup-container__input-container__phone"
+                placeholder="Phone number" required maxlength="9" minlength="9" pattern="\d{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+        </div>
+        <span class="signup-container__signup-status"></span>
+        <button type="submit" class="signup-container__signup-btn">Sign up</button>
+    </form>
+
+    <script type="module" src="../js/signup.js"></script>
+</body>
+
+</html>
