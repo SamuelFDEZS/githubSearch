@@ -1,4 +1,4 @@
-.login-container {
+.signup-container {
     width: 25%;
     height: 100vh;
     background: rgba(0, 0, 0, 0.35);
@@ -21,56 +21,38 @@
         color: rgba(135, 135, 135, 0.669);
     }
 
-    &__username {
-        margin-top: 8%;
-    }
-
-    &__password {
-        margin-top: 3%;
-    }
-
-    &__input {
-        width: 60%;
-        height: 5%;
-        border-radius: 10px;
-        background-color:#2e41566d;
-        backdrop-filter: blur(5px);
-        border: 0;
-        padding-left: 3%;
-        outline: none;
-        color: white;
-        font-size: 1rem;
-
-        &:focus{
-            border: 0;
-            &::placeholder{
-                transition: 0.5s;
-                color: white;
-            }
-        }
-    }
-
-    &__checkbox-container{
-        margin-top: 3%;
-        width: 60%;
-        color: rgba(135, 135, 135, 0.669);
+    &__input-container{
+        width: 100%;
+        height: 30%;
         display: flex;
-        gap: 2%;
+        flex-direction: column;
         align-items: center;
+        margin-top: 8%;
+        gap: 5%;
 
-        &__text{
-            transition: all 0.3s;
-        }
-
-        &__checkbox{
-            transform: scale(1.5);
-            &:checked ~ span{
-                color: white;
+        &__input {
+            width: 60%;
+            height: 20%;
+            border-radius: 10px;
+            background-color:#2e41566d;
+            backdrop-filter: blur(5px);
+            border: 0;
+            padding-left: 3%;
+            outline: none;
+            color: white;
+            font-size: 1rem;
+    
+            &:focus{
+                border: 0;
+                &::placeholder{
+                    transition: 0.5s;
+                    color: white;
+                }
             }
         }
     }
 
-    &__login-btn{
+    &__signup-btn{
         margin-top: 8%;
         width: 62%;
         height: 5%;

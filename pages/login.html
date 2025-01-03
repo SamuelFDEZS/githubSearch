@@ -7,17 +7,19 @@
     <link rel="stylesheet" href="../styles/base/main.css">
 </head>
 <body class="login">
-    <div class="login-container">
+    <form class="login-container">
         <h1 class="login-container__title">Login</h1>
         <h4 class="login-container__subtitle">Enter your credentials</h4>
 
-        <input type="email" class="login-container__input login-container__username" placeholder="Username">
-        <input type="password" class="login-container__input login-container__password" placeholder="Password">
+        <input type="email" class="login-container__input login-container__username" placeholder="Username" required>
+        <input type="password" class="login-container__input login-container__password" placeholder="Password" required>
         <div class="login-container__checkbox-container">
             <input type="checkbox" class="login-container__checkbox-container__checkbox">
             <span class="login-container__checkbox-container__text">Stay logged in</span>
         </div>
-        <button class="login-container__login-btn">Login</button>
-    </div>
+        <button type="submit" class="login-container__login-btn">Login</button>
+    </form>
+
+    <script type="module" src="../js/login.js"></script>
 </body>
 </html>
