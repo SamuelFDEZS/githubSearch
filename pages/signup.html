@@ -15,21 +15,31 @@
 
         <div class="signup-container__input-container">
             <input type="email"
+                name="username"
                 class="signup-container__input-container__input signup-container__input-container__username"
                 placeholder="Username" required>
-            <input type="text" class="signup-container__input-container__input signup-container__input-container__nick"
+
+            <input type="text"
+                name="nickname"
+                class="signup-container__input-container__input signup-container__input-container__nick"
                 placeholder="Nickname" required pattern="^\S{5,}$" minlength="8"
                 title="Must be at least 5 characters and no spaces">
+
             <input type="password"
+                name="password"
                 class="signup-container__input-container__input signup-container__input-container__password"
                 placeholder="Password" required>
+
             <input type="tel"
+                name="phone"
                 class="signup-container__input-container__input signup-container__input-container__phone"
                 placeholder="Phone number" required maxlength="9" minlength="9" pattern="\d{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
         </div>
-        <span class="signup-container__signup-status"></span>
+
+        <span class="signup-container__signup-status status-hidden"></span>
         <button type="submit" class="signup-container__signup-btn">Sign up</button>
     </form>
+
 
     <script type="module" src="../js/signup.js"></script>
 </body>

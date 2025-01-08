@@ -738,4 +738,24 @@ body.signup {
 }
 .signup-container__signup-btn:hover {
   background-color: rgba(32, 115, 143, 0.9529411765);
+}
+.signup-container__signup-status {
+  text-align: center;
+  display: block;
+}
+.signup-container__signup-status.status-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.signup-container__signup-status.status-error {
+  color: rgba(255, 0, 0, 0.767);
+}
+.signup-container__signup-status.status-error::before {
+  content: "The email already exists";
+}
+.signup-container__signup-status.status-successfull {
+  color: rgba(2, 195, 2, 0.832);
+}
+.signup-container__signup-status.status-successfull::before {
+  content: "The user has been successfully created";
 }/*# sourceMappingURL=main.css.map */

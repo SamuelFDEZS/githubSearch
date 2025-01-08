@@ -70,4 +70,27 @@
             background-color: #20738ff3;
         }
     }
+
+    &__signup-status{
+        text-align: center;
+        display: block;
+        &.status-hidden{
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        &.status-error{
+            &::before{
+                content: "The email already exists";
+            }
+            color: rgba(255, 0, 0, 0.767);
+        }
+
+        &.status-successfull{
+            &::before{
+                content: "The user has been successfully created";
+            }
+            color: rgba(2, 195, 2, 0.832);
+        }
+    }
 }
