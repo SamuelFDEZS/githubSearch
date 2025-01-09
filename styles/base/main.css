@@ -641,7 +641,7 @@ body.login {
   color: white;
 }
 .login-container__login-btn {
-  margin-top: 8%;
+  margin-top: 3%;
   width: 62%;
   height: 5%;
   background-color: #2289ae;
@@ -656,6 +656,17 @@ body.login {
 }
 .login-container__login-btn:hover {
   background-color: rgba(32, 115, 143, 0.9529411765);
+}
+.login-container__login-status {
+  margin-top: 6%;
+  color: rgba(255, 0, 0, 0.767);
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+}
+.login-container__login-status.login-error-status {
+  opacity: 1;
+  visibility: visible;
 }
 
 body.signup {
