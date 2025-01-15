@@ -29,16 +29,28 @@
                 </li>
             </ul>
         </nav>
-        <div class="header__btn-container">
+        <div class="header__btn-container login__element__hidden">
             <button class="header__btn-container__login" onclick="window.location.href='login.html'">Log in</button>
-            <button class="header__btn-container__register" onclick="window.location.href='signup.html'">Sign up</button>
+            <button class="header__btn-container__register" onclick="window.location.href='signup.html'">Sign
+                up</button>
+        </div>
+
+        <div class="header__user-container">
+            <span class="fa-solid fa-user-large header__user-container__user-icon login__element__hidden"></span>
+            <div class="header__user-container__nickname login__element__hidden"></div>
+            <span class="fa-solid fa-angle-down header__user-container__arrow"></span>
+
+            <ul class="header__user-container__user-menu">
+                <li class="header__user-container__user-menu__item">Config</li>
+                <li class="header__user-container__user-menu__item">Logout</li>
+            </ul>
         </div>
     </header>
 
     <section class="welcome">
         <h1 class="welcome__title">Welcome to SeekFind</h1>
         <p class="welcome__paragraph">Discover, explore, and find what you're looking for, easily and quickly.</p>
-        <button class="welcome__login-btn" onclick="window.location.href='login.html'">Log in to start</button>
+        <button class="welcome__login-btn login__element__hidden" onclick="window.location.href='login.html'">Log in to start</button>
     </section>
 
     <!--<section class="search">
@@ -346,8 +358,9 @@
 
 
 
-    <script type="module" src="../js/token.js"></script>
+    <!--<script type="module" src="../js/token.js"></script>-->
     <script src="https://kit.fontawesome.com/6785b831dc.js" crossorigin="anonymous"></script>
+    <script src="../js/home.js"></script>
 </body>
 
 </html>

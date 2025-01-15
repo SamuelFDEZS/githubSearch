@@ -15,7 +15,6 @@ form.addEventListener('submit', (event) => {
 
     let userIndex = userList.findIndex(user => user.username === formData.get('username'));
 
-    // console.log(loginData.password)
     if (userIndex === -1 || userList[userIndex].password !== loginData.password) {
         loginStatus.classList.add('login-error-status');
     } else {
