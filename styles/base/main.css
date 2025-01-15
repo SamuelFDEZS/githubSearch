@@ -289,6 +289,102 @@ body.home p {
   cursor: pointer;
   background-color: var(--button-bg-hover);
 }
+.header__user-container {
+  width: 15%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  border: 1px solid white;
+  background-color: rgba(127, 120, 120, 0.5450980392);
+  margin-right: 3%;
+  border-radius: 20px;
+  transition: all 0.3s;
+  position: relative;
+}
+.header__user-container::after {
+  content: "";
+  background: linear-gradient(#ea8d8d, #a890fe);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.3s;
+  border-radius: inherit;
+}
+.header__user-container:hover {
+  cursor: pointer;
+}
+.header__user-container:hover > .header__user-container__nickname {
+  text-decoration: underline;
+}
+.header__user-container:hover > .header__user-container__arrow::before {
+  opacity: 1;
+  visibility: visible;
+}
+.header__user-container__user-icon {
+  font-size: 1.5rem;
+}
+.header__user-container__nickname {
+  font-size: 1.5rem;
+}
+.header__user-container__arrow {
+  transition: all 0.2s;
+}
+.header__user-container__arrow::before {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+}
+.header__user-container__active-background::after {
+  opacity: 1;
+}
+.header__user-container__user-menu {
+  position: absolute;
+  bottom: -10vh;
+  width: 98%;
+  height: 15vh;
+  padding-top: 5%;
+  z-index: -2;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s ease;
+  background: linear-gradient(#ea8d8d, #a890fe);
+  opacity: 0;
+  visibility: hidden;
+}
+.header__user-container__user-menu__item {
+  width: 100%;
+  text-align: center;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  font-size: 1.3rem;
+}
+.header__user-container__user-menu__item:first-child {
+  border-bottom: 1px solid white;
+}
+.header__user-container__user-menu__item:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.header__user-container__user-menu.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, 4vh);
+  pointer-events: auto;
+}
+
+.fa-angle-rotated {
+  transform: rotate(180deg);
+}
 
 .welcome {
   width: 100vw;
@@ -560,6 +656,10 @@ body.home p {
   left: 50%;
   transform: translate(-50%, 0);
   bottom: 8%;
+}
+
+.login__element__hidden {
+  display: none;
 }
 
 body.login {
