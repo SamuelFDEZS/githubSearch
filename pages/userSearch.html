@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Github Search</title>
+        <link rel="stylesheet" href="../styles/base/main.css">
+    </head>
+<body class="user-search">
+    <header class="header">
+        <a href="./home.html" class="header__link">
+            <img src="../assets/images/Inquiro_logo.png" alt="" class="header__link__image">
+            <h1 class="header__link__title">Inquiro</h1>
+        </a>
+
+        <div class="header__filter"></div>
+
+        <nav class="header__nav">
+            <ul class="header__nav__list">
+                <li class="header__nav__list__item"><a href="./home.html" class="header__nav__list__item__link">Home</a>
+                </li>
+                <li class="header__nav__list__item"><a href="./userSearch.html"
+                        class="header__nav__list__item__link">Users</a></li>
+                <li class="header__nav__list__item"><a href="./home.html"
+                        class="header__nav__list__item__link">Repositories</a></li>
+                <li class="header__nav__list__item"><a href="./home.html" class="header__nav__list__item__link">Help</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header__user-container">
+            <span class="fa-solid fa-user-large header__user-container__user-icon login__element__hidden"></span>
+            <div class="header__user-container__nickname login__element__hidden"></div>
+            <span class="fa-solid fa-angle-down header__user-container__arrow"></span>
+
+            <ul class="header__user-container__user-menu">
+                <li class="header__user-container__user-menu__item">Config</li>
+                <li class="header__user-container__user-menu__item">Logout</li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="search-container">
+        <input type="text" class="search-container__input" maxlength="39">
+        <span class="search-container__placeholder">User search</span>
+        <button class="search-container__button"><span class="fa-solid fa-magnifying-glass search-container__button__icon"></span></button>
+    </section>
+    <span class="input-error"></span>
+
+    <section class="search-results"></section>
+
+    <footer class="footer footer-search">
+        <div class="footer__left">
+            <a href="./home.html" class="footer__left__link">
+                <div class="footer__left__link__image">
+                    <h1 class="footer__left__link__image__title">Inquiro</h1>
+                </div>
+            </a>
+            <div class="footer__left__copyright">©Copyright. All rights reserved</div>
+
+            <div class="footer__left__vertical-line"></div>
+        </div>
+
+        <div class="footer__list-container">
+            <div class="footer__list-container__list footer__list-container__list-1">
+                <h3 class="footer__list-container__list__title">About SeekFind</h3>
+                <span class="footer__list-container__list__item">Contact us</span>
+                <span class="footer__list-container__list__item">SeekFind blog</span>
+                <span class="footer__list-container__list__item">Employment</span>
+            </div>
+            <div class="footer__list-container__list footer__list-container__list-2">
+                <h3 class="footer__list-container__list__title">Support</h3>
+                <span class="footer__list-container__list__item">Product Support</span>
+                <span class="footer__list-container__list__item">Resources</span>
+            </div>
+            <div class="footer__list-container__list footer__list-container__list-3">
+                <h3 class="footer__list-container__list__title">Account</h3>
+                <span class="footer__list-container__list__item">My searches</span>
+                <span class="footer__list-container__list__item">Create account</span>
+                <span class="footer__list-container__list__item">Delete Account</span>
+            </div>
+
+            <div class="footer__list-container__social-media">
+                <span class="fa-brands fa-facebook"></span>
+                <span class="fa-brands fa-instagram"></span>
+                <span class="fa-brands fa-x-twitter"></span>
+                <span class="fa-brands fa-youtube"></span>
+            </div>
+        </div>
+        <div class="footer__horizontal-line"></div>
+    </footer>
+
+    <script type="module" src="../js/token.js"></script>
+    <script src="https://kit.fontawesome.com/6785b831dc.js" crossorigin="anonymous"></script>
+    <script type="module" src="../js/userSearch.js"></script>
+    <script src="../js/currentUser.js"></script>
+
+</body>
+</html>
