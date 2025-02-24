@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Github Search</title>
-        <link rel="stylesheet" href="../styles/base/main.css">
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Search</title>
+    <link rel="stylesheet" href="../styles/base/main.css">
+</head>
+
 <body class="user-search">
     <header class="header">
         <a href="./home.html" class="header__link">
@@ -43,9 +45,14 @@
     <section class="search-container">
         <input type="text" class="search-container__input" maxlength="39">
         <span class="search-container__placeholder">User search</span>
-        <button class="search-container__button"><span class="fa-solid fa-magnifying-glass search-container__button__icon"></span></button>
+        <button class="search-container__button"><span
+                class="fa-solid fa-magnifying-glass search-container__button__icon"></span></button>
     </section>
     <span class="input-error"></span>
+
+    <div class="popup-container"></div>
+
+    <div class="grey-filter"></div>
 
     <section class="search-results"></section>
 
@@ -96,4 +103,5 @@
     <script src="../js/currentUser.js"></script>
 
 </body>
+
 </html>

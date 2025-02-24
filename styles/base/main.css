@@ -808,6 +808,14 @@ body.login {
 .login-container__login-btn:hover {
   background-color: rgba(32, 115, 143, 0.9529411765);
 }
+.login-container__signup-option {
+  margin-top: 5%;
+  color: rgb(99, 99, 181);
+  transition: all 0.3s;
+}
+.login-container__signup-option:hover {
+  color: rgb(148, 148, 246);
+}
 .login-container__login-status {
   margin-top: 6%;
   color: rgba(255, 0, 0, 0.767);
@@ -1076,4 +1084,107 @@ body.user-search p {
   align-items: center;
   gap: 5%;
   font-size: 1.2rem;
+}
+
+.popup-container {
+  border: 3px solid white;
+  width: 60vh;
+  height: 70vh;
+  position: fixed;
+  z-index: 6;
+  border-radius: 10px;
+  color: #232323;
+  left: 50%;
+  transform: translate(-50%, 0);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(192, 177, 117);
+}
+.popup-container.show-popup {
+  opacity: 1;
+  visibility: visible;
+}
+.popup-container__exit-popup {
+  position: absolute;
+  right: 2%;
+  top: 1%;
+  font-size: 2.8rem;
+  cursor: pointer;
+}
+.popup-container__title {
+  text-align: center;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.popup-container__image {
+  border-radius: 10px;
+}
+.popup-container__info-container {
+  width: 90%;
+  height: 35%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  justify-items: center;
+  margin-top: 2%;
+}
+.popup-container__info-container__item-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.3rem;
+}
+.popup-container__info-container__item-group:last-child {
+  grid-column: 1/4;
+  grid-row: 2;
+}
+.popup-container__info-container__item-group__title {
+  margin: 0;
+}
+.popup-container__info-container__item-group__item {
+  margin-top: 15%;
+}
+.popup-container__button-group {
+  margin-top: 7%;
+  margin-bottom: 3%;
+  width: 90%;
+  height: 10%;
+  display: flex;
+  justify-content: space-around;
+}
+.popup-container__button-group__link {
+  display: block;
+  width: 40%;
+  height: 100%;
+}
+.popup-container__button-group__link__button {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: 0;
+  border-radius: 25px;
+  background: linear-gradient(220.55deg, #7CF7FF 0%, #4B73FF 100%);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.popup-container__button-group__link__button:hover {
+  filter: brightness(0.8);
+}
+
+.grey-filter {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -5;
+}
+.grey-filter.show-filter {
+  z-index: 5;
+  -webkit-backdrop-filter: brightness(0.5);
+          backdrop-filter: brightness(0.5);
 }/*# sourceMappingURL=main.css.map */
