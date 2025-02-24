@@ -1,0 +1,110 @@
+.popup-container{
+    border: 3px solid white;
+    width: 60vh;
+    height: 70vh;
+    position: fixed;
+    z-index: 6;
+    border-radius: 10px;
+    color: #232323;
+    left: 50%;
+    transform: translate(-50%, 0);
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(192, 177, 117);
+
+    &.show-popup{
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__exit-popup{
+        position: absolute;
+        right: 2%;
+        top: 1%;
+        font-size: 2.8rem;
+        cursor: pointer;
+    }
+
+    &__title{
+        text-align: center;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    &__image{
+        border-radius: 10px;
+    }
+
+    &__info-container{
+        width: 90%;
+        height: 35%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto;
+        justify-items: center;
+        margin-top: 2%;
+
+        &__item-group{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 1.3rem;
+            &:last-child{
+                grid-column: 1 / 4;
+                grid-row: 2;
+            }
+
+            &__title{
+                margin: 0;
+            }
+            &__item{
+                margin-top: 15%;
+            }
+        }
+    }
+
+    &__button-group{
+        margin-top: 7%;
+        margin-bottom: 3%;
+        width: 90%;
+        height: 10%;
+        display: flex;
+        justify-content: space-around;
+        &__link{
+            display: block;
+            width: 40%;
+            height: 100%;
+            &__button{
+                width: 100%;
+                height: 100%;
+                outline: none;
+                border: 0;
+                border-radius: 25px;
+                background: linear-gradient(220.55deg, #7CF7FF 0%, #4B73FF 100%);
+                cursor: pointer;
+                transition: all 0.3s;
+                &:hover{
+                    filter: brightness(0.8);
+                }
+            }
+        }
+    }
+}
+
+.grey-filter{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -5;
+
+    &.show-filter{
+        z-index: 5;
+        backdrop-filter:brightness(0.5);
+    }
+}

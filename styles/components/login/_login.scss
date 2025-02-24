@@ -89,6 +89,15 @@
         }
     }
 
+    &__signup-option{
+        margin-top: 5%;
+        color: rgb(99, 99, 181);
+        transition: all 0.3s;
+        &:hover{
+            color: rgb(148, 148, 246);
+        }
+    }
+
     &__login-status{
         margin-top: 6%;
         color: rgba(255, 0, 0, 0.767);
