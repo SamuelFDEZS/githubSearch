@@ -1187,4 +1187,127 @@ body.user-search p {
   z-index: 5;
   -webkit-backdrop-filter: brightness(0.5);
           backdrop-filter: brightness(0.5);
+}
+
+body.user-repos {
+  background-image: url("../../assets/images/body_background.webp");
+  min-height: 100vh;
+  background-size: contain;
+  color: var(--font-text-color);
+  overflow-x: hidden;
+  font-family: var(--font-style-regular);
+}
+body.user-repos h1 {
+  font-size: var(--font-size-h1);
+}
+body.user-repos h2 {
+  font-size: var(--font-size-h2);
+}
+body.user-repos p {
+  font-size: var(--font-size-paragraph);
+}
+
+.back-btn {
+  position: absolute;
+  left: 3%;
+  top: 5%;
+  font-size: 2.5rem;
+  border: 3px solid white;
+  padding: 23px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.username {
+  text-align: center;
+  margin-top: 1%;
+}
+
+.repos {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
+  gap: 3vh;
+}
+.repos__card {
+  width: 90%;
+  height: 15vh;
+  position: relative;
+  border: 1px solid white;
+  color: black;
+  z-index: 1;
+  display: flex;
+  background: linear-gradient(220.55deg, #ffe946 0%, #FF7EC7 100%);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.repos__card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 20px 50px rgb(0, 0, 0);
+}
+.repos__card:active:not(:has(.repos__card__button:active)) {
+  transform: scale(0.95);
+  box-shadow: 0px 15px 30px rgb(0, 0, 0);
+}
+.repos__card__image {
+  width: 8%;
+  height: 100%;
+  border-radius: 20px;
+}
+.repos__card__button {
+  height: 20%;
+  align-self: center;
+  position: absolute;
+  border-radius: 10px;
+  right: 1%;
+  z-index: 30;
+  cursor: pointer;
+  transition: all 0.3s;
+  outline: none;
+}
+.repos__card__button:hover {
+  transform: scale(1.08);
+}
+.repos__card__button__icon {
+  font-size: 1.5rem;
+}
+.repos__card__info-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.repos__card__info-container__repo-name {
+  align-self: center;
+  font-size: 1.3rem;
+  margin-top: 0.3%;
+  color: white;
+}
+.repos__card__info-container__info-group {
+  width: 70%;
+  height: 80%;
+  margin-top: 1%;
+  align-self: center;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+}
+.repos__card__info-container__info-group__column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20%;
+}
+.repos__card__info-container__info-group__column:last-child {
+  grid-column: 1/4;
+  grid-row: 2;
+  margin-top: 2%;
+}
+.repos__card__info-container__info-group__column__title {
+  font-size: 1.1rem;
 }/*# sourceMappingURL=main.css.map */
