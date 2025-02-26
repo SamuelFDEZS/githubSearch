@@ -1,5 +1,8 @@
 import { GITHUB_TOKEN } from "./token.js";
 
+window.onload = () => {
+    searchInput.value = '';
+}
 const placeholder = document.querySelector('.search-container__placeholder'),
     searchInput = document.querySelector('.search-container__input'),
     searchButton = document.querySelector('.search-container__button'),
@@ -134,14 +137,10 @@ const createUserCards = async (data) => {
             countTitle.textContent = element.text;
             count.textContent = element.info;
 
-            article.appendChild(countTitle);
-            article.appendChild(count);
+            article.append(countTitle, count);
             infoContainer.appendChild(article);
         });
-
-        card.appendChild(img);
-        card.appendChild(name);
-        card.appendChild(infoContainer);
+        card.append(img, name, infoContainer);
 
         return card;
     });
@@ -183,7 +182,7 @@ const createUserPopup = async (username) => {
         </div>
         <div class="popup-container__button-group">
         <a href="${data.html_url}"class="popup-container__button-group__link"><button class="popup-container__button-group__link__button">Go to user profile</button></a>
-        <a href="#" class="popup-container__button-group__link"><button class="popup-container__button-group__link__button">Check user repos</button></a>
+        <a href="userRepos.html?username=${username}" class="popup-container__button-group__link"><button class="popup-container__button-group__link__button">Check user repos</button></a>
         </div>
     `;
 
@@ -220,6 +219,7 @@ const createUserPopup = async (username) => {
 
 
 const init = () => {
+    searchInput.value = "";
     searchInput.addEventListener('focus', handleSearchEvents);
     searchInput.addEventListener('blur', handleSearchEvents);
     searchInput.addEventListener('input', handleInputValidation);

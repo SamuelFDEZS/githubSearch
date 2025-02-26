@@ -1,0 +1,115 @@
+.back-btn{
+    position: absolute;
+    left: 3%;
+    top: 5%;
+    font-size: 2.5rem;
+    border: 3px solid white;
+    padding: 23px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.username{
+    text-align: center;
+    margin-top: 1%;
+}
+
+.repos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    gap: 3vh;
+
+    &__card{
+        width: 90%;
+        height: 15vh;
+        position: relative;
+        border: 1px solid white;
+        color: black;
+        z-index: 1;
+        display: flex;
+        background: linear-gradient(220.55deg, #ffe946 0%, #FF7EC7 100%);
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s;
+
+
+        &:hover{
+            transform: scale(1.02);
+            box-shadow: 0px 20px 50px rgb(0, 0, 0);
+        }
+
+        &:active:not(:has(.repos__card__button:active)) {
+            transform: scale(0.95);
+            box-shadow: 0px 15px 30px rgb(0, 0, 0);
+        }
+
+        &__image{
+            width: 8%;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        &__button{
+            height: 20%;
+            align-self: center;
+            position: absolute;
+            border-radius: 10px;
+            right: 1%;
+            z-index: 30;
+            cursor: pointer;
+            transition: all 0.3s;
+            outline: none;
+
+            &:hover{
+                transform: scale(1.08);
+            }
+            &__icon{
+                font-size: 1.5rem;
+            }
+        }
+
+        &__info-container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            &__repo-name{
+                align-self: center;
+                font-size: 1.3rem;
+                margin-top: 0.3%;
+                color: white;
+            }
+
+            &__info-group{
+                width: 70%;
+                height: 80%;
+                margin-top: 1%;
+                align-self: center;
+                display: grid;
+                justify-items: center;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: auto auto;
+                &__column{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 20%;
+                    &:last-child{
+                        grid-column: 1 / 4;
+                        grid-row: 2;
+                        margin-top: 2%;
+                    }
+
+                    &__title{
+                        font-size: 1.1rem;
+                    }
+                }
+            }
+        }
+    }
+}
