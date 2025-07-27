@@ -1507,6 +1507,12 @@ body.repo-search p {
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
+  transition: 0.3s ease;
+}
+.reposearch-results__card:hover {
+  cursor: pointer;
+  scale: 1.1;
+  box-shadow: 19px 30px 4px -7px rgba(0, 0, 0, 0.1);
 }
 .reposearch-results__card__image {
   margin-top: 5%;

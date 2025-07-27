@@ -49,7 +49,6 @@ const handleSearchModeClick = () => {
 
 const selectSearchMode = (event) => {
     searchMode = event.target.innerHTML.split(' ').join('').toLowerCase();
-    console.log(searchModeContainer.children);
     searchModeContainerTitle.textContent = event.target.textContent
 }
 
@@ -71,7 +70,7 @@ const calcTimeDifference = (item) => {
 
 const fieldToCapital = (field) => {
     return field.toString()[0].toUpperCase() +
-    field.toString().slice(1);
+        field.toString().slice(1);
 }
 
 const createRepoCards = (data) => {
@@ -128,10 +127,17 @@ const searchRepo = async () => {
     url = searchMode === 'precisesearch'
         ? `https://api.github.com/repos/${valueSearch[0]}/${valueSearch[1]}`
         : `https://api.github.com/search/repositories?q=${valueSearch[0]}&per_page=30`;
-    const response = await fetch(url, { headers: headers });
-    const data = await response.json();
-    console.log(data)
-    searchMode == 'precisesearch' ? createRepoCards([data]) : createRepoCards(data.items);
+    try{
+        const response = await fetch(url, { headers: headers });
+
+        if(!response.ok) throw new Error(`HTTP error: ${response.status}`);
+
+        const data = await response.json();
+        searchMode == 'precisesearch' ? createRepoCards([data]) : createRepoCards(data.items);
+    } catch(error) {
+        console.error('Error fetching: ', error);
+        repoSearchResults.innerHTML = '<p>Error loading the results</p>';
+    }
 }
 
 
