@@ -74,7 +74,6 @@ const fieldToCapital = (field) => {
 }
 
 const createRepoCards = (data) => {
-    let fieldCount = 1;
     repoSearchResults.innerHTML = '';
     data.map((item) => {
         const time = calcTimeDifference(item);
@@ -117,7 +116,6 @@ const createRepoCards = (data) => {
 
         card.append(img, h2, infoContainer);
         repoSearchResults.appendChild(card);
-        fieldCount++;
     })
 }
 
@@ -133,7 +131,7 @@ const searchRepo = async () => {
         if(!response.ok) throw new Error(`HTTP error: ${response.status}`);
 
         const data = await response.json();
-        searchMode == 'precisesearch' ? createRepoCards([data]) : createRepoCards(data.items);
+        searchMode === 'precisesearch' ? createRepoCards([data]) : createRepoCards(data.items);
     } catch(error) {
         console.error('Error fetching: ', error);
         repoSearchResults.innerHTML = '<p>Error loading the results</p>';
