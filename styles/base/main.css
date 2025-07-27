@@ -1552,4 +1552,12 @@ body.repo-search p {
 .reposearch-results__card__info-container__pair-container.field4 {
   margin-right: 100%;
   grid-area: field4;
+}
+.reposearch-results__card__info-container__pair-container__title {
+  font-size: 1.1rem;
+  text-align: center;
+  white-space: nowrap;
+}
+.reposearch-results__card__info-container__pair-container__value {
+  margin-top: 10%;
 }/*# sourceMappingURL=main.css.map */

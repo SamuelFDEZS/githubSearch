@@ -52,6 +52,7 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+
                 &.field0 {
                     grid-area: field0;
                 }
@@ -73,13 +74,16 @@
                     margin-right: 100%;
                     grid-area: field4;
                 }
-                &>* {
 
+                &__title {
+                    font-size: 1.1rem;
+                    text-align: center;
+                    white-space: nowrap;
                 }
 
-                &__title {}
-
-                &__value {}
+                &__value {
+                    margin-top: 10%;
+                }
             }
         }
     }

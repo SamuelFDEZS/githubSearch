@@ -9,6 +9,7 @@ const placeholder = document.querySelector('.reposearch-container__placeholder')
     searchButton = document.querySelector('.reposearch-container__button'),
     errorMessage = document.querySelector('.input-error'),
     searchModeContainer = document.querySelector('.reposearch-container__mode-container'),
+    searchModeContainerTitle = searchModeContainer.querySelector('.reposearch-container__mode-container__title'),
     individualModes = Array.from(searchModeContainer.querySelectorAll('.reposearch-container__mode-container__modes__mode')),
     searchModes = document.querySelector('.reposearch-container__mode-container__modes'),
     repoSearchResults = document.querySelector('.reposearch-results'),
@@ -48,6 +49,8 @@ const handleSearchModeClick = () => {
 
 const selectSearchMode = (event) => {
     searchMode = event.target.innerHTML.split(' ').join('').toLowerCase();
+    console.log(searchModeContainer.children);
+    searchModeContainerTitle.textContent = event.target.textContent
 }
 
 const calcTimeDifference = (item) => {
@@ -55,15 +58,20 @@ const calcTimeDifference = (item) => {
         currentTime = new Date(),
         timeOnMiliseconds = currentTime - creationTime,
         differenceInDays = timeOnMiliseconds / (1000 * 60 * 60 * 24),
-        differenceInHours = timeOnMiliseconds / (1000 / 60 * 60);
+        differenceInHours = timeOnMiliseconds / (1000 * 60 * 60);
 
     if (differenceInDays > 365) {
-        return Math.floor(differenceInDays / 365);
+        return Math.floor(differenceInDays / 365) + ' Yrs';
     } else if (differenceInDays > 1) {
-        return Math.floor(differenceInDays / 24);
+        return Math.floor(differenceInDays) + ' Days';
     } else {
-        return Math.floor(differenceInHours);
+        return Math.floor(differenceInHours) + ' Hrs';
     }
+}
+
+const fieldToCapital = (field) => {
+    return field.toString()[0].toUpperCase() +
+    field.toString().slice(1);
 }
 
 const createRepoCards = (data) => {
@@ -74,8 +82,8 @@ const createRepoCards = (data) => {
         const repoInfo = [
             { title: 'Created', value: time },
             { title: 'Language', value: item.language },
-            { title: 'Has Downloads', value: item.has_downloads },
-            { title: 'Visibility', value: item.visibility },
+            { title: 'Has Downloads', value: fieldToCapital(item.has_downloads) },
+            { title: 'Visibility', value: fieldToCapital(item.visibility) },
             { title: 'Homepage', value: item.homepage ? 'Yes' : 'No' }
         ]
         const card = document.createElement('article'),
@@ -122,7 +130,8 @@ const searchRepo = async () => {
         : `https://api.github.com/search/repositories?q=${valueSearch[0]}&per_page=30`;
     const response = await fetch(url, { headers: headers });
     const data = await response.json();
-    createRepoCards(data.items);
+    console.log(data)
+    searchMode == 'precisesearch' ? createRepoCards([data]) : createRepoCards(data.items);
 }
 
 
