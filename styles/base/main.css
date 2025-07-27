@@ -132,11 +132,42 @@ table {
   border-spacing: 0;
 }
 
+:root {
+  --font-size-base: 1rem;
+  --font-size-h1: 3.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.75rem;
+  --font-size-h4: 1.5rem;
+  --font-size-h5: 1.25rem;
+  --font-size-h6: 1.1rem;
+  --font-size-paragraph: 1.25rem;
+  --font-size-large: 3rem;
+  --font-size-medium: 1.6rem;
+  --font-size-small: 0.8rem;
+  --font-size-list-item: 1.2rem;
+  --container-vertical-margin: 6vh;
+  --container-horizontal-margin: 10vw;
+  --font-text-color: #ffffff;
+  --font-text-hover-color: #c1c1c1;
+  --item-bg-color: linear-gradient(90deg, rgba(237,225,167,1) 0%, rgba(255,255,255,1) 0%, rgba(233,233,233,1) 32%, rgba(142,142,142,1) 83%);
+  --button-bg: #009fd9;
+  --button-bg-hover: #007fad;
+  --font-style-logo: "Titilium-Title";
+  --font-style-semiBold: "Titilium-SemiBold";
+  --font-style-regular: "Titilium-Regular";
+  --font-style-login-regular: "Poppins-Regular";
+  --font-style-login-light: "Poppins-Light";
+}
+
 .loader {
   width: 48px;
   height: 48px;
   position: relative;
   margin-top: 10%;
+}
+
+.reposearch-results .loader {
+  position: absolute;
 }
 
 .loader::before,
@@ -203,33 +234,6 @@ table {
   font-family: "Poppins-Light";
   src: url("../../assets/fonts/Poppins-Light.ttf");
 }
-:root {
-  --font-size-base: 1rem;
-  --font-size-h1: 3.5rem;
-  --font-size-h2: 2rem;
-  --font-size-h3: 1.75rem;
-  --font-size-h4: 1.5rem;
-  --font-size-h5: 1.25rem;
-  --font-size-h6: 1.1rem;
-  --font-size-paragraph: 1.25rem;
-  --font-size-large: 3rem;
-  --font-size-medium: 1.6rem;
-  --font-size-small: 0.8rem;
-  --font-size-list-item: 1.2rem;
-  --container-vertical-margin: 6vh;
-  --container-horizontal-margin: 10vw;
-  --font-text-color: #ffffff;
-  --font-text-hover-color: #c1c1c1;
-  --item-bg-color: linear-gradient(90deg, rgba(237,225,167,1) 0%, rgba(255,255,255,1) 0%, rgba(233,233,233,1) 32%, rgba(142,142,142,1) 83%);
-  --button-bg: #009fd9;
-  --button-bg-hover: #007fad;
-  --font-style-logo: "Titilium-Title";
-  --font-style-semiBold: "Titilium-SemiBold";
-  --font-style-regular: "Titilium-Regular";
-  --font-style-login-regular: "Poppins-Regular";
-  --font-style-login-light: "Poppins-Light";
-}
-
 body.home {
   background-image: url("../../assets/images/body_background.webp");
   background-size: contain;
@@ -1310,4 +1314,242 @@ body.user-repos p {
 }
 .repos__card__info-container__info-group__column__title {
   font-size: 1.1rem;
+}
+
+body.repo-search {
+  background-image: url("../../assets/images/body_background.webp");
+  background-size: contain;
+  color: var(--font-text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-style-regular);
+}
+body.repo-search h1 {
+  font-size: var(--font-size-h1);
+}
+body.repo-search h2 {
+  font-size: var(--font-size-h2);
+}
+body.repo-search p {
+  font-size: var(--font-size-paragraph);
+}
+
+.reposearch-container {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: black;
+}
+.reposearch-container__placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 25%;
+  opacity: 0.5;
+  font-size: 1.3rem;
+  transition: all 0.3s;
+  width: 6%;
+  white-space: nowrap;
+}
+.reposearch-container__input {
+  width: 60%;
+  height: 65%;
+  background-color: rgb(229, 229, 229);
+  border: 0;
+  outline: none;
+  padding-left: 2%;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  display: block;
+  transition: all 0.2s;
+}
+.reposearch-container__input:focus {
+  border-top: 4px solid #8f44fd;
+  border-left: 4px solid #8f44fd;
+  border-bottom: 4px solid #8f44fd;
+}
+.reposearch-container__input ~ .reposearch-container__placeholder.up {
+  transform: translate(0, -3vh);
+  color: white;
+  opacity: 1;
+  background-color: rgb(59, 59, 59);
+  border-radius: 5px;
+  font-size: 1.3rem;
+}
+.reposearch-container__button {
+  width: 5%;
+  height: 65%;
+  border-radius: 15px;
+  outline: none;
+  border: 1px solid black;
+  transition: all 0.2s;
+  background-color: rgb(229, 229, 229);
+}
+.reposearch-container__button__icon {
+  font-size: 2rem;
+}
+.reposearch-container__button:hover {
+  cursor: pointer;
+  background-color: rgba(222, 222, 222, 0.783);
+}
+.reposearch-container__mode-container {
+  position: relative;
+  left: 0%;
+  display: flex;
+  color: white;
+  width: 10%;
+  height: 50%;
+  margin-right: 2%;
+  border: 3px solid white;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.reposearch-container__mode-container__title {
+  position: relative;
+  z-index: 5;
+}
+.reposearch-container__mode-container::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  background: linear-gradient(220.55deg, #FFBB89 0%, #7B6AE0 100%);
+}
+.reposearch-container__mode-container:hover {
+  scale: 1.05;
+  color: black;
+}
+.reposearch-container__mode-container:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+.reposearch-container__mode-container__modes {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 10vh;
+  align-items: center;
+  top: 50%;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  justify-content: center;
+  border: 2px solid white;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.5s ease;
+}
+.reposearch-container__mode-container__modes.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(24%);
+}
+.reposearch-container__mode-container__modes__mode {
+  text-align: center;
+  color: black;
+  font-size: 1.05rem;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(220.55deg, #FFBB89 0%, #7B6AE0 100%);
+  transition: 0.3s ease;
+}
+.reposearch-container__mode-container__modes__mode:hover {
+  filter: brightness(0.8);
+}
+
+.input-error {
+  opacity: 0;
+  visibility: hidden;
+  display: block;
+  font-size: 1.3rem;
+  color: rgb(184, 2, 2);
+  transition: all 0.3s;
+  margin-left: 25%;
+}
+.input-error.error-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.reposearch-results {
+  margin-top: 3%;
+  width: 100%;
+  overflow: visible;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(30vh, auto);
+  justify-items: center;
+  position: relative;
+}
+.reposearch-results__card {
+  background: linear-gradient(220.55deg, #FFBB89 0%, #7B6AE0 100%);
+  width: 60%;
+  min-height: 50vh;
+  max-height: 55vh;
+  margin-top: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+.reposearch-results__card__image {
+  margin-top: 5%;
+  border-radius: 5px;
+  width: 250px;
+  height: 250px;
+}
+.reposearch-results__card__title {
+  margin-top: 5%;
+}
+.reposearch-results__card__info-container {
+  margin-top: 8%;
+  width: 80%;
+  height: 40%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  grid-template-areas: "field0 field1 field2" "field3 . field4";
+  gap: 5%;
+  justify-items: center;
+  align-items: center;
+}
+.reposearch-results__card__info-container__pair-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.reposearch-results__card__info-container__pair-container.field0 {
+  grid-area: field0;
+}
+.reposearch-results__card__info-container__pair-container.field1 {
+  grid-area: field1;
+}
+.reposearch-results__card__info-container__pair-container.field2 {
+  grid-area: field2;
+}
+.reposearch-results__card__info-container__pair-container.field3 {
+  grid-area: field3;
+  margin-left: 100%;
+}
+.reposearch-results__card__info-container__pair-container.field4 {
+  margin-right: 100%;
+  grid-area: field4;
 }/*# sourceMappingURL=main.css.map */

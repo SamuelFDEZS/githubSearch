@@ -233,7 +233,6 @@ const init = () => {
             if (username) {
                 createUserPopup(username);
             }
-            // En caso de funcionar aquí llamamos a la función
         }
     });
     nickContainer.classList.remove('login__element__hidden');

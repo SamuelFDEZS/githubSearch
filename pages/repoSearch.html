@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Github Search</title>
     <link rel="stylesheet" href="../styles/base/main.css">
 </head>
-
-<body class="user-search">
+<body class="repo-search">
     <header class="header">
         <a href="./home.html" class="header__link">
             <img src="../assets/images/Inquiro_logo.png" alt="" class="header__link__image">
@@ -23,12 +21,17 @@
                 </li>
                 <li class="header__nav__list__item"><a href="./userSearch.html"
                         class="header__nav__list__item__link">Users</a></li>
-                <li class="header__nav__list__item"><a href="./repoSearch.html"
+                <li class="header__nav__list__item"><a href="./home.html"
                         class="header__nav__list__item__link">Repositories</a></li>
                 <li class="header__nav__list__item"><a href="./home.html" class="header__nav__list__item__link">Help</a>
                 </li>
             </ul>
         </nav>
+        <div class="header__btn-container login__element__hidden">
+            <button class="header__btn-container__login" onclick="window.location.href='login.html'">Log in</button>
+            <button class="header__btn-container__register" onclick="window.location.href='signup.html'">Sign
+                up</button>
+        </div>
 
         <div class="header__user-container">
             <span class="fa-solid fa-user-large header__user-container__user-icon login__element__hidden"></span>
@@ -42,21 +45,24 @@
         </div>
     </header>
 
-    <section class="search-container">
-        <input type="text" class="search-container__input" maxlength="39">
-        <span class="search-container__placeholder">User search</span>
-        <button class="search-container__button"><span
-                class="fa-solid fa-magnifying-glass search-container__button__icon"></span></button>
+    <section class="reposearch-container">
+        <aside class="reposearch-container__mode-container">
+            <h3 class="reposearch-container__mode-container__title">Search mode</h3>
+            <ul class="reposearch-container__mode-container__modes">
+                <li class="reposearch-container__mode-container__modes__mode">Precise Search</li>
+                <li class="reposearch-container__mode-container__modes__mode">Aprox Search</li>
+            </ul>
+        </aside>
+        <input type="text" class="reposearch-container__input" maxlength="39">
+        <span class="reposearch-container__placeholder">Repo search</span>
+        <button class="reposearch-container__button"><span
+                class="fa-solid fa-magnifying-glass reposearch-container__button__icon"></span></button>
     </section>
     <span class="input-error"></span>
 
-    <div class="popup-container"></div>
+    <section class="reposearch-results"></section>
 
-    <div class="grey-filter"></div>
-
-    <section class="search-results"></section>
-
-    <footer class="footer footer-search">
+    <footer class="footer">
         <div class="footer__left">
             <a href="./home.html" class="footer__left__link">
                 <div class="footer__left__link__image">
@@ -99,9 +105,7 @@
 
     <script type="module" src="../js/token.js"></script>
     <script src="https://kit.fontawesome.com/6785b831dc.js" crossorigin="anonymous"></script>
-    <script type="module" src="../js/userSearch.js"></script>
+    <script type="module" src="../js/repoSearch.js"></script>
     <script src="../js/currentUser.js"></script>
-
 </body>
-
 </html>
