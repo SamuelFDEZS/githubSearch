@@ -2,7 +2,7 @@ const buttonContainer = document.querySelector('.header__btn-container');
 const welcomeLoginBtn = document.querySelector('.welcome__login-btn');
 const isUserLogged = JSON.parse(localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser'));
 
-if(isUserLogged) {
+if (isUserLogged) {
     buttonContainer.classList.add('login__element__hidden');
     welcomeLoginBtn.classList.add('login__element__hidden');
 } else {
