@@ -5,6 +5,10 @@
     margin-top: 10%;
 }
 
+.reposearch-results .loader{
+    position: absolute;
+}
+
 .loader::before,
 .loader::after {
     content: '';

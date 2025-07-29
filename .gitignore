@@ -1,4 +1,23 @@
+# token
 js/token.js
-.node_modules/
+
+# node modules
+node_modules/
+
+# editor settings
+.vscode/
+.idea/
+
+# sistema
+.DS_Store
+Thumbs.db
+
+# salida de build (si tuvieras)
 dist/
+build/
+
+# caché de ESLint y herramientas
+.eslintcache
+
+# logs
 *.log

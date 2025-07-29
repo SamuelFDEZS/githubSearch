@@ -1,12 +1,14 @@
+// Base
+@import "./reset";
+@import "./variables";
 // Utils
 
-@import "../utils/reset";
+
 @import "../utils/loader";
 @import "../utils/fonts";
 
 // Home Styles
 
-@import "./variables";
 @import "../components/home/body";
 @import "../components/home/header";
 @import "../components/home/welcome";
@@ -37,3 +39,9 @@
 
 @import "../components/userRepos/body";
 @import "../components/userRepos/repos";
+
+// RepoSearch styles
+@import "../components/repoSearch/body";
+@import "../components/repoSearch/search";
+@import "../components/repoSearch/repoSearchResult";
+
