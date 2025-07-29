@@ -75,7 +75,7 @@ const fieldToCapital = (field) => {
 
 const createRepoCards = (data) => {
     repoSearchResults.innerHTML = '';
-    data.map((item) => {
+    data.forEach((item) => {
         const time = calcTimeDifference(item);
         const repoInfo = [
             { title: 'Created', value: time },
@@ -94,7 +94,7 @@ const createRepoCards = (data) => {
         h2.classList.add('reposearch-results__card__title');
         infoContainer.classList.add('reposearch-results__card__info-container');
 
-        repoInfo.map((field, index) => {
+        repoInfo.forEach((field, index) => {
             const div = document.createElement('div');
             const h5 = document.createElement('h5');
             const span = document.createElement('span');
@@ -147,7 +147,7 @@ const init = () => {
     searchInput.addEventListener('keydown', triggerSearchByEnter);
     searchButton.addEventListener('click', searchRepo);
     searchModeContainer.addEventListener('click', handleSearchModeClick);
-    individualModes.map((note) => {
+    individualModes.forEach((note) => {
         note.addEventListener('click', selectSearchMode);
     });
 };
