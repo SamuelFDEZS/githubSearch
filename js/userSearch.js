@@ -1,28 +1,35 @@
-import { GITHUB_TOKEN } from "./token.js";
+import { GITHUB_TOKEN } from './token.js';
 
-window.onload = () => {
-    searchInput.value = '';
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
 }
-const placeholder = document.querySelector('.search-container__placeholder'),
-    searchInput = document.querySelector('.search-container__input'),
-    searchButton = document.querySelector('.search-container__button'),
-    errorMessage = document.querySelector('.input-error'),
-    userPopup = document.querySelector('.popup-container'),
-    greyFilter = document.querySelector('.grey-filter'),
-    userRegex = /^[a-zA-Z0-9](?:-?[a-zA-Z0-9]){0,38}$/,
-    headers = {
-        "Authorization": `Bearer ${GITHUB_TOKEN}`,
-        "Accept": 'application/vnd.github.v3.json'
-    },
-    searchResultContainer = document.querySelector('.search-results');
-let isCorrectInput = null, exitIcon = null;
 
+window.addEventListener('load', () => {
+    requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+    });
+    searchInput.value = '';
+});
+
+const placeholder = document.querySelector('.search-container__placeholder');
+const searchInput = document.querySelector('.search-container__input');
+const searchButton = document.querySelector('.search-container__button');
+const errorMessage = document.querySelector('.input-error');
+const userPopup = document.querySelector('.popup-container');
+const greyFilter = document.querySelector('.grey-filter');
+const userRegex = /^[a-zA-Z0-9](?:-?[a-zA-Z0-9]){0,38}$/;
+const headers = {
+    Authorization: `Bearer ${GITHUB_TOKEN}`,
+    Accept: 'application/vnd.github.v3.json'
+};
+const searchResultContainer = document.querySelector('.search-results');
+let isCorrectInput = null;
 
 const handleSearchEvents = (event) => {
     if (!searchInput.value) {
         placeholder.classList.toggle('up');
     }
-}
+};
 
 const handleInputValidation = () => {
     const value = searchInput.value;
@@ -35,31 +42,31 @@ const handleInputValidation = () => {
         errorMessage.textContent = 'Invalid username: must be alphanumeric and meet GitHub rules.';
         isCorrectInput = false;
     }
-}
+};
 
 const getData = async (value, isSingleUser) => {
-    let url = isSingleUser ? `https://api.github.com/users/${value}` : `https://api.github.com/search/users?q=${value}&per_page=40`, response = null, data = null;
+    const url = isSingleUser ? `https://api.github.com/users/${value}` : `https://api.github.com/search/users?q=${value}&per_page=40`; let response = null; let data = null;
 
-    response = await fetch(url, { headers: headers });
+    response = await fetch(url, { headers });
     data = await response.json();
     if (isSingleUser) return data || null;
     return data.items.length ? data : null;
-}
+};
 
 const searchUser = async () => {
     if (isCorrectInput) {
-        let value = searchInput.value, data = null;
+        const value = searchInput.value; let data = null;
         data = await getData(value);
         if (data) {
             console.log(data);
             createUserCards(data.items);
         }
     }
-}
+};
 
 const triggerSearchByEnter = (event) => {
-    event.key === 'Enter' ? searchUser() : null;
-}
+    if (event.key === 'Enter') searchUser();
+};
 
 const getTotalPages = (response) => {
     const linkHeader = response.headers.get('Link');
@@ -70,22 +77,21 @@ const getTotalPages = (response) => {
     }
 
     return 1;
-}
+};
 
 const getUserCount = async (url) => {
     try {
-        let response = await fetch(url + '?per_page=30', { headers: headers }),
-            pageCount = await getTotalPages(response),
-            data = null,
-            dataLength = null;
+        let response = await fetch(url + '?per_page=30', { headers });
+        const pageCount = await getTotalPages(response);
+        let data = null;
+        let dataLength = null;
 
-        response = await fetch(url + `?page=${pageCount}`, { headers: headers })
+        response = await fetch(url + `?page=${pageCount}`, { headers });
         data = await response.json();
         dataLength = data.length;
 
         if (pageCount !== 1) {
-
-            let count = (30 * (pageCount - 1)) + dataLength;
+            const count = (30 * (pageCount - 1)) + dataLength;
             return count;
         }
 
@@ -94,7 +100,7 @@ const getUserCount = async (url) => {
         console.error('Error on count:', error);
         return 0;
     }
-}
+};
 
 const createUserCards = async (data) => {
     searchResultContainer.innerHTML = '<span class="loader"></span>';
@@ -105,20 +111,20 @@ const createUserCards = async (data) => {
             getUserCount(item.received_events_url)
         ]);
         const userContent = [
-            { text: "Followers", info: followersCount },
-            { text: "Repos", info: reposCount },
-            { text: "Events", info: eventsCount }
+            { text: 'Followers', info: followersCount },
+            { text: 'Repos', info: reposCount },
+            { text: 'Events', info: eventsCount }
         ];
 
-        const card = document.createElement("article"),
-            img = document.createElement("img"),
-            name = document.createElement("span"),
-            infoContainer = document.createElement("div");
+        const card = document.createElement('article');
+        const img = document.createElement('img');
+        const name = document.createElement('span');
+        const infoContainer = document.createElement('div');
 
-        infoContainer.classList.add("search-results__card__info-container");
-        name.classList.add("search-results__card__username");
-        img.classList.add("search-results__card__image");
-        card.classList.add("search-results__card");
+        infoContainer.classList.add('search-results__card__info-container');
+        name.classList.add('search-results__card__username');
+        img.classList.add('search-results__card__image');
+        card.classList.add('search-results__card');
 
         img.src = item.avatar_url + '&s=400';
         img.alt = 'User image';
@@ -126,13 +132,13 @@ const createUserCards = async (data) => {
         name.textContent = item.login;
 
         userContent.forEach((element) => {
-            const article = document.createElement("article"),
-                countTitle = document.createElement("h5"),
-                count = document.createElement("span");
+            const article = document.createElement('article');
+            const countTitle = document.createElement('h5');
+            const count = document.createElement('span');
 
-            article.classList.add("search-results__card__info-container__item");
-            count.classList.add("search-results__card__info-container__item__info");
-            countTitle.classList.add("search-results__card__info-container__item__title");
+            article.classList.add('search-results__card__info-container__item');
+            count.classList.add('search-results__card__info-container__item__info');
+            countTitle.classList.add('search-results__card__info-container__item__title');
 
             countTitle.textContent = element.text;
             count.textContent = element.info;
@@ -150,7 +156,6 @@ const createUserCards = async (data) => {
     searchResultContainer.innerHTML = '';
     searchResultContainer.append(...userCards);
 };
-
 
 const createUserPopup = async (username) => {
     const data = await getData(username, true);
@@ -193,7 +198,7 @@ const createUserPopup = async (username) => {
         getUserCount(data.followers_url),
         getUserCount(data.repos_url),
         getUserCount(data.received_events_url),
-        getUserCount(data.subscriptions_url),
+        getUserCount(data.subscriptions_url)
     ]);
 
     document.getElementById('followersCount').textContent = followersCount;
@@ -212,14 +217,12 @@ const createUserPopup = async (username) => {
             greyFilter.classList.remove('show-filter');
         });
 
-        exitIcon.dataset.listener = "true";
+        exitIcon.dataset.listener = 'true';
     }
 };
 
-
-
 const init = () => {
-    searchInput.value = "";
+    searchInput.value = '';
     searchInput.addEventListener('focus', handleSearchEvents);
     searchInput.addEventListener('blur', handleSearchEvents);
     searchInput.addEventListener('input', handleInputValidation);
@@ -235,7 +238,5 @@ const init = () => {
             }
         }
     });
-    nickContainer.classList.remove('login__element__hidden');
-    nickContainer.innerHTML = currentUser.nickname;
-}
-init()
+};
+init();

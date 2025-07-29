@@ -1,8 +1,15 @@
 import { GITHUB_TOKEN } from './token.js';
 
-window.onload = () => {
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('load', () => {
+    requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+    });
     searchInput.value = '';
-};
+});
 
 const placeholder = document.querySelector('.reposearch-container__placeholder');
 const searchInput = document.querySelector('.reposearch-container__input');
@@ -18,7 +25,9 @@ const headers = {
     Accept: 'application/vnd.github.v3.json'
 };
 const userRegex = /^[a-zA-Z0-9](?:[-:]?[a-zA-Z0-9]){0,38}$/;
-let isCorrectInput = null; let searchMode = 'approxsearch'; let url = null;
+let isCorrectInput = null;
+let searchMode = 'approxsearch';
+let url = null;
 
 const handleInputValidation = () => {
     const value = searchInput.value;
@@ -40,7 +49,7 @@ const handleSearchEvents = (event) => {
 };
 
 const triggerSearchByEnter = (event) => {
-    event.key === 'Enter' ? searchRepo() : null;
+    if (event.key === 'Enter') searchRepo();
 };
 
 const handleSearchModeClick = () => {
@@ -132,7 +141,11 @@ const searchRepo = async () => {
             if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
 
             const data = await response.json();
-            searchMode === 'precisesearch' ? createRepoCards([data]) : createRepoCards(data.items);
+            if (searchMode === 'precisesearch') {
+                createRepoCards([data]);
+            } else {
+                createRepoCards(data.items);
+            }
         } catch (error) {
             console.error('Error fetching: ', error);
             repoSearchResults.innerHTML = '<p>Error loading the results</p>';
