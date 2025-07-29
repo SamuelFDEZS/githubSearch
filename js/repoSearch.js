@@ -18,7 +18,7 @@ const headers = {
     Accept: 'application/vnd.github.v3.json'
 };
 const userRegex = /^[a-zA-Z0-9](?:[-:]?[a-zA-Z0-9]){0,38}$/;
-let isCorrectInput = null; let searchMode = 'aproxsearch'; let url = null;
+let isCorrectInput = null; let searchMode = 'approxsearch'; let url = null;
 
 const handleInputValidation = () => {
     const value = searchInput.value;
@@ -55,9 +55,9 @@ const selectSearchMode = (event) => {
 const calcTimeDifference = (item) => {
     const creationTime = new Date(item.created_at);
     const currentTime = new Date();
-    const timeOnMiliseconds = currentTime - creationTime;
-    const differenceInDays = timeOnMiliseconds / (1000 * 60 * 60 * 24);
-    const differenceInHours = timeOnMiliseconds / (1000 * 60 * 60);
+    const timeInMiliseconds = currentTime - creationTime;
+    const differenceInDays = timeInMiliseconds / (1000 * 60 * 60 * 24);
+    const differenceInHours = timeInMiliseconds / (1000 * 60 * 60);
 
     if (differenceInDays > 365) {
         return Math.floor(differenceInDays / 365) + ' Yrs';
