@@ -29,7 +29,7 @@ const headers = {
     Authorization: `Bearer ${GITHUB_TOKEN}`,
     Accept: 'application/vnd.github.v3.json'
 };
-const userRegex = /^[a-zA-Z0-9](?:[-/]?[a-zA-Z0-9]){0,38}$/;
+const repoRegex = /^[a-zA-Z0-9](?:[-/]?[a-zA-Z0-9]){0,38}$/;
 let isCorrectInput = null;
 let searchMode = 'approxsearch';
 let resultPage = 1;
@@ -39,7 +39,7 @@ let url = null;
 const handleInputValidation = () => {
     const value = searchInput.value;
 
-    if (userRegex.test(value) || !value) {
+    if (repoRegex.test(value) || !value) {
         errorMessage.classList.remove('error-visible');
         isCorrectInput = true;
     } else {

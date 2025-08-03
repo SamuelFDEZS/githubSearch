@@ -57,7 +57,7 @@ const getData = async (value, isSingleUser) => {
     response = await fetch(url, { headers });
     data = await response.json();
     linkHeader = response.headers.get('Link');
-    if (!data.itmes || !data.items.length) {
+    if (!data.items || !data.items.length) {
         searchResultContainer.innerHTML = 'User not found';
     }
     if (isSingleUser) return data || null;
