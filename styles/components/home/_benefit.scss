@@ -47,7 +47,11 @@
                     border: 2px solid white;
                     background: transparent;
                     color: var(--font-text-color);
-                    font-size: 1rem;
+                    font-size: 1.3rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
                     transition: all 0.3s;
 
                     &:hover {
