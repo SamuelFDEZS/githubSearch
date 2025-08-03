@@ -1695,7 +1695,6 @@ body.repo-search p {
 .repo-popup__buttons-container__button {
   width: 30%;
   height: 70%;
-  border: 0;
   outline: none;
   border-radius: 10px;
   cursor: pointer;

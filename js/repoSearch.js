@@ -194,9 +194,7 @@ const createRepoPopUp = async (repoName) => {
     <p class="repo-popup__description">${singleRepoData.description || 'No description'}</p>
     <h4 class="repo-popup__info-title">Detailed info</h4>
     <div class="repo-popup__repoinfo-container">
-        <article class="
-        repo-popup__repoinfo-container__data
-        repo-popup__repoinfo-container__data--left">
+        <article class="repo-popup__repoinfo-container__data repo-popup__repoinfo-container__data--left">
             <div class="repo-popup__repoinfo-container__data__field">
                 <span class="fa-solid fa-star repo-popup__repoinfo-container__data__field__icon" style="color: #FFD43B;"></span>
                 <p class="repo-popup__repoinfo-container__data__field__text">
@@ -222,9 +220,7 @@ const createRepoPopUp = async (repoName) => {
                 </p>
             </div>
             </article>
-            <article class="
-            repo-popup__repoinfo-container__data
-            repo-popup__repoinfo-container__data--right">
+            <article class="repo-popup__repoinfo-container__data repo-popup__repoinfo-container__data--right">
             <div class="repo-popup__repoinfo-container__data__field">
 
                 <span class="fa-solid fa-calendar-days repo-popup__repoinfo-container__data__field__icon" style="color: #fec64d;"></span>
