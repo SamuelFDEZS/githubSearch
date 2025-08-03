@@ -50,7 +50,9 @@ const handleInputValidation = () => {
 };
 
 const getData = async (value, isSingleUser) => {
-    const url = isSingleUser ? `https://api.github.com/users/${value}` : `https://api.github.com/search/users?q=${value}&per_page=40&page=${resultPage}`; let response = null; let data = null;
+    const url = isSingleUser ? `https://api.github.com/users/${value}` : `https://api.github.com/search/users?q=${value}&per_page=40&page=${resultPage}`;
+    let response = null;
+    let data = null;
 
     response = await fetch(url, { headers });
     data = await response.json();
@@ -64,7 +66,9 @@ const getData = async (value, isSingleUser) => {
 
 const searchUser = async () => {
     if (isCorrectInput) {
-        const value = searchInput.value; let data = null;
+        const value = searchInput.value;
+        let data = null;
+
         data = await getData(value);
         if (data) {
             createUserCards(data.items);

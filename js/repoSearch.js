@@ -182,7 +182,7 @@ const createRepoPopUp = async (repoName) => {
     const updatedDate = new Date(singleRepoData.updated_at);
     const now = new Date();
 
-    const diffMs = now - updatedDate; // Diferencia en milisegundos
+    const diffMs = now - updatedDate;
     const diffDays = diffMs / (1000 * 60 * 60 * 24);
     const diffHours = diffMs / (1000 * 60 * 60);
 
@@ -190,7 +190,7 @@ const createRepoPopUp = async (repoName) => {
 
     repoPopupContainer.innerHTML = `
     <span class="fa-solid fa-xmark popup-container__exit-popup"></span>
-    <h3 class="repo-popup__title"= >${singleRepoData.full_name}</h3>
+    <h3 class="repo-popup__title">${singleRepoData.full_name}</h3>
     <p class="repo-popup__description">${singleRepoData.description || 'No description'}</p>
     <h4 class="repo-popup__info-title">Detailed info</h4>
     <div class="repo-popup__repoinfo-container">
@@ -218,7 +218,7 @@ const createRepoPopUp = async (repoName) => {
             <div class="repo-popup__repoinfo-container__data__field">
                 <span class="fa-solid fa-user-plus repo-popup__repoinfo-container__data__field__icon" style="color: #74C0FC;"></span>
                 <p class="repo-popup__repoinfo-container__data__field__text">
-                    <span>Suscribers count:</span> ${singleRepoData.subscribers_count}
+                    <span>Subscribers count:</span> ${singleRepoData.subscribers_count}
                 </p>
             </div>
             </article>

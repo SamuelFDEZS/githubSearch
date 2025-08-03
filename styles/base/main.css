@@ -1091,44 +1091,6 @@ body.user-search p {
   font-size: 1.2rem;
 }
 
-.move-page {
-  position: absolute;
-  width: 10%;
-  height: 10%;
-  right: 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20%;
-  margin-top: 5%;
-  opacity: 0;
-  visibility: hidden;
-}
-.move-page.visible {
-  opacity: 1;
-  visibility: visible;
-}
-.move-page__button {
-  width: 30%;
-  height: 60%;
-  border: 0;
-  border-radius: 50%;
-  font-size: 2rem;
-  background-color: #fff;
-  border: 2px solid #000;
-  cursor: pointer;
-  transition: 0.2s ease;
-  opacity: 0;
-  visibility: hidden;
-}
-.move-page__button.visible {
-  opacity: 1;
-  visibility: visible;
-}
-.move-page__button:hover {
-  filter: brightness(0.8);
-}
-
 .popup-container {
   border: 3px solid white;
   width: 60vh;
@@ -1238,6 +1200,44 @@ body.user-search p {
   z-index: 5;
   -webkit-backdrop-filter: brightness(0.5);
           backdrop-filter: brightness(0.5);
+}
+
+.move-page {
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  right: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20%;
+  margin-top: 5%;
+  opacity: 0;
+  visibility: hidden;
+}
+.move-page.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.move-page__button {
+  width: 30%;
+  height: 60%;
+  border: 0;
+  border-radius: 50%;
+  font-size: 2rem;
+  background-color: #fff;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: 0.2s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+.move-page__button.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.move-page__button:hover {
+  filter: brightness(0.8);
 }
 
 body.user-repos {
@@ -1613,44 +1613,6 @@ body.repo-search p {
 }
 .reposearch-results__card__info-container__pair-container__value {
   margin-top: 10%;
-}
-
-.move-page {
-  position: absolute;
-  width: 10%;
-  height: 10%;
-  right: 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20%;
-  margin-top: 5%;
-  opacity: 0;
-  visibility: hidden;
-}
-.move-page.visible {
-  opacity: 1;
-  visibility: visible;
-}
-.move-page__button {
-  width: 30%;
-  height: 60%;
-  border: 0;
-  border-radius: 50%;
-  font-size: 2rem;
-  background-color: #fff;
-  border: 2px solid #000;
-  cursor: pointer;
-  transition: 0.2s ease;
-  opacity: 0;
-  visibility: hidden;
-}
-.move-page__button.visible {
-  opacity: 1;
-  visibility: visible;
-}
-.move-page__button:hover {
-  filter: brightness(0.8);
 }
 
 .repo-popup {

@@ -35,6 +35,11 @@
 @import "../components/userSearch/searchResult";
 @import "../components/userSearch/userPopup";
 
+
+// Common
+
+@import "../components/common/movePage";
+
 // UserRepos styles
 
 @import "../components/userRepos/body";
@@ -45,4 +50,3 @@
 @import "../components/repoSearch/search";
 @import "../components/repoSearch/repoSearchResult";
 @import "../components/repoSearch/repoPopup";
-
