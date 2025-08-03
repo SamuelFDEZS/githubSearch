@@ -1035,15 +1035,16 @@ body.user-search p {
   margin-top: 5%;
   flex-direction: column;
   align-items: center;
-  gap: 2vh;
+  font-size: 2rem;
+  gap: 1.5vh;
 }
 .search-results__card {
-  width: 90%;
-  height: 22vh;
+  width: 80%;
+  height: 18vh;
   display: flex;
   align-items: center;
   gap: 1%;
-  background-color: #cfcaab;
+  background: linear-gradient(220.55deg, #B7DCFF 0%, #FFA4F6 100%);
   transition: all 0.2s;
   border-radius: 10px;
   color: black;
@@ -1056,8 +1057,8 @@ body.user-search p {
   filter: brightness(0.8);
 }
 .search-results__card__image {
-  width: 15%;
-  height: 100%;
+  width: 10%;
+  height: 90%;
   margin-left: 1%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1090,6 +1091,44 @@ body.user-search p {
   font-size: 1.2rem;
 }
 
+.move-page {
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  right: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20%;
+  margin-top: 5%;
+  opacity: 0;
+  visibility: hidden;
+}
+.move-page.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.move-page__button {
+  width: 30%;
+  height: 60%;
+  border: 0;
+  border-radius: 50%;
+  font-size: 2rem;
+  background-color: #fff;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: 0.2s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+.move-page__button.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.move-page__button:hover {
+  filter: brightness(0.8);
+}
+
 .popup-container {
   border: 3px solid white;
   width: 60vh;
@@ -1105,7 +1144,7 @@ body.user-search p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(192, 177, 117);
+  background: linear-gradient(220.55deg, #FF8570 0%, #418CB7 100%);
 }
 .popup-container.show-popup {
   opacity: 1;
@@ -1124,33 +1163,37 @@ body.user-search p {
   margin-bottom: 2%;
 }
 .popup-container__image {
+  width: 45%;
   border-radius: 10px;
 }
 .popup-container__info-container {
   width: 90%;
   height: 35%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
-  justify-items: center;
   margin-top: 2%;
+  display: flex;
+  gap: 10%;
+  justify-content: center;
 }
 .popup-container__info-container__item-group {
+  width: 35%;
+  height: 70%;
   display: flex;
+  gap: 30%;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
   font-size: 1.3rem;
+  white-space: nowrap;
 }
-.popup-container__info-container__item-group:last-child {
-  grid-column: 1/4;
-  grid-row: 2;
+.popup-container__info-container__item-group__item span:first-child {
+  font-size: 1.7rem;
+  margin-right: 2%;
 }
-.popup-container__info-container__item-group__title {
-  margin: 0;
+.popup-container__info-container__item-group__item .item-title {
+  font-weight: bold;
+  font-size: 1.4rem;
 }
-.popup-container__info-container__item-group__item {
-  margin-top: 15%;
+.popup-container__info-container__item-group__item .item-info {
+  white-space: nowrap;
 }
 .popup-container__button-group {
   margin-top: 7%;
@@ -1171,12 +1214,16 @@ body.user-search p {
   outline: none;
   border: 0;
   border-radius: 25px;
-  background: linear-gradient(220.55deg, #7CF7FF 0%, #4B73FF 100%);
+  background: linear-gradient(220.55deg, #8FFF85 0%, #39A0FF 100%);
+  box-shadow: 0px -18px 13px 0px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: all 0.3s;
 }
 .popup-container__button-group__link__button:hover {
   filter: brightness(0.8);
+}
+.popup-container__button-group__link__button:active {
+  scale: 0.9;
 }
 
 .grey-filter {
@@ -1566,4 +1613,143 @@ body.repo-search p {
 }
 .reposearch-results__card__info-container__pair-container__value {
   margin-top: 10%;
+}
+
+.move-page {
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  right: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20%;
+  margin-top: 5%;
+  opacity: 0;
+  visibility: hidden;
+}
+.move-page.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.move-page__button {
+  width: 30%;
+  height: 60%;
+  border: 0;
+  border-radius: 50%;
+  font-size: 2rem;
+  background-color: #fff;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: 0.2s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+.move-page__button.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.move-page__button:hover {
+  filter: brightness(0.8);
+}
+
+.repo-popup {
+  border: 3px solid white;
+  width: 60vh;
+  height: 70vh;
+  position: fixed;
+  z-index: 6;
+  border-radius: 10px;
+  color: #232323;
+  left: 50%;
+  top: 50%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(220.55deg, #FF8570 0%, #418CB7 100%);
+  gap: 5%;
+}
+.repo-popup.show-popup {
+  opacity: 1;
+  visibility: visible;
+}
+.repo-popup__title {
+  margin-top: 5%;
+  font-size: 2.8rem;
+}
+.repo-popup__description {
+  width: 90%;
+  text-align: center;
+  line-height: 1.5em;
+}
+.repo-popup__info-title {
+  margin-top: 8%;
+  font-size: 2rem;
+}
+.repo-popup__repoinfo-container {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  gap: 15%;
+}
+.repo-popup__repoinfo-container__data {
+  margin-top: 5%;
+  width: 30%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15%;
+}
+.repo-popup__repoinfo-container__data__field {
+  display: flex;
+  gap: 5%;
+  align-items: center;
+}
+.repo-popup__repoinfo-container__data__field__icon {
+  font-size: 2rem;
+}
+.repo-popup__repoinfo-container__data__field__text {
+  display: flex;
+  gap: 5px;
+  white-space: nowrap;
+}
+.repo-popup__repoinfo-container__data__field__text span:first-of-type {
+  font-weight: bold;
+  white-space: nowrap;
+}
+.repo-popup__buttons-container {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 17%;
+}
+.repo-popup__buttons-container__button {
+  width: 30%;
+  height: 70%;
+  border: 0;
+  outline: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(220.55deg, #FFED46 0%, #FF7EC7 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  border: 1px solid #fff;
+  transition: 0.3s ease;
+  text-decoration: none;
+  color: #000;
+}
+.repo-popup__buttons-container__button:hover {
+  filter: brightness(0.8);
+}
+.repo-popup__buttons-container__button:active {
+  scale: 0.9;
 }/*# sourceMappingURL=main.css.map */

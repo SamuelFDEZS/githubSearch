@@ -17,6 +17,9 @@ const searchButton = document.querySelector('.search-container__button');
 const errorMessage = document.querySelector('.input-error');
 const userPopup = document.querySelector('.popup-container');
 const greyFilter = document.querySelector('.grey-filter');
+const movePageContainer = document.querySelector('.move-page');
+const movePageLeft = document.querySelector('.move-page__button--left');
+const movePageRight = document.querySelector('.move-page__button--right');
 const userRegex = /^[a-zA-Z0-9](?:-?[a-zA-Z0-9]){0,38}$/;
 const headers = {
     Authorization: `Bearer ${GITHUB_TOKEN}`,
@@ -24,6 +27,8 @@ const headers = {
 };
 const searchResultContainer = document.querySelector('.search-results');
 let isCorrectInput = null;
+let resultPage = 1;
+let linkHeader = null;
 
 const handleSearchEvents = (event) => {
     if (!searchInput.value) {
@@ -45,10 +50,14 @@ const handleInputValidation = () => {
 };
 
 const getData = async (value, isSingleUser) => {
-    const url = isSingleUser ? `https://api.github.com/users/${value}` : `https://api.github.com/search/users?q=${value}&per_page=40`; let response = null; let data = null;
+    const url = isSingleUser ? `https://api.github.com/users/${value}` : `https://api.github.com/search/users?q=${value}&per_page=40&page=${resultPage}`; let response = null; let data = null;
 
     response = await fetch(url, { headers });
     data = await response.json();
+    linkHeader = response.headers.get('Link');
+    if (!data.length) {
+        searchResultContainer.innerHTML = 'User not found';
+    }
     if (isSingleUser) return data || null;
     return data.items.length ? data : null;
 };
@@ -58,7 +67,6 @@ const searchUser = async () => {
         const value = searchInput.value; let data = null;
         data = await getData(value);
         if (data) {
-            console.log(data);
             createUserCards(data.items);
         }
     }
@@ -103,6 +111,7 @@ const getUserCount = async (url) => {
 };
 
 const createUserCards = async (data) => {
+    movePageContainer.classList.remove('visible');
     searchResultContainer.innerHTML = '<span class="loader"></span>';
     const userPromises = data.map(async (item) => {
         const [followersCount, reposCount, eventsCount] = await Promise.all([
@@ -155,6 +164,7 @@ const createUserCards = async (data) => {
 
     searchResultContainer.innerHTML = '';
     searchResultContainer.append(...userCards);
+    movePageContainer.classList.add('visible');
 };
 
 const createUserPopup = async (username) => {
@@ -169,20 +179,30 @@ const createUserPopup = async (username) => {
             alt="User Avatar" class="popup-container__image">
         <div class="popup-container__info-container">
             <article class="popup-container__info-container__item-group">
-                <h5 class="popup-container__info-container__item-group__title">Followers</h5>
-                <span class="popup-container__info-container__item-group__item" id="followersCount">Loading...</span>
+                <p class="popup-container__info-container__item-group__item" id="followersCount">
+                    <span class="fa-solid fa-user" style="color: #B197FC;"></span>
+                    <span class="item-title">Follower Count: </span>
+                    <span class="item-info">Loading...</span>
+                </p>
+
+                <p class="popup-container__info-container__item-group__item" id="reposCount">
+                    <span class="fa-solid fa-database" style="color: #89ca6e;"></span>
+                    <span class="item-title">Repo Count: </span>
+                    <span class="item-info">Loading...</span>
+                </p>
             </article>
             <article class="popup-container__info-container__item-group">
-                <h5 class="popup-container__info-container__item-group__title">Repos</h5>
-                <span class="popup-container__info-container__item-group__item" id="reposCount">Loading...</span>
-            </article>
-            <article class="popup-container__info-container__item-group">
-                <h5 class="popup-container__info-container__item-group__title">Events</h5>
-                <span class="popup-container__info-container__item-group__item" id="eventsCount">Loading...</span>
-            </article>
-            <article class="popup-container__info-container__item-group">
-                <h5 class="popup-container__info-container__item-group__title">Subscriptions</h5>
-                <span class="popup-container__info-container__item-group__item" id="subscriptionsCount">Loading...</span>
+                <p class="popup-container__info-container__item-group__item" id="eventsCount">
+                    <span class="fa-solid fa-calendar" style="color: #d58070;"></span>
+                    <span class="item-title">Event Count: </span>
+                    <span class="item-info">Loading...</span>
+                </p>
+
+                <p class="popup-container__info-container__item-group__item" id="subscriptionsCount">
+                    <span class="fa-solid fa-circle-plus" style="color: #FFD43B;"></span>
+                    <span class="item-title">Subscriptions Count: </span>
+                    <span class="item-info">Loading...</span>
+                </p>
             </article>
         </div>
         <div class="popup-container__button-group">
@@ -201,10 +221,10 @@ const createUserPopup = async (username) => {
         getUserCount(data.subscriptions_url)
     ]);
 
-    document.getElementById('followersCount').textContent = followersCount;
-    document.getElementById('reposCount').textContent = reposCount;
-    document.getElementById('eventsCount').textContent = eventsCount;
-    document.getElementById('subscriptionsCount').textContent = subscriptionsCount;
+    document.querySelector('#followersCount span.item-info').textContent = followersCount;
+    document.querySelector('#reposCount span.item-info').textContent = reposCount;
+    document.querySelector('#eventsCount span.item-info').textContent = eventsCount;
+    document.querySelector('#subscriptionsCount span.item-info').textContent = subscriptionsCount;
 
     const exitIcon = document.querySelector('.popup-container__exit-popup');
     if (!exitIcon.dataset.listener) {
@@ -218,6 +238,30 @@ const createUserPopup = async (username) => {
         });
 
         exitIcon.dataset.listener = 'true';
+    }
+};
+
+const previousPage = () => {
+    if (resultPage > 1) resultPage -= 1;
+    if (resultPage === 1) movePageLeft.classList.remove('visible');
+    if (!movePageRight.classList.contains('visible')) movePageRight.classList.add('visible');
+    requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+    });
+    searchUser();
+};
+
+const nextPage = () => {
+    const isLastPage = !linkHeader || !linkHeader.includes('rel="next"');
+    if (!isLastPage) {
+        resultPage += 1;
+        if (resultPage > 1) movePageLeft.classList.add('visible');
+        requestAnimationFrame(() => {
+            window.scrollTo(0, 0);
+        });
+        searchUser();
+    } else {
+        movePageRight.classList.remove('visible');
     }
 };
 
@@ -238,5 +282,7 @@ const init = () => {
             }
         }
     });
+    movePageLeft.addEventListener('click', previousPage);
+    movePageRight.addEventListener('click', nextPage);
 };
 init();
