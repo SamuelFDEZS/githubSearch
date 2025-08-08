@@ -25,10 +25,6 @@ const movePageRight = document.querySelector('.move-page__button--right');
 const searchModes = document.querySelector('.reposearch-container__mode-container__modes');
 const greyFilter = document.querySelector('.grey-filter');
 const repoSearchResults = document.querySelector('.reposearch-results');
-const headers = {
-    Authorization: `Bearer ${GITHUB_TOKEN}`,
-    Accept: 'application/vnd.github.v3.json'
-};
 const repoRegex = /^[a-zA-Z0-9](?:[-/]?[a-zA-Z0-9]){0,38}$/;
 let isCorrectInput = null;
 let searchMode = 'approxsearch';
@@ -56,6 +52,7 @@ const handleSearchEvents = (event) => {
 };
 
 const triggerSearchByEnter = (event) => {
+    searchInput.blur();
     if (event.key === 'Enter') searchRepo();
 };
 
@@ -94,15 +91,21 @@ const fieldToCapital = (field) => {
 
 const getData = async (searchValue, repoName, isSingleRepo) => {
     if (isSingleRepo) {
-        url = `https://api.github.com/repos/${repoName}`;
+    // repoName = 'owner/repo'
+        const [owner, repo] = repoName.split('/');
+        url = `http://localhost:3000/api/repo?owner=${owner}&repo=${repo}`;
     } else if (searchMode === 'precisesearch') {
-        url = `https://api.github.com/repos/${searchValue[0]}/${searchValue[1]}`;
+        if (searchValue.length !== 2) {
+            repoSearchResults.innerHTML = '<span class="reposearch-results__incorrect-format">Incorrect format</span>';
+            return;
+        }
+        url = `http://localhost:3000/api/repo?owner=${searchValue[0]}&repo=${searchValue[1]}`;
     } else {
-        url = `https://api.github.com/search/repositories?q=${searchValue[0]}&per_page=30&page=${resultPage}`;
+        url = `http://localhost:3000/api/search-repos?q=${searchValue[0]}&per_page=30&page=${resultPage}`;
     }
 
     try {
-        const response = await fetch(url, { headers });
+        const response = await fetch(url);
 
         if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
         const data = await response.json();
@@ -111,7 +114,7 @@ const getData = async (searchValue, repoName, isSingleRepo) => {
         return (data && data.items) || [data];
     } catch (error) {
         console.error('Error fetching: ', error);
-        repoSearchResults.innerHTML = '<p>Error loading the results</p>';
+        repoSearchResults.innerHTML = '<span class="reposearch-results__incorrect-format">Error loading the results</span>';
     }
 };
 
@@ -167,9 +170,9 @@ const createRepoCards = (data) => {
 };
 
 const searchRepo = async () => {
-    repoSearchResults.innerHTML = '<span class="loader"></span>';
     const searchValue = searchInput.value.split('/');
-    if (isCorrectInput) {
+    if (searchInput.value && isCorrectInput) {
+        repoSearchResults.innerHTML = '<span class="loader"></span>';
         const data = await getData(searchValue);
         if (data) {
             createRepoCards(data);

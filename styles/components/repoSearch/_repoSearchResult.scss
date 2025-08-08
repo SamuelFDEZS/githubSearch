@@ -9,6 +9,12 @@
     justify-items: center;
     position: relative;
 
+    &__incorrect-format{
+        position: absolute;
+        left: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem;
+    }
 
     &__card {
         background: linear-gradient(220.55deg, #FFBB89 0%, #7B6AE0 100%);
