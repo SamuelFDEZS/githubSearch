@@ -1544,6 +1544,12 @@ body.repo-search p {
   justify-items: center;
   position: relative;
 }
+.reposearch-results__incorrect-format {
+  position: absolute;
+  left: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+}
 .reposearch-results__card {
   background: linear-gradient(220.55deg, #FFBB89 0%, #7B6AE0 100%);
   width: 60%;

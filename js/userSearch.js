@@ -50,23 +50,31 @@ const handleInputValidation = () => {
 };
 
 const getData = async (value, isSingleUser) => {
-    const url = isSingleUser ? `https://api.github.com/users/${value}` : `https://api.github.com/search/users?q=${value}&per_page=40&page=${resultPage}`;
-    let response = null;
-    let data = null;
+    try {
+        const url = isSingleUser
+            ? `http://localhost:3000/api/user?username=${value}`
+            : `http://localhost:3000/api/search-users?q=${value}&per_page=40&page=${resultPage}`;
 
-    response = await fetch(url, { headers });
-    data = await response.json();
-    linkHeader = response.headers.get('Link');
-    if (!data.items || !data.items.length) {
-        searchResultContainer.innerHTML = 'User not found';
+        let response = null;
+        let data = null;
+
+        response = await fetch(url);
+        linkHeader = response.headers.get('Link');
+        data = await response.json();
+        console.log(data);
+        if (!data && !data.items) {
+            searchResultContainer.innerHTML = 'User not found';
+        }
+        if (isSingleUser) return data || null;
+        return data.items.length ? data : null;
+    } catch (error) {
+        console.error('Error in search user', error);
     }
-    if (isSingleUser) return data || null;
-    return data.items.length ? data : null;
 };
 
 const searchUser = async () => {
-    if (isCorrectInput) {
-        const value = searchInput.value;
+    const value = searchInput.value;
+    if (value && isCorrectInput) {
         let data = null;
 
         data = await getData(value);
@@ -77,6 +85,7 @@ const searchUser = async () => {
 };
 
 const triggerSearchByEnter = (event) => {
+    searchInput.blur();
     if (event.key === 'Enter') searchUser();
 };
 
@@ -256,16 +265,20 @@ const previousPage = () => {
 };
 
 const nextPage = () => {
-    const isLastPage = !linkHeader || !linkHeader.includes('rel="next"');
-    if (!isLastPage) {
-        resultPage += 1;
-        if (resultPage > 1) movePageLeft.classList.add('visible');
-        requestAnimationFrame(() => {
-            window.scrollTo(0, 0);
-        });
-        searchUser();
-    } else {
-        movePageRight.classList.remove('visible');
+    try {
+        const isLastPage = !linkHeader || !linkHeader.includes('rel="next"');
+        if (!isLastPage) {
+            resultPage += 1;
+            if (resultPage > 1) movePageLeft.classList.add('visible');
+            requestAnimationFrame(() => {
+                window.scrollTo(0, 0);
+            });
+            searchUser();
+        } else {
+            movePageRight.classList.remove('visible');
+        }
+    } catch (error) {
+        console.error('Error in nextPage', error);
     }
 };
 
