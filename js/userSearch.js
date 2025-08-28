@@ -21,10 +21,6 @@ const movePageContainer = document.querySelector('.move-page');
 const movePageLeft = document.querySelector('.move-page__button--left');
 const movePageRight = document.querySelector('.move-page__button--right');
 const userRegex = /^[a-zA-Z0-9](?:-?[a-zA-Z0-9]){0,38}$/;
-const headers = {
-    Authorization: `Bearer ${GITHUB_TOKEN}`,
-    Accept: 'application/vnd.github.v3.json'
-};
 const searchResultContainer = document.querySelector('.search-results');
 let isCorrectInput = null;
 let resultPage = 1;
@@ -53,13 +49,21 @@ const getData = async (value, isSingleUser) => {
     try {
         const url = isSingleUser
             ? `http://localhost:3000/api/user?username=${value}`
-            : `http://localhost:3000/api/search-users?q=${value}&per_page=40&page=${resultPage}`;
+            : `http://localhost:3000/api/search-users?q=${value}&per_page=20&page=${resultPage}`;
 
         let response = null;
         let data = null;
-
+        let hasNextPage = null;
         response = await fetch(url);
         linkHeader = response.headers.get('Link');
+        hasNextPage = linkHeader && linkHeader.includes('rel="next"');
+
+        if (hasNextPage) {
+            movePageRight.classList.add('visible');
+        } else {
+            movePageRight.classList.remove('visible');
+        }
+
         data = await response.json();
         console.log(data);
         if (!data && !data.items) {
@@ -85,8 +89,10 @@ const searchUser = async () => {
 };
 
 const triggerSearchByEnter = (event) => {
-    searchInput.blur();
-    if (event.key === 'Enter') searchUser();
+    if (event.key === 'Enter') {
+        searchUser();
+        searchInput.blur();
+    }
 };
 
 const getTotalPages = (response) => {
@@ -102,41 +108,36 @@ const getTotalPages = (response) => {
 
 const getUserCount = async (url) => {
     try {
-        let response = await fetch(url + '?per_page=30', { headers });
-        const pageCount = await getTotalPages(response);
-        let data = null;
-        let dataLength = null;
-
-        response = await fetch(url + `?page=${pageCount}`, { headers });
-        data = await response.json();
-        dataLength = data.length;
-
-        if (pageCount !== 1) {
-            const count = (30 * (pageCount - 1)) + dataLength;
-            return count;
-        }
-
-        return dataLength;
+        const response = await fetch(url);
+        const data = await response.json();
+        return data.count ?? 0;
     } catch (error) {
         console.error('Error on count:', error);
         return 0;
     }
 };
 
+const getUserSummary = async (username) => {
+    const response = await fetch(`http://localhost:3000/api/user/summary?username=${username}`);
+    const data = await response.json();
+    return data;
+};
+
 const createUserCards = async (data) => {
     movePageContainer.classList.remove('visible');
     searchResultContainer.innerHTML = '<span class="loader"></span>';
     const userPromises = data.map(async (item) => {
-        const [followersCount, reposCount, eventsCount] = await Promise.all([
-            getUserCount(item.followers_url),
-            getUserCount(item.repos_url),
-            getUserCount(item.received_events_url)
+        const username = item.login;
+        const [summary, eventsCount] = await Promise.all([
+            getUserSummary(username),
+            getUserCount(`http://localhost:3000/api/user/received-events?username=${username}`)
         ]);
         const userContent = [
-            { text: 'Followers', info: followersCount },
-            { text: 'Repos', info: reposCount },
+            { text: 'Followers', info: summary.followers },
+            { text: 'Repos', info: summary.public_repos },
             { text: 'Events', info: eventsCount }
         ];
+        console.log(userContent);
 
         const card = document.createElement('article');
         const img = document.createElement('img');
@@ -219,23 +220,20 @@ const createUserPopup = async (username) => {
             </article>
         </div>
         <div class="popup-container__button-group">
-        <a href="${data.html_url}"class="popup-container__button-group__link"><button class="popup-container__button-group__link__button">Go to user profile</button></a>
+        <a target="_blank" href="${data.html_url}"class="popup-container__button-group__link"><button class="popup-container__button-group__link__button">Go to user profile</button></a>
         <a href="userRepos.html?username=${username}" class="popup-container__button-group__link"><button class="popup-container__button-group__link__button">Check user repos</button></a>
         </div>
     `;
-
     userPopup.classList.add('show-popup');
     greyFilter.classList.add('show-filter');
-
-    const [followersCount, reposCount, eventsCount, subscriptionsCount] = await Promise.all([
-        getUserCount(data.followers_url),
-        getUserCount(data.repos_url),
-        getUserCount(data.received_events_url),
-        getUserCount(data.subscriptions_url)
+    const [summary, eventsCount, subscriptionsCount] = await Promise.all([
+        getUserSummary(username),
+        getUserCount(`http://localhost:3000/api/user/received-events?username=${username}`),
+        getUserCount(`http://localhost:3000/api/user/subscriptions?username=${username}`)
     ]);
 
-    document.querySelector('#followersCount span.item-info').textContent = followersCount;
-    document.querySelector('#reposCount span.item-info').textContent = reposCount;
+    document.querySelector('#followersCount span.item-info').textContent = summary.followers;
+    document.querySelector('#reposCount span.item-info').textContent = summary.public_repos;
     document.querySelector('#eventsCount span.item-info').textContent = eventsCount;
     document.querySelector('#subscriptionsCount span.item-info').textContent = subscriptionsCount;
 
@@ -265,21 +263,12 @@ const previousPage = () => {
 };
 
 const nextPage = () => {
-    try {
-        const isLastPage = !linkHeader || !linkHeader.includes('rel="next"');
-        if (!isLastPage) {
-            resultPage += 1;
-            if (resultPage > 1) movePageLeft.classList.add('visible');
-            requestAnimationFrame(() => {
-                window.scrollTo(0, 0);
-            });
-            searchUser();
-        } else {
-            movePageRight.classList.remove('visible');
-        }
-    } catch (error) {
-        console.error('Error in nextPage', error);
-    }
+    resultPage += 1;
+    if (resultPage > 1) movePageLeft.classList.add('visible');
+    requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+    });
+    searchUser();
 };
 
 const init = () => {

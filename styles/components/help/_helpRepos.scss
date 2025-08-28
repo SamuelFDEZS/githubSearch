@@ -1,0 +1,28 @@
+.help__info {
+    &__container {
+        &__image--repoSearch {
+            border: 2px solid white;
+            border-radius: 10px;
+            width: 65%;
+
+            &--fourth{
+                width: 40%;
+            }
+            &--sixth{
+                width: 50%;
+            }
+            &--seventh{
+                width: 40%;
+            }
+            &--nineth{
+                width: 50%;
+            }
+            &--tenth{
+                width: 40%;
+            }
+            &--eleventh{
+                width: 50%;
+            }
+        }
+    }
+}

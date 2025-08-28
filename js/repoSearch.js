@@ -52,8 +52,10 @@ const handleSearchEvents = (event) => {
 };
 
 const triggerSearchByEnter = (event) => {
-    searchInput.blur();
-    if (event.key === 'Enter') searchRepo();
+    if (event.key === 'Enter') {
+        searchInput.blur();
+        searchRepo();
+    }
 };
 
 const handleSearchModeClick = () => {

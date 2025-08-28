@@ -1,16 +1,15 @@
-body.user-repos{
+body.body-help {
     background-image: $home-body-bg;
-    min-height: 100vh;
     background-size: contain;
     color: var(--font-text-color);
     overflow-x: hidden;
     font-family: var(--font-style-regular);
 
-    & h1{
+    & h1 {
         font-size: var(--font-size-h1);
     }
 
-    & h2{
+    & h2 {
         font-size: var(--font-size-h2);
     }
 
