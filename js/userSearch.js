@@ -90,8 +90,8 @@ const searchUser = async () => {
 
 const triggerSearchByEnter = (event) => {
     if (event.key === 'Enter') {
-        searchUser();
         searchInput.blur();
+        searchUser();
     }
 };
 
