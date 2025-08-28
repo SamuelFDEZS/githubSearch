@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Github Search</title>
+    <title>Inquiro</title>
     <link rel="stylesheet" href="../styles/base/main.css">
 </head>
-<body class="repo-search">
+<body class="body-help">
     <header class="header">
         <a href="./home.html" class="header__link">
             <img src="../assets/images/Inquiro_logo.png" alt="" class="header__link__image">
@@ -23,7 +23,7 @@
                         class="header__nav__list__item__link">Users</a></li>
                 <li class="header__nav__list__item"><a href="./repoSearch.html"
                         class="header__nav__list__item__link">Repositories</a></li>
-                <li class="header__nav__list__item"><a href="./help.html" class="header__nav__list__item__link">Help</a>
+                <li class="header__nav__list__item"><a href="./home.html" class="header__nav__list__item__link">Help</a>
                 </li>
             </ul>
         </nav>
@@ -45,28 +45,43 @@
         </div>
     </header>
 
-    <section class="reposearch-container">
-        <aside class="reposearch-container__mode-container">
-            <h3 class="reposearch-container__mode-container__title">Search mode</h3>
-            <ul class="reposearch-container__mode-container__modes">
-                <li class="reposearch-container__mode-container__modes__mode">Precise Search</li>
-                <li class="reposearch-container__mode-container__modes__mode">Approx Search</li>
-            </ul>
+    <section class="help">
+        <aside class="help__menu">
+            <button class="help__menu__option">Profile</button>
+            <button class="help__menu__option">Logout</button>
         </aside>
-        <input type="text" class="reposearch-container__input" maxlength="39">
-        <span class="reposearch-container__placeholder">Repo search</span>
-        <button class="reposearch-container__button"><span
-                class="fa-solid fa-magnifying-glass reposearch-container__button__icon"></span></button>
-    </section>
-    <span class="input-error"></span>
 
-    <section class="reposearch-results"></section>
-    <div class="repo-popup"></div>
-    <div class="grey-filter"></div>
-    <section class="move-page">
-        <button class="move-page__button move-page__button--left"><span class="fa-solid fa-angle-left" style="color: #0d0d0d;"></span></button>
-        <button class="move-page__button move-page__button--right visible"><span class="fa-solid fa-angle-right" style="color: #0d0d0d;"></span></button>
+        <section class="help__info">
+            <div class="help__info__fields-container">
+                <article class="help__info__fields-container__field">
+                    <h4 class="help__info__fields-container__field__title">Username</h4>
+                    <input type="text" class="help__info__fields-container__field__input">
+                </article>
+
+                <article class="help__info__fields-container__field">
+                    <h4 class="help__info__fields-container__field__title">Nickname</h4>
+                    <input type="text" class="help__info__fields-container__field__input">
+                </article>
+
+                <article class="help__info__fields-container__field">
+                    <h4 class="help__info__fields-container__field__title">Password</h4>
+                    <input type="text" class="help__info__fields-container__field__input">
+                </article>
+
+                <article class="help__info__fields-container__field">
+                    <h4 class="help__info__fields-container__field__title">Phone</h4>
+                    <input type="text" class="help__info__fields-container__field__input">
+                </article>
+            </div>
+
+            <div class="help__info__button-container">
+                <button class="help__info__button-container__button">Discard Changes</button>
+                <button class="help__info__button-container__button">Save Changes</button>
+            </div>
+        </section>
     </section>
+
+
 
     <footer class="footer">
         <div class="footer__left">
@@ -109,9 +124,7 @@
         <div class="footer__horizontal-line"></div>
     </footer>
 
-    <script type="module" src="../js/token.js"></script>
     <script src="https://kit.fontawesome.com/6785b831dc.js" crossorigin="anonymous"></script>
-    <script type="module" src="../js/repoSearch.js"></script>
     <script src="../js/currentUser.js"></script>
 </body>
 </html>

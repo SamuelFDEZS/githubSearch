@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Github Search</title>
-    <link rel="stylesheet" href="../styles/base/main.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../styles/base/main.css">
 </head>
-<body class="repo-search">
+
+<body class="body-help">
     <header class="header">
-        <a href="./home.html" class="header__link">
-            <img src="../assets/images/Inquiro_logo.png" alt="" class="header__link__image">
+        <a href="../home.html" class="header__link">
+            <img src="../../assets/images/Inquiro_logo.png" alt="" class="header__link__image">
             <h1 class="header__link__title">Inquiro</h1>
         </a>
 
@@ -17,13 +19,13 @@
 
         <nav class="header__nav">
             <ul class="header__nav__list">
-                <li class="header__nav__list__item"><a href="./home.html" class="header__nav__list__item__link">Home</a>
+                <li class="header__nav__list__item"><a href="../home.html" class="header__nav__list__item__link">Home</a>
                 </li>
-                <li class="header__nav__list__item"><a href="./userSearch.html"
+                <li class="header__nav__list__item"><a href="../userSearch.html"
                         class="header__nav__list__item__link">Users</a></li>
-                <li class="header__nav__list__item"><a href="./repoSearch.html"
+                <li class="header__nav__list__item"><a href="../repoSearch.html"
                         class="header__nav__list__item__link">Repositories</a></li>
-                <li class="header__nav__list__item"><a href="./help.html" class="header__nav__list__item__link">Help</a>
+                <li class="header__nav__list__item"><a href="../help.html" class="header__nav__list__item__link">Help</a>
                 </li>
             </ul>
         </nav>
@@ -45,32 +47,39 @@
         </div>
     </header>
 
-    <section class="reposearch-container">
-        <aside class="reposearch-container__mode-container">
-            <h3 class="reposearch-container__mode-container__title">Search mode</h3>
-            <ul class="reposearch-container__mode-container__modes">
-                <li class="reposearch-container__mode-container__modes__mode">Precise Search</li>
-                <li class="reposearch-container__mode-container__modes__mode">Approx Search</li>
+    <section class="help">
+        <aside class="help__menu">
+            <ul class="help__menu__list">
+                <li class="help__menu__list__item"><a href="./help-home.html">Home</a></li>
+                <li class="help__menu__list__item"><a href="./help-users.html">Users</a></li>
+                <li class="help__menu__list__item"><a href="./help-repos.html">Repositories</a></li>
+                <li class="help__menu__list__item"><a href="./help-config.html">Configuration</a></li>
+                <li class="help__menu__list__item"><a href="./help-login.html">Login</a></li>
+                <li class="help__menu__list__item help__menu__list__item--selected"><a href="./help-register.html">Register</a></li>
+                <li class="help__menu__list__item"><a href="./help-logout.html">Logout</a></li>
             </ul>
         </aside>
-        <input type="text" class="reposearch-container__input" maxlength="39">
-        <span class="reposearch-container__placeholder">Repo search</span>
-        <button class="reposearch-container__button"><span
-                class="fa-solid fa-magnifying-glass reposearch-container__button__icon"></span></button>
-    </section>
-    <span class="input-error"></span>
 
-    <section class="reposearch-results"></section>
-    <div class="repo-popup"></div>
-    <div class="grey-filter"></div>
-    <section class="move-page">
-        <button class="move-page__button move-page__button--left"><span class="fa-solid fa-angle-left" style="color: #0d0d0d;"></span></button>
-        <button class="move-page__button move-page__button--right visible"><span class="fa-solid fa-angle-right" style="color: #0d0d0d;"></span></button>
+        <main class="help__info">
+            <div class="help__info__container">
+                <h1 class="help__info__container__title">Sign Up</h1>
+                <p class="help__info__container__text help__info__container__text--register-info">
+                    In the Sign Up page, you will find the following view:
+
+                </p>
+                <img src="../../assets/images/Help/sections/register/register-1.png" alt="Help picture" class="help__info__container__image--register help__info__container__image--register--first">
+
+                <p class="help__info__container__text help__info__container__text--register-info">
+                    The view compared to the login page is almost the same, but you will need to set some more fields, the username and password are the same you will use for you login, and the NickName and phone number can be modified in <a href="./help-config.html">configurations</a>. Nickname and Phone Number will not affect anything into the app, but will be need to be put in order to Sign Up. After Signing up, we'll be leaded to the login page.
+                </p>
+                <img src="../../assets/images/Help/sections/register/register-2.png" alt="Help picture" class="help__info__container__image--register help__info__container__image--register--second">
+            </div>
+        </main>
     </section>
 
     <footer class="footer">
         <div class="footer__left">
-            <a href="./home.html" class="footer__left__link">
+            <a href="../home.html" class="footer__left__link">
                 <div class="footer__left__link__image">
                     <h1 class="footer__left__link__image__title">Inquiro</h1>
                 </div>
@@ -109,9 +118,8 @@
         <div class="footer__horizontal-line"></div>
     </footer>
 
-    <script type="module" src="../js/token.js"></script>
     <script src="https://kit.fontawesome.com/6785b831dc.js" crossorigin="anonymous"></script>
-    <script type="module" src="../js/repoSearch.js"></script>
-    <script src="../js/currentUser.js"></script>
+    <script src="../../js/currentUser.js"></script>
 </body>
+
 </html>

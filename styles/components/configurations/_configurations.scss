@@ -1,0 +1,69 @@
+.configurations {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    border: 3px solid white;
+
+    &__menu {
+        width: 15%;
+        border: 3px solid white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        &__option {
+            width: 70%;
+            height: 5%;
+            border: 0;
+            outline: none;
+            background: transparent;
+            color: white;
+            font-family: var(--font-style-semiBold);
+            font-size: 1.4rem;
+            border: 1px solid white;
+            cursor: pointer;
+            transition: 0.3s ease;
+            position: relative;
+            border-radius: 10px;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                z-index: -1;
+                height: 100%;
+                opacity: 0;
+                visibility: hidden;
+                background: linear-gradient(220.55deg, #8A88FB 0%, #D079EE 100%);
+                transition: 0.3s ease;
+                border-radius: 10px;
+            }
+
+            &:hover {
+                scale: 1.05;
+
+                &::before {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            &--selected{
+                background: linear-gradient(220.55deg, #8A88FB 0%, #D079EE 100%);
+                transition: 0.3s ease;
+            }
+
+            &:first-child {
+                margin-top: 15%;
+            }
+
+            &:last-child {
+                margin-bottom: 20%;
+            }
+        }
+    }
+}

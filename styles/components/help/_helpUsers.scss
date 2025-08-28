@@ -1,0 +1,25 @@
+.help__info {
+    &__container {
+        &__image--userSearch {
+            border: 2px solid white;
+            border-radius: 10px;
+            width: 65%;
+
+            &--sixth{
+                width: 50%;
+            }
+            &--seventh{
+                width: 40%;
+            }
+            &--tenth{
+                width: 50%;
+            }
+            &--eleventh{
+                width: 50%;
+            }
+            &--twelfth{
+                width: 50%;
+            }
+        }
+    }
+}

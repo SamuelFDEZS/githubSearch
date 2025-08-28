@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Github Search</title>
+    <title>Document</title>
     <link rel="stylesheet" href="../styles/base/main.css">
 </head>
-<body class="repo-search">
+
+<body class="body-help">
     <header class="header">
         <a href="./home.html" class="header__link">
             <img src="../assets/images/Inquiro_logo.png" alt="" class="header__link__image">
@@ -45,27 +47,34 @@
         </div>
     </header>
 
-    <section class="reposearch-container">
-        <aside class="reposearch-container__mode-container">
-            <h3 class="reposearch-container__mode-container__title">Search mode</h3>
-            <ul class="reposearch-container__mode-container__modes">
-                <li class="reposearch-container__mode-container__modes__mode">Precise Search</li>
-                <li class="reposearch-container__mode-container__modes__mode">Approx Search</li>
+    <section class="help">
+        <aside class="help__menu">
+            <ul class="help__menu__list">
+                <li class="help__menu__list__item"><a href="./help/help-home.html">Home</a></li>
+                <li class="help__menu__list__item"><a href="./help/help-users.html">Users</a></li>
+                <li class="help__menu__list__item"><a href="./help/help-repos.html">Repositories</a></li>
+                <li class="help__menu__list__item"><a href="./help/help-config.html">Configuration</a></li>
+                <li class="help__menu__list__item"><a href="./help/help-login.html">Login</a></li>
+                <li class="help__menu__list__item"><a href="./help/help-register.html">Register</a></li>
+                <li class="help__menu__list__item"><a href="./help/help-logout.html">Logout</a></li>
             </ul>
         </aside>
-        <input type="text" class="reposearch-container__input" maxlength="39">
-        <span class="reposearch-container__placeholder">Repo search</span>
-        <button class="reposearch-container__button"><span
-                class="fa-solid fa-magnifying-glass reposearch-container__button__icon"></span></button>
-    </section>
-    <span class="input-error"></span>
 
-    <section class="reposearch-results"></section>
-    <div class="repo-popup"></div>
-    <div class="grey-filter"></div>
-    <section class="move-page">
-        <button class="move-page__button move-page__button--left"><span class="fa-solid fa-angle-left" style="color: #0d0d0d;"></span></button>
-        <button class="move-page__button move-page__button--right visible"><span class="fa-solid fa-angle-right" style="color: #0d0d0d;"></span></button>
+        <main class="help__info">
+            <div class="help__info__container">
+                <h1 class="help__info__container__title">Help page</h1>
+                <p class="help__info__container__text help__info__container__text--help-info">
+                    Here in help page you will find information about every part and functionality of the application, to use
+                    help page just select one of the following menu options on the side
+                </p>
+                <img src="../assets/images/Help/sections/help/help-1.png" alt="Help picture" class="help__info__container__image--help help__info__container__image--help--first">
+                <p class="help__info__container__text help__info__container__text--help-info">
+                    Once you have selected an option, you will find information about this section of the page, for example the <a href="./help/help-home.html">home page</a>:
+                </p>
+
+                <img src="../assets/images/Help/sections/help/help-2.png" alt="Help picture" class="help__info__container__image--help help__info__container__image--help--second">
+            </div>
+        </main>
     </section>
 
     <footer class="footer">
@@ -109,9 +118,8 @@
         <div class="footer__horizontal-line"></div>
     </footer>
 
-    <script type="module" src="../js/token.js"></script>
     <script src="https://kit.fontawesome.com/6785b831dc.js" crossorigin="anonymous"></script>
-    <script type="module" src="../js/repoSearch.js"></script>
     <script src="../js/currentUser.js"></script>
 </body>
+
 </html>

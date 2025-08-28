@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../styles/base/main.css">
+</head>
+
+<body class="body-help">
+    <header class="header">
+        <a href="../home.html" class="header__link">
+            <img src="../../assets/images/Inquiro_logo.png" alt="" class="header__link__image">
+            <h1 class="header__link__title">Inquiro</h1>
+        </a>
+
+        <div class="header__filter"></div>
+
+        <nav class="header__nav">
+            <ul class="header__nav__list">
+                <li class="header__nav__list__item"><a href="../home.html" class="header__nav__list__item__link">Home</a>
+                </li>
+                <li class="header__nav__list__item"><a href="../userSearch.html"
+                        class="header__nav__list__item__link">Users</a></li>
+                <li class="header__nav__list__item"><a href="../repoSearch.html"
+                        class="header__nav__list__item__link">Repositories</a></li>
+                <li class="header__nav__list__item"><a href="../help.html" class="header__nav__list__item__link">Help</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__btn-container login__element__hidden">
+            <button class="header__btn-container__login" onclick="window.location.href='login.html'">Log in</button>
+            <button class="header__btn-container__register" onclick="window.location.href='signup.html'">Sign
+                up</button>
+        </div>
+
+        <div class="header__user-container">
+            <span class="fa-solid fa-user-large header__user-container__user-icon login__element__hidden"></span>
+            <div class="header__user-container__nickname login__element__hidden"></div>
+            <span class="fa-solid fa-angle-down header__user-container__arrow"></span>
+
+            <ul class="header__user-container__user-menu">
+                <li class="header__user-container__user-menu__item">Config</li>
+                <li class="header__user-container__user-menu__item">Logout</li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="help">
+        <aside class="help__menu">
+            <ul class="help__menu__list">
+                <li class="help__menu__list__item"><a href="./help-home.html">Home</a></li>
+                <li class="help__menu__list__item"><a href="./help-users.html">Users</a></li>
+                <li class="help__menu__list__item help__menu__list__item--selected"><a href="./help-repos.html">Repositories</a></li>
+                <li class="help__menu__list__item"><a href="./help-config.html">Configuration</a></li>
+                <li class="help__menu__list__item"><a href="./help-login.html">Login</a></li>
+                <li class="help__menu__list__item"><a href="./help-register.html">Register</a></li>
+                <li class="help__menu__list__item"><a href="./help-logout.html">Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="help__info">
+            <div class="help__info__container">
+                <h1 class="help__info__container__title">Repos Search</h1>
+                <p class="help__info__container__text help__info__container__text--repoSearch-info">
+                    The repos search section is a section created for searching repositories from its name. Here you will be able to find different repositories, and information about them
+                </p>
+                <img src="../../assets/images/Help/sections/repoSearch/repoSearch-1.png" alt="Help picture" class="help__info__container__image--repoSearch help__info__container__image--repoSearch--first">
+
+                <p class="help__info__container__text help__info__container__text--repoSearch-info">
+                    The core of this section is its search box, which will let us find what we're searching for
+                </p>
+                <img src="../../assets/images/Help/sections/repoSearch/repoSearch-2.png" alt="Help picture" class="help__info__container__image--repoSearch help__info__container__image--repoSearch--second">
+
+                <p class="help__info__container__text help__info__container__text--repoSearch-info">
+                    We have here a main difference compared to the userSearch section, which is the search mode dropdown
+                </p>
+                <img src="../../assets/images/Help/sections/repoSearch/repoSearch-3.png" alt="Help picture" class="help__info__container__image--repoSearch help__info__container__image--repoSearch--third">
+
+                <p class="help__info__container__text help__info__container__text--repoSearch-info">
+                    This dropdown is for selecting how you want to search, wether if you want a precise search, or approximated. By default, the section will search for approximated search, but if you change it, you can find a specific repository if you write the full repo name, which would be the same you see when you search. The format is: username/repository-name
+                </p>
+                <img src="../../assets/images/Help/sections/repoSearch/repoSearch-4.png" alt="Help picture" class="help__info__container__image--repoSearch help__info__container__image--repoSearch--fourth">
+
+                <p class="help__info__container__text help__info__container__text--repoSearch-info">
+                    You'll see information about the repos found
+                </p>
+                <img src="../../assets/images/Help/sections/repoSearch/repoSearch-5.png" alt="Help picture" class="help__info__container__image--repoSearch help__info__container__image--repoSearch--fifth">
+
+                <p class="help__info__container__text help__info__container__text--repoSearch-info">
+                    If you click on any item, a popup with more detailed information about the repository will be opened
+                </p>
+                <img src="../../assets/images/Help/sections/repoSearch/repoSearch-6.png" alt="Help picture" class="help__info__container__image--repoSearch help__info__container__image--repoSearch--sixth">
+
+                <p class="help__info__container__text help__info__container__text--repoSearch-info">
+                    As you can see, we have two buttons at the bottom of the popup.
+                </p>
+                <img src="../../assets/images/Help/sections/repoSearch/repoSearch-7.png" alt="Help picture" class="help__info__container__image--repoSearch help__info__container__image--repoSearch--seventh">
+                <p class="help__info__container__text help__info__container__text--repoSearch-info">
+                    If you click the first button, as said, you'll see the selected repository inside github
+                </p>
+                <img src="../../assets/images/Help/sections/repoSearch/repoSearch-8.png" alt="Help picture" class="help__info__container__image--repoSearch help__info__container__image--repoSearch--eigth">
+                <p class="help__info__container__text help__info__container__text--repoSearch-info">
+                    And if you click on the second button, in case it exists, it will open the repo homepage, for you to be able to test it in case it has a hompage attached
+                </p>
+                <img src="../../assets/images/Help/sections/repoSearch/repoSearch-9.png" alt="Help picture" class="help__info__container__image--repoSearch help__info__container__image--repoSearch--nineth">
+                <p class="help__info__container__text help__info__container__text--repoSearch-info">
+                    In case it doesn't have a homepage, you will only see one button to open the repository
+                </p>
+                <img src="../../assets/images/Help/sections/repoSearch/repoSearch-10.png" alt="Help picture" class="help__info__container__image--repoSearch help__info__container__image--repoSearch--tenth">
+
+                <p class="help__info__container__text help__info__container__text--repoSearch-info">
+                    Finally, as on the userSearch section, we have the navigation buttons, to go to the next, or previous page
+                </p>
+                <img src="../../assets/images/Help/sections/repoSearch/repoSearch-11.png" alt="Help picture" class="help__info__container__image--repoSearch help__info__container__image--repoSearch--eleventh">
+            </div>
+        </main>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__left">
+            <a href="../home.html" class="footer__left__link">
+                <div class="footer__left__link__image">
+                    <h1 class="footer__left__link__image__title">Inquiro</h1>
+                </div>
+            </a>
+            <div class="footer__left__copyright">©Copyright. All rights reserved</div>
+
+            <div class="footer__left__vertical-line"></div>
+        </div>
+
+        <div class="footer__list-container">
+            <div class="footer__list-container__list footer__list-container__list-1">
+                <h3 class="footer__list-container__list__title">About SeekFind</h3>
+                <span class="footer__list-container__list__item">Contact us</span>
+                <span class="footer__list-container__list__item">SeekFind blog</span>
+                <span class="footer__list-container__list__item">Employment</span>
+            </div>
+            <div class="footer__list-container__list footer__list-container__list-2">
+                <h3 class="footer__list-container__list__title">Support</h3>
+                <span class="footer__list-container__list__item">Product Support</span>
+                <span class="footer__list-container__list__item">Resources</span>
+            </div>
+            <div class="footer__list-container__list footer__list-container__list-3">
+                <h3 class="footer__list-container__list__title">Account</h3>
+                <span class="footer__list-container__list__item">My searches</span>
+                <span class="footer__list-container__list__item">Create account</span>
+                <span class="footer__list-container__list__item">Delete Account</span>
+            </div>
+
+            <div class="footer__list-container__social-media">
+                <span class="fa-brands fa-facebook"></span>
+                <span class="fa-brands fa-instagram"></span>
+                <span class="fa-brands fa-x-twitter"></span>
+                <span class="fa-brands fa-youtube"></span>
+            </div>
+        </div>
+        <div class="footer__horizontal-line"></div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/6785b831dc.js" crossorigin="anonymous"></script>
+    <script src="../../js/currentUser.js"></script>
+</body>
+
+</html>
