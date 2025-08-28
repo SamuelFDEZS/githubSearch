@@ -95,17 +95,6 @@ const triggerSearchByEnter = (event) => {
     }
 };
 
-const getTotalPages = (response) => {
-    const linkHeader = response.headers.get('Link');
-    const lastPageMatch = linkHeader ? linkHeader.match(/&page=(\d+)>; rel="last"/) : null;
-
-    if (lastPageMatch) {
-        return parseInt(lastPageMatch[1], 10);
-    }
-
-    return 1;
-};
-
 const getUserCount = async (url) => {
     try {
         const response = await fetch(url);
