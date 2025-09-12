@@ -7,6 +7,7 @@ module.exports = {
     extends: ['standard'],
     rules: {
         indent: ['error', 4],
-        semi: ['error', 'always']
+        semi: ['error', 'always'],
+        'prefer-const': 'off'
     }
 };
