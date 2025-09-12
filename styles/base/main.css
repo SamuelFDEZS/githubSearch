@@ -1978,6 +1978,8 @@ body.body-help p {
 }
 .configurations__menu__option:last-child {
   margin-bottom: 20%;
+<<<<<<< Updated upstream
+=======
 }
 .configurations__info {
   width: 100%;
@@ -2024,7 +2026,6 @@ body.body-help p {
   width: 100%;
   height: 10%;
   display: flex;
-  justify-content: center;
   align-items: center;
   justify-content: space-around;
 }
@@ -2183,4 +2184,5 @@ body.body-help p {
   -webkit-backdrop-filter: brightness(0.5);
           backdrop-filter: brightness(0.5);
   z-index: 8;
+>>>>>>> Stashed changes
 }/*# sourceMappingURL=main.css.map */
