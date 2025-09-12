@@ -20,6 +20,6 @@ form.addEventListener('submit', (event) => {
     } else {
         checkbox.checked ? localStorage.setItem('currentUser', JSON.stringify(userList[userIndex])) : sessionStorage.setItem('currentUser', JSON.stringify(userList[userIndex]));
 
-        window.location.href = 'home.html';
+        window.location.href = '../index.html';
     }
 });
