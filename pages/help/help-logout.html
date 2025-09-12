@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiro</title>
+    <link rel="stylesheet" href="../../styles/base/main.css">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+</head>
+
+<body class="body-help">
+    <header class="header">
+        <a href="../../index.html" class="header__link">
+            <img src="../../assets/images/Inquiro_logo.png" alt="" class="header__link__image">
+            <h1 class="header__link__title">Inquiro</h1>
+        </a>
+
+        <div class="header__filter"></div>
+
+        <nav class="header__nav">
+            <ul class="header__nav__list">
+                <li class="header__nav__list__item"><a href="../../index.html" class="header__nav__list__item__link">Home</a>
+                </li>
+                <li class="header__nav__list__item"><a href="../userSearch.html"
+                        class="header__nav__list__item__link">Users</a></li>
+                <li class="header__nav__list__item"><a href="../repoSearch.html"
+                        class="header__nav__list__item__link">Repositories</a></li>
+                <li class="header__nav__list__item"><a href="../help.html" class="header__nav__list__item__link">Help</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__btn-container login__element__hidden">
+            <button class="header__btn-container__login" onclick="window.location.href='login.html'">Log in</button>
+            <button class="header__btn-container__register" onclick="window.location.href='signup.html'">Sign
+                up</button>
+        </div>
+
+        <div class="header__user-container">
+            <span class="fa-solid fa-user-large header__user-container__user-icon login__element__hidden"></span>
+            <div class="header__user-container__nickname login__element__hidden"></div>
+            <span class="fa-solid fa-angle-down header__user-container__arrow"></span>
+
+            <ul class="header__user-container__user-menu">
+                <li class="header__user-container__user-menu__item"><a href="../configurations.html">Config</a></li>
+                <li class="header__user-container__user-menu__item">Logout</li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="help">
+        <aside class="help__menu">
+            <ul class="help__menu__list">
+                <li class="help__menu__list__item"><a href="./help-home.html">Home</a></li>
+                <li class="help__menu__list__item"><a href="./help-users.html">Users</a></li>
+                <li class="help__menu__list__item"><a href="./help-repos.html">Repositories</a></li>
+                <li class="help__menu__list__item"><a href="./help-config.html">Configuration</a></li>
+                <li class="help__menu__list__item"><a href="./help-login.html">Login</a></li>
+                <li class="help__menu__list__item"><a href="./help-register.html">Register</a></li>
+                <li class="help__menu__list__item help__menu__list__item--selected"><a href="./help-logout.html">Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="help__info">
+            <div class="help__info__container">
+                <h1 class="help__info__container__title">Sign Up</h1>
+                <p class="help__info__container__text help__info__container__text--logout-info">
+                    In order to logout, you have to click on the user's dropdown, and click over the logout button
+
+                </p>
+                <img src="../../assets/images/Help/sections/logout/logout-1.png" alt="Help picture" class="help__info__container__image--logout help__info__container__image--logout--first">
+
+                <p class="help__info__container__text help__info__container__text--logout-info">
+                    After clicking, a popup will display asking for confirmation, if you click on No, the popup will close itself
+                </p>
+                <img src="../../assets/images/Help/sections/logout/logout-2.png" alt="Help picture" class="help__info__container__image--logout help__info__container__image--logout--second">
+
+                <p class="help__info__container__text help__info__container__text--logout-info">
+                    Besides if you click on yes, you will be logged out of the application
+                </p>
+                <img src="../../assets/images/Help/sections/logout/logout-3.png" alt="Help picture" class="help__info__container__image--logout help__info__container__image--logout--third">
+            </div>
+        </main>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__left">
+            <a href="../../index.html" class="footer__left__link">
+                <div class="footer__left__link__image">
+                    <h1 class="footer__left__link__image__title">Inquiro</h1>
+                </div>
+            </a>
+            <div class="footer__left__copyright">©Copyright. All rights reserved</div>
+
+            <div class="footer__left__vertical-line"></div>
+        </div>
+
+        <div class="footer__list-container">
+            <div class="footer__list-container__list footer__list-container__list-1">
+                <h3 class="footer__list-container__list__title">About SeekFind</h3>
+                <span class="footer__list-container__list__item">Contact us</span>
+                <span class="footer__list-container__list__item">SeekFind blog</span>
+                <span class="footer__list-container__list__item">Employment</span>
+            </div>
+            <div class="footer__list-container__list footer__list-container__list-2">
+                <h3 class="footer__list-container__list__title">Support</h3>
+                <span class="footer__list-container__list__item">Product Support</span>
+                <span class="footer__list-container__list__item">Resources</span>
+            </div>
+            <div class="footer__list-container__list footer__list-container__list-3">
+                <h3 class="footer__list-container__list__title">Account</h3>
+                <span class="footer__list-container__list__item">My searches</span>
+                <span class="footer__list-container__list__item">Create account</span>
+                <span class="footer__list-container__list__item">Delete Account</span>
+            </div>
+
+            <div class="footer__list-container__social-media">
+                <span class="fa-brands fa-facebook"></span>
+                <span class="fa-brands fa-instagram"></span>
+                <span class="fa-brands fa-x-twitter"></span>
+                <span class="fa-brands fa-youtube"></span>
+            </div>
+        </div>
+        <div class="footer__horizontal-line"></div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/6785b831dc.js" crossorigin="anonymous"></script>
+    <script src="../../js/currentUser.js"></script>
+</body>
+
+</html>

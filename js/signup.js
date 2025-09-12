@@ -1,5 +1,5 @@
-let errorElement = document.querySelector('.signup-container__signup-status');
-let form = document.querySelector('.signup-container');
+const errorElement = document.querySelector('.signup-container__signup-status');
+const form = document.querySelector('.signup-container');
 let userExists = false;
 let formData = null;
 let users = [];
@@ -13,17 +13,17 @@ form.addEventListener('submit', (event) => {
 
         userExists = users.some(user => user.username === formData.get('username'));
 
-        if(userExists) errorElement.classList.add('status-error');
+        if (userExists) errorElement.classList.add('status-error');
     }
 
-    if(!userExists){
+    if (!userExists) {
         errorElement.classList.add('status-successfull');
         errorElement.classList.remove('status-error');
 
         const userData = Array.from(formData.entries()).reduce((acc, [key, value]) => {
             acc[key] = value;
             return acc;
-        }, {})
+        }, {});
 
         users.push(userData);
 
@@ -34,4 +34,4 @@ form.addEventListener('submit', (event) => {
     }
 
     errorElement.classList.remove('status-hidden');
-})
+});

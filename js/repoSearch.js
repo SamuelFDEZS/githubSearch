@@ -95,23 +95,31 @@ const getData = async (searchValue, repoName, isSingleRepo) => {
     if (isSingleRepo) {
     // repoName = 'owner/repo'
         const [owner, repo] = repoName.split('/');
-        url = `http://localhost:3000/api/repo?owner=${owner}&repo=${repo}`;
+        url = `https://github-search-backend-lfukydtyf-samuelfdezs-projects.vercel.app/api/repo?owner=${owner}&repo=${repo}`;
     } else if (searchMode === 'precisesearch') {
         if (searchValue.length !== 2) {
             repoSearchResults.innerHTML = '<span class="reposearch-results__incorrect-format">Incorrect format</span>';
             return;
         }
-        url = `http://localhost:3000/api/repo?owner=${searchValue[0]}&repo=${searchValue[1]}`;
+        url = `https://github-search-backend-lfukydtyf-samuelfdezs-projects.vercel.app/api/repo?owner=${searchValue[0]}&repo=${searchValue[1]}`;
     } else {
-        url = `http://localhost:3000/api/search-repos?q=${searchValue[0]}&per_page=30&page=${resultPage}`;
+        url = `https://github-search-backend-lfukydtyf-samuelfdezs-projects.vercel.app/api/search-repos?q=${searchValue[0]}&per_page=30&page=${resultPage}`;
     }
 
     try {
         const response = await fetch(url);
+        let hasNextPage = null;
 
         if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
         const data = await response.json();
         linkHeader = response.headers.get('Link');
+        hasNextPage = linkHeader && linkHeader.includes('rel="next"');
+
+        if (hasNextPage) {
+            movePageRight.classList.add('visible');
+        } else {
+            movePageRight.classList.remove('visible');
+        }
         if (isSingleRepo) return data;
         return (data && data.items) || [data];
     } catch (error) {
@@ -286,17 +294,12 @@ const previousPage = () => {
 };
 
 const nextPage = () => {
-    const isLastPage = !linkHeader || !linkHeader.includes('rel="next"');
-    if (!isLastPage) {
-        resultPage += 1;
-        if (resultPage > 1) movePageLeft.classList.add('visible');
-        requestAnimationFrame(() => {
-            window.scrollTo(0, 0);
-        });
-        searchRepo();
-    } else {
-        movePageRight.classList.remove('visible');
-    }
+    resultPage += 1;
+    if (resultPage > 1) movePageLeft.classList.add('visible');
+    requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+    });
+    searchRepo();
 };
 
 const init = () => {

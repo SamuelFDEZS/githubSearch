@@ -48,8 +48,8 @@ const handleInputValidation = () => {
 const getData = async (value, isSingleUser) => {
     try {
         const url = isSingleUser
-            ? `http://localhost:3000/api/user?username=${value}`
-            : `http://localhost:3000/api/search-users?q=${value}&per_page=20&page=${resultPage}`;
+            ? `https://github-search-backend-lfukydtyf-samuelfdezs-projects.vercel.app/api/user?username=${value}`
+            : `https://github-search-backend-lfukydtyf-samuelfdezs-projects.vercel.app/api/search-users?q=${value}&per_page=20&page=${resultPage}`;
 
         let response = null;
         let data = null;
@@ -65,7 +65,6 @@ const getData = async (value, isSingleUser) => {
         }
 
         data = await response.json();
-        console.log(data);
         if (!data && !data.items) {
             searchResultContainer.innerHTML = 'User not found';
         }
@@ -107,7 +106,7 @@ const getUserCount = async (url) => {
 };
 
 const getUserSummary = async (username) => {
-    const response = await fetch(`http://localhost:3000/api/user/summary?username=${username}`);
+    const response = await fetch(`https://github-search-backend-lfukydtyf-samuelfdezs-projects.vercel.app/api/user/summary?username=${username}`);
     const data = await response.json();
     return data;
 };
@@ -119,14 +118,13 @@ const createUserCards = async (data) => {
         const username = item.login;
         const [summary, eventsCount] = await Promise.all([
             getUserSummary(username),
-            getUserCount(`http://localhost:3000/api/user/received-events?username=${username}`)
+            getUserCount(`https://github-search-backend-lfukydtyf-samuelfdezs-projects.vercel.app/api/user/received-events?username=${username}`)
         ]);
         const userContent = [
             { text: 'Followers', info: summary.followers },
             { text: 'Repos', info: summary.public_repos },
             { text: 'Events', info: eventsCount }
         ];
-        console.log(userContent);
 
         const card = document.createElement('article');
         const img = document.createElement('img');
@@ -217,8 +215,8 @@ const createUserPopup = async (username) => {
     greyFilter.classList.add('show-filter');
     const [summary, eventsCount, subscriptionsCount] = await Promise.all([
         getUserSummary(username),
-        getUserCount(`http://localhost:3000/api/user/received-events?username=${username}`),
-        getUserCount(`http://localhost:3000/api/user/subscriptions?username=${username}`)
+        getUserCount(`https://github-search-backend-lfukydtyf-samuelfdezs-projects.vercel.app/api/user/received-events?username=${username}`),
+        getUserCount(`https://github-search-backend-lfukydtyf-samuelfdezs-projects.vercel.app/api/user/subscriptions?username=${username}`)
     ]);
 
     document.querySelector('#followersCount span.item-info').textContent = summary.followers;

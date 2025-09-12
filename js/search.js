@@ -16,11 +16,10 @@ const getData = async (url) => {
 
         if (response.ok) {
             data = await response.json();
-            console.log(data);
             return data.items.length ? data : null;
         }
     } catch (error) {
-        console.log(error);
+        console.error('Error fetching: ', error);
     }
 };
 
