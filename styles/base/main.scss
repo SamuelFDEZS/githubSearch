@@ -1,6 +1,7 @@
 // Base
 @import "./reset";
 @import "./variables";
+@import "./html";
 // Utils
 
 
@@ -65,3 +66,7 @@
 
 @import "../components/configurations/body";
 @import "../components/configurations/configurations";
+
+// Logout styles
+
+@import "../components/logout/logout";

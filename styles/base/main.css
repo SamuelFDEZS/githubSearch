@@ -159,6 +159,10 @@ table {
   --font-style-login-light: "Poppins-Light";
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .loader {
   width: 48px;
   height: 48px;
@@ -429,6 +433,15 @@ body.home p {
 }
 .header__user-container__user-menu__item:hover {
   background: rgba(0, 0, 0, 0.1);
+}
+.header__user-container__user-menu__item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  width: 100%;
+  height: 100%;
 }
 .header__user-container__user-menu.visible {
   opacity: 1;
@@ -1907,14 +1920,15 @@ body.body-help p {
 
 .configurations {
   width: 100%;
-  min-height: 80vh;
+  height: 88vh;
   display: flex;
   justify-content: space-between;
-  border: 3px solid white;
 }
 .configurations__menu {
   width: 15%;
-  border: 3px solid white;
+  border-right: 3px solid white;
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1934,6 +1948,9 @@ body.body-help p {
   transition: 0.3s ease;
   position: relative;
   border-radius: 10px;
+}
+.configurations__menu__option:first-child {
+  text-decoration: underline;
 }
 .configurations__menu__option::before {
   content: "";
@@ -1956,13 +1973,214 @@ body.body-help p {
   opacity: 1;
   visibility: visible;
 }
-.configurations__menu__option--selected {
-  background: linear-gradient(220.55deg, #8A88FB 0%, #D079EE 100%);
-  transition: 0.3s ease;
-}
 .configurations__menu__option:first-child {
   margin-top: 15%;
 }
 .configurations__menu__option:last-child {
   margin-bottom: 20%;
+}
+.configurations__info {
+  width: 100%;
+  height: 100%;
+}
+.configurations__info__fields-container {
+  width: 100%;
+  height: 98%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10%;
+  position: relative;
+}
+.configurations__info__fields-container__field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 15%;
+  gap: 20%;
+}
+.configurations__info__fields-container__field:first-child {
+  margin-top: 3%;
+}
+.configurations__info__fields-container__field__title {
+  font-size: 1.4rem;
+}
+.configurations__info__fields-container__field__input {
+  width: 35%;
+  padding-left: 2%;
+  padding-right: 2%;
+  height: 37%;
+  font-size: 1.3rem;
+  outline: none;
+  border-radius: 10px;
+  background: linear-gradient(220.55deg, #EAEAEA 0%, #8B8B8B 100%);
+  transition: background 0.3s;
+}
+.configurations__info__fields-container__field__input:focus {
+  background: white;
+}
+.configurations__info__fields-container__button-container {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+.configurations__info__fields-container__button-container__button {
+  position: relative;
+  width: 10%;
+  height: 80%;
+  outline: none;
+  cursor: pointer;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  background: white;
+  transition: all 0.3s;
+  border: 1px solid black;
+}
+.configurations__info__fields-container__button-container__button:first-child::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  background: linear-gradient(220.55deg, #FF0000 0%, #470000 100%);
+  transition: all 0.3s ease;
+  border-radius: 25px;
+}
+.configurations__info__fields-container__button-container__button:first-child:hover {
+  color: #fff;
+}
+.configurations__info__fields-container__button-container__button:last-child::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  background: linear-gradient(220.55deg, #8A88FB 0%, #D079EE 100%);
+  transition: all 0.3s ease;
+  border-radius: 25px;
+}
+.configurations__info__fields-container__button-container__button:hover {
+  scale: 1.05;
+}
+.configurations__info__fields-container__button-container__button:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.operation-status {
+  position: absolute;
+  width: 50%;
+  height: 5%;
+  bottom: 12%;
+  right: 50%;
+  transform: translateX(50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.operation-status__text {
+  font-size: 1.7rem;
+}
+.operation-status__text.error {
+  color: rgb(225, 0, 0);
+}
+.operation-status__text.success {
+  color: rgb(2, 254, 2);
+}
+
+.logout-confirmation {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 35vw;
+  height: 30vh;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  z-index: 9;
+}
+.logout-confirmation__title {
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 10%;
+}
+.logout-confirmation__button-container {
+  width: 70%;
+  height: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 12%;
+}
+.logout-confirmation__button-container__button {
+  width: 30%;
+  height: 80%;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  background-color: #000000;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  color: #fff;
+  transition: 0.3s ease;
+}
+.logout-confirmation__button-container__button:hover {
+  scale: 1.05;
+}
+.logout-confirmation__button-container__button span {
+  position: relative;
+  z-index: 6;
+  font-size: 1.1rem;
+}
+.logout-confirmation__button-container__button--discard::before, .logout-confirmation__button-container__button--confirm::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 0;
+}
+.logout-confirmation__button-container__button--discard:hover::before, .logout-confirmation__button-container__button--confirm:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+.logout-confirmation__button-container__button--discard::before {
+  background: linear-gradient(220.55deg, #ff0000 0%, #470000 100%);
+}
+.logout-confirmation__button-container__button--confirm::before {
+  background: linear-gradient(220.55deg, #8a88fb 0%, #d079ee 100%);
+}
+
+.logout-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  -webkit-backdrop-filter: brightness(0.5);
+          backdrop-filter: brightness(0.5);
+  z-index: 8;
 }/*# sourceMappingURL=main.css.map */
