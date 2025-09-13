@@ -11,9 +11,10 @@ form.addEventListener('submit', (event) => {
     if (localStorage.length > 0) {
         users = JSON.parse(localStorage.getItem('users'));
 
-        userExists = users.some(user => user.username === formData.get('username')) || '';
-
-        if (userExists) errorElement.classList.add('status-error');
+        if (users) {
+            userExists = users.some(user => user.username === formData.get('username'));
+            if (userExists) errorElement.classList.add('status-error');
+        }
     }
 
     if (!userExists) {
