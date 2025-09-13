@@ -51,7 +51,7 @@ const logoutUser = () => {
         sessionStorage.removeItem('currentUser');
     }
 
-    window.location.href = '../index.html';
+    window.location.href = '/index.html';
 };
 
 const handleUserLogout = () => {
