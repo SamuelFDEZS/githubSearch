@@ -9,7 +9,7 @@ form.addEventListener('submit', (event) => {
     formData = new FormData(form);
 
     if (localStorage.length > 0) {
-        users = JSON.parse(localStorage.getItem('users'));
+        users = JSON.parse(localStorage.getItem('users')) || [];
 
         if (users) {
             userExists = users.some(user => user.username === formData.get('username'));
