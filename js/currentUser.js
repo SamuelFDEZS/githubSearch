@@ -19,7 +19,7 @@ const handleCurrentUser = () => {
         item.addEventListener('click', (event) => {
             if (!currentUser) {
                 event.preventDefault();
-                window.location.href = 'login.html';
+                window.location.href = '/pages/login.html';
             }
         });
     });

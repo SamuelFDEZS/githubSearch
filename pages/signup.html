@@ -23,7 +23,7 @@
             <input type="text"
                 name="nickname"
                 class="signup-container__input-container__input signup-container__input-container__nick"
-                placeholder="Nickname" required pattern="^\S{5,}$" minlength="8"
+                placeholder="Nickname" required pattern="^\S{5,}$" minlength="4"
                 title="Must be at least 5 characters and no spaces">
 
             <input type="password"
@@ -34,7 +34,7 @@
             <input type="tel"
                 name="phone"
                 class="signup-container__input-container__input signup-container__input-container__phone"
-                placeholder="Phone number" required maxlength="9" minlength="9" pattern="\d{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                placeholder="Phone number" maxlength="9" minlength="9" pattern="\d{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
         </div>
 
         <span class="signup-container__signup-status status-hidden"></span>

@@ -8,13 +8,13 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
     formData = new FormData(form);
 
-    if (localStorage.length > 0) {
+    if (localStorage.getItem('users') !== null) {
         users = JSON.parse(localStorage.getItem('users')) || [];
+    }
 
-        if (users) {
-            userExists = users.some(user => user.username === formData.get('username'));
-            if (userExists) errorElement.classList.add('status-error');
-        }
+    if (users) {
+        userExists = users.some(user => user.username === formData.get('username'));
+        if (userExists) errorElement.classList.add('status-error');
     }
 
     if (!userExists) {
@@ -29,8 +29,10 @@ form.addEventListener('submit', (event) => {
         users.push(userData);
 
         localStorage.setItem('users', JSON.stringify(users));
+        localStorage.setItem('currentUser', JSON.stringify(userData));
+
         setTimeout(() => {
-            window.location.href = 'login.html';
+            window.location.href = '../index.html';
         }, 3000);
     }
 

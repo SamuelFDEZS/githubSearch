@@ -1,5 +1,3 @@
-import { GITHUB_TOKEN } from './token.js';
-
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
