@@ -1,23 +1,72 @@
-.welcome{
+.welcome {
     width: 100vw;
     margin-top: var(--container-vertical-margin);
     display: flex;
     flex-direction: column;
     align-items: center;
-    &__title{
+
+    &__title {
         font-size: var(--font-size-h1);
         text-align: center;
+
+        @include breakpoint(xl) {
+            font-size: 3.1rem;
+        }
+
+        @include breakpoint(pxl) {
+            font-size: 3.1rem;
+        }
+
+        @include breakpoint(lg) {
+            font-size: 2.8rem;
+        }
+
+        @include breakpoint(md) {
+            font-size: 2.5rem;
+        }
+
+        @include breakpoint(sm) {
+            font-size: 2.2rem;
+        }
+
+        @include breakpoint(xs) {
+            font-size: 2.2rem;
+        }
+
+        @include breakpoint(xxs) {
+            font-size: 2.2rem;
+        }
     }
 
-    &__paragraph{
+    &__paragraph {
         text-align: center;
         margin-top: 2%;
         font-size: var(--font-size-list-item);
+
+        @include breakpoint(lg) {
+            font-size: 1.3rem;
+        }
+
+        @include breakpoint(md) {
+            font-size: 1.2rem;
+        }
+
+        @include breakpoint(sm) {
+            font-size: 1.1rem;
+        }
+
+        @include breakpoint(xs) {
+            font-size: 0.9rem;
+        }
+
+        @include breakpoint(xxs) {
+            font-size: 0.9rem;
+        }
     }
 
-    &__login-btn{
+    &__login-btn {
         margin-top: 3%;
-        width: 25%;
+        width: 20%;
         height: 7vh;
         font-size: var(--font-size-list-item);
         border-radius: 10px;
@@ -27,9 +76,32 @@
         outline: none;
         transition: 0.3s;
 
-        &:hover{
+        @include breakpoint(md) {
+            font-size: 1rem;
+            height: 6vh;
+        }
+
+        @include breakpoint(sm) {
+            font-size: 1rem;
+            height: 5.5vh;
+        }
+
+        @include breakpoint(xs) {
+            width: 30%;
+            font-size: 0.9rem;
+            height: 5.5vh;
+        }
+
+        @include breakpoint(xxs) {
+            width: 30%;
+            font-size: 0.9rem;
+            height: 5.5vh;
+        }
+
+        &:hover {
             cursor: pointer;
-            background-color: var(--button-bg-hover);;
+            background-color: var(--button-bg-hover);
+            ;
         }
     }
 }

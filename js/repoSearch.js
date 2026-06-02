@@ -26,6 +26,7 @@ const searchModes = document.querySelector('.reposearch-container__mode-containe
 const greyFilter = document.querySelector('.grey-filter');
 const repoSearchResults = document.querySelector('.reposearch-results');
 const repoRegex = /^[a-zA-Z0-9](?:[-/]?[a-zA-Z0-9]){0,38}$/;
+
 let isCorrectInput = null;
 let searchMode = 'approxsearch';
 let resultPage = 1;

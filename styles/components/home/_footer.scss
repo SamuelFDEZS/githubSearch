@@ -7,10 +7,25 @@
     height: 70vh;
     background-color: #252424;
 
+    @include breakpoint(xs) {
+        height: 50vh;
+    }
+
+    @include breakpoint(xxs) {
+        height: 50vh;
+    }
     &__left {
         width: 25%;
         height: 100%;
         position: relative;
+
+        @include breakpoint(xs) {
+            margin-left: 2%;
+        }
+
+        @include breakpoint(xxs) {
+            margin-left: 2%;
+        }
 
         &__link {
             display: flex;
@@ -25,6 +40,14 @@
             position: relative;
             z-index: 3;
 
+            @include breakpoint(xs) {
+                margin-top: 60%;
+            }
+
+            @include breakpoint(xxs) {
+                margin-top: 60%;
+            }
+
             &__image {
                 width: 100%;
                 height: 100%;
@@ -35,21 +58,95 @@
                 align-items: flex-end;
                 justify-content: center;
 
+                @include breakpoint(md) {
+                    width: 60%;
+                    height: 80%;
+                }
+
+                @include breakpoint(sm) {
+                    width: 70%;
+                    height: 70%;
+                }
+
+                @include breakpoint(xs) {
+                    width: 90%;
+                    height: 70%;
+                }
+
+                @include breakpoint(xxs) {
+                    width: 90%;
+                    height: 70%;
+                }
+
                 &__title {
                     margin-bottom: 10%;
                     color: white;
+                    font-size: 4rem;
+
+                    @include breakpoint(xl) {
+                        font-size: 3.8rem;
+                    }
+
+                    @include breakpoint(pxl) {
+                        font-size: 3.5rem;
+                    }
+
+                    @include breakpoint(lg) {
+                        font-size: 3.2rem;
+                    }
+
+                    @include breakpoint(md) {
+                        font-size: 2.8rem;
+                    }
+
+                    @include breakpoint(sm) {
+                        font-size: 2.2rem;
+                    }
+
+                    @include breakpoint(xs) {
+                        font-size: 2rem;
+                    }
+
+                    @include breakpoint(xxs) {
+                        font-size: 2rem;
+                    }
                 }
             }
         }
 
-        &__copyright{
+        &__copyright {
             position: absolute;
             left: 4%;
             bottom: 2%;
             font-size: 0.9rem;
+            white-space: nowrap;
+
+            @include breakpoint(md) {
+                font-size: 0.8rem;
+                bottom: 3%;
+                left: 10%;
+            }
+
+            @include breakpoint(sm) {
+                font-size: 0.8rem;
+                bottom: 3%;
+                left: 10%;
+            }
+
+            @include breakpoint(xs) {
+                font-size: 0.7rem;
+                bottom: 3%;
+                left: 10%;
+            }
+
+            @include breakpoint(xxs) {
+                font-size: 0.7rem;
+                bottom: 3%;
+                left: 10%;
+            }
         }
 
-        &__vertical-line{
+        &__vertical-line {
             width: 100%;
             height: 60%;
             border-right: 3px solid white;
@@ -57,6 +154,14 @@
             top: 45%;
             transform: translate(0, -50%);
             z-index: 1;
+
+            @include breakpoint(xs) {
+                margin-left: 8%;
+            }
+
+            @include breakpoint(xxs) {
+                margin-left: 8%;
+            }
         }
     }
 
@@ -69,6 +174,18 @@
         justify-content: center;
         position: relative;
 
+        @include breakpoint(sm) {
+            margin-top: 20%;
+        }
+
+        @include breakpoint(xs) {
+            margin-top: 20%;
+        }
+
+        @include breakpoint(xxs) {
+            margin-top: 20%;
+        }
+
         &__list {
             width: 20%;
             display: flex;
@@ -78,20 +195,59 @@
 
             &__title {
                 font-size: var(--font-size-list-item);
+                text-align: center;
+
+                @include breakpoint(md) {
+                    font-size: 1rem;
+                    line-height: 130%;
+                }
+
+                @include breakpoint(sm) {
+                    font-size: 1rem;
+                    line-height: 150%;
+                }
+
+                @include breakpoint(xs) {
+                    font-size: 1rem;
+                    line-height: 150%;
+                }
+
+                @include breakpoint(xxs) {
+                    font-size: 1rem;
+                    line-height: 150%;
+                }
             }
 
-            &__item{
+            &__item {
                 display: block;
                 font-size: var(--font-size-base);
                 transition: all 0.3s;
-                &:hover{
+                text-align: center;
+
+                @include breakpoint(md) {
+                    font-size: 0.9rem;
+                }
+
+                @include breakpoint(sm) {
+                    font-size: 0.9rem;
+                }
+
+                @include breakpoint(xs) {
+                    font-size: 0.9rem;
+                }
+
+                @include breakpoint(xxs) {
+                    font-size: 0.9rem;
+                }
+
+                &:hover {
                     cursor: pointer;
                     text-decoration: underline;
                 }
             }
         }
 
-        &__social-media{
+        &__social-media {
             position: absolute;
             right: 0;
             bottom: 3%;
@@ -99,6 +255,22 @@
             gap: 5%;
             justify-content: center;
             width: 15%;
+
+            @include breakpoint(md) {
+                right: 5%;
+            }
+
+            @include breakpoint(sm) {
+                right: 5%;
+            }
+
+            @include breakpoint(xs) {
+                right: 10%;
+            }
+
+            @include breakpoint(xxs) {
+                right: 10%;
+            }
 
             & span {
                 cursor: pointer;
@@ -108,7 +280,7 @@
         }
     }
 
-    &__horizontal-line{
+    &__horizontal-line {
         position: absolute;
         width: 95%;
         border-top: 1px solid white;

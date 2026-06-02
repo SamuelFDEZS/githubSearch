@@ -1,3 +1,50 @@
 html {
     scroll-behavior: smooth;
 }
+
+.screen-size {
+    width: 10vw;
+    height: 15vh;
+    border: 1px solid white;
+    position: fixed;
+    top: 15%;
+    color: white;
+    left: 10%;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    &::before {
+        content: 'XXL';
+
+        @include breakpoint(xl) {
+            content: 'XL';
+        }
+
+        @include breakpoint(pxl) {
+            content: 'PXL';
+        }
+
+        @include breakpoint(lg) {
+            content: 'LG';
+        }
+
+        @include breakpoint(md) {
+            content: 'MD';
+        }
+
+        @include breakpoint(sm) {
+            content: 'SM';
+        }
+
+        @include breakpoint(xs) {
+            content: 'XS';
+        }
+
+        @include breakpoint(xxs) {
+            content: 'XXS';
+        }
+    }
+}

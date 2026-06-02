@@ -12,6 +12,39 @@
         line-height: 125%;
         text-align: center;
         align-self: center;
+
+        @include breakpoint(xl) {
+            font-size: 3rem;
+        }
+
+        @include breakpoint(pxl) {
+            font-size: 2.8rem;
+        }
+
+        @include breakpoint(lg) {
+            font-size: 2.8rem;
+            width: 55%;
+        }
+
+        @include breakpoint(md) {
+            font-size: 2.5rem;
+            width: 60%;
+        }
+
+        @include breakpoint(sm) {
+            font-size: 2.2rem;
+            width: 80%;
+        }
+
+        @include breakpoint(xs) {
+            font-size: 2.2rem;
+            width: 80%;
+        }
+
+        @include breakpoint(xxs) {
+            font-size: 2rem;
+            width: 80%;
+        }
     }
 
     &__group {
@@ -21,6 +54,15 @@
         justify-content: space-around;
         align-items: center;
 
+        @include breakpoint(xs) {
+            flex-direction: column;
+        }
+
+        @include breakpoint(xxs) {
+            flex-direction: column;
+            margin-top: 15%;
+        }
+
         &__card {
             margin-top: 5%;
             width: 35%;
@@ -29,19 +71,154 @@
             color: black;
             position: relative;
             border-radius: 10px;
+            overflow-y: auto;
+
+            @include breakpoint(xl) {
+                width: 32%;
+            }
+
+            @include breakpoint(pxl) {
+                width: 32%;
+            }
+
+            @include breakpoint(lg) {
+                width: 40%;
+                height: 55vh;
+            }
+
+            @include breakpoint(md) {
+                width: 43%;
+                height: 50vh;
+            }
+
+            @include breakpoint(sm) {
+                width: 43%;
+                height: 50vh;
+            }
+
+            @include breakpoint(xs) {
+                width: 70%;
+                height: auto;
+            }
+
+            @include breakpoint(xxs) {
+                width: 70%;
+                height: auto;
+            }
 
             &__content {
                 margin-left: 5%;
                 margin-top: 6%;
 
+                @include breakpoint(pxl) {
+                    margin-left: 0;
+                }
+
+                @include breakpoint(lg) {
+                    margin-left: 0;
+                }
+
+                @include breakpoint(md) {
+                    margin-left: 0;
+                }
+
+                @include breakpoint(sm) {
+                    margin-left: 0;
+                }
+
+                @include breakpoint(xs) {
+                    margin-left: 0;
+                }
+
                 &__subtitle {
                     font-size: var(--font-size-h5);
                     width: 90%;
+
+                    @include breakpoint(xl) {
+                        font-size: 1.5rem;
+                        line-height: 140%;
+                    }
+
+                    @include breakpoint(pxl) {
+                        font-size: 1.2rem;
+                        text-align: center;
+                        line-height: 140%;
+                        justify-self: center;
+                    }
+
+                    @include breakpoint(lg) {
+                        font-size: 1.2rem;
+                        text-align: center;
+                        line-height: 140%;
+                        justify-self: center;
+                    }
+
+                    @include breakpoint(md) {
+                        font-size: 1.2rem;
+                        text-align: center;
+                        line-height: 140%;
+                        justify-self: center;
+                    }
+
+                    @include breakpoint(sm) {
+                        font-size: 1rem;
+                        text-align: center;
+                        line-height: 140%;
+                        justify-self: center;
+                    }
+
+                    @include breakpoint(xs) {
+                        font-size: 1rem;
+                        text-align: center;
+                        line-height: 140%;
+                        justify-self: center;
+                    }
+
+                    @include breakpoint(xxs) {
+                        font-size: 1rem;
+                        text-align: center;
+                        line-height: 140%;
+                        justify-self: center;
+                    }
                 }
 
                 &__stars {
                     width: 100%;
                     margin-top: 1%;
+
+                    @include breakpoint(xl) {
+                        margin-top: 3%;
+                    }
+
+                    @include breakpoint(pxl) {
+                        margin-top: 3%;
+                        text-align: center;
+                    }
+
+                    @include breakpoint(lg) {
+                        margin-top: 3%;
+                        text-align: center;
+                    }
+
+                    @include breakpoint(md) {
+                        margin-top: 3%;
+                        text-align: center;
+                    }
+
+                    @include breakpoint(sm) {
+                        margin-top: 3%;
+                        text-align: center;
+                    }
+
+                    @include breakpoint(xs) {
+                        margin-top: 3%;
+                        text-align: center;
+                    }
+
+                    @include breakpoint(xxs) {
+                        margin-top: 3%;
+                        text-align: center;
+                    }
 
                     & svg {
                         width: 24px;
@@ -54,12 +231,103 @@
                     word-spacing: 2px;
                     line-height: 135%;
                     font-size: var(--font-size-medium);
+
+                    @include breakpoint(xl) {
+                        font-size: 1.4rem;
+                        line-height: 150%;
+                    }
+
+
+                    @include breakpoint(pxl) {
+                        width: 80%;
+                        justify-self: center;
+                        font-size: 1.2rem;
+                        line-height: 150%;
+                        text-align: center;
+                    }
+
+                    @include breakpoint(lg) {
+                        width: 70%;
+                        justify-self: center;
+                        font-size: 1.3rem;
+                        line-height: 150%;
+                        text-align: center;
+                    }
+
+                    @include breakpoint(md) {
+                        width: 85%;
+                        justify-self: center;
+                        font-size: 1.2rem;
+                        line-height: 150%;
+                        text-align: center;
+                        margin-top: 5%;
+                    }
+
+                    @include breakpoint(sm) {
+                        width: 85%;
+                        justify-self: center;
+                        font-size: 1.1rem;
+                        line-height: 150%;
+                        text-align: center;
+                        margin-top: 5%;
+                    }
+
+                    @include breakpoint(xs) {
+                        width: 85%;
+                        justify-self: center;
+                        font-size: 1.1rem;
+                        line-height: 150%;
+                        text-align: center;
+                        margin-top: 5%;
+                    }
+
+                    @include breakpoint(xxs) {
+                        width: 85%;
+                        justify-self: center;
+                        font-size: 1.1rem;
+                        line-height: 150%;
+                        text-align: center;
+                        margin-top: 5%;
+                    }
                 }
 
-                &__name{
+                &__name {
                     position: absolute;
                     bottom: 5%;
                     font-size: var(--font-size-h6);
+
+                    @include breakpoint(pxl) {
+                        margin-left: 5%;
+                    }
+
+                    @include breakpoint(lg) {
+                        margin-left: 5%;
+                    }
+
+                    @include breakpoint(md) {
+                        margin-left: 5%;
+                    }
+
+                    @include breakpoint(sm) {
+                        margin-left: 5%;
+                        font-size: 0.9rem;
+                    }
+
+                    @include breakpoint(xs) {
+                        position: relative;
+                        margin-top: 8%;
+                        margin-bottom: 5%;
+                        margin-left: 5%;
+                        font-size: 0.9rem;
+                    }
+
+                    @include breakpoint(xxs) {
+                        position: relative;
+                        margin-top: 8%;
+                        margin-bottom: 5%;
+                        margin-left: 5%;
+                        font-size: 0.9rem;
+                    }
                 }
             }
         }
