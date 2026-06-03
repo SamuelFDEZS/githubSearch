@@ -1,5 +1,5 @@
+const emailInput = document.querySelector('#configurations-email');
 const usernameInput = document.querySelector('#configurations-username');
-const nicknameInput = document.querySelector('#configurations-nickname');
 const passwordInput = document.querySelector('#configurations-password');
 const phoneInput = document.querySelector('#configurations-phone');
 const confLogoutButton = document.querySelectorAll('.configurations__menu__option')[1];
@@ -7,15 +7,15 @@ const form = document.querySelector('.configurations__info__fields-container');
 const discardButton = document.querySelectorAll('.configurations__info__fields-container__button-container__button')[0];
 const operationStatus = document.querySelector('.operation-status__text');
 
+emailInput.value = currentUser.email;
 usernameInput.value = currentUser.username;
-nicknameInput.value = currentUser.nickname;
 passwordInput.value = currentUser.password;
 phoneInput.value = currentUser.phone;
 
 discardButton.addEventListener('click', (event) => {
     event.preventDefault();
+    emailInput.value = currentUser.email;
     usernameInput.value = currentUser.username;
-    nicknameInput.value = currentUser.nickname;
     passwordInput.value = currentUser.password;
     phoneInput.value = currentUser.phone;
 });
@@ -23,11 +23,11 @@ discardButton.addEventListener('click', (event) => {
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     let userList = JSON.parse(localStorage.getItem('users'));
-    const userIndex = userList.findIndex(user => user.username === currentUser.username);
+    const userIndex = userList.findIndex(user => user.email === currentUser.email);
     const formData = new FormData(form);
     const formDataObj = formDataToObject(formData);
 
-    const findUser = userList.find(user => user.username === formData.get('username'));
+    const findUser = userList.find(user => user.email === formData.get('email'));
     if (!findUser || (findUser && JSON.stringify(findUser) !== JSON.stringify(formDataObj))) {
         const users = JSON.parse(localStorage.getItem('users'));
         users[userIndex] = formDataObj;

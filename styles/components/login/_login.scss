@@ -8,7 +8,32 @@
     align-items: center;
     flex-direction: column;
 
+    @include breakpoint(pxl) {
+        justify-content: center;
+    }
+
+    @include breakpoint(lg) {
+        width: 30%;
+        justify-content: center;
+    }
+
     @include breakpoint(md) {
+        width: 30%;
+        justify-content: center;
+    }
+
+    @include breakpoint(sm) {
+        width: 35%;
+        justify-content: center;
+    }
+
+    @include breakpoint(xs) {
+        width: 50%;
+        justify-content: center;
+    }
+
+    @include breakpoint(xxs) {
+        width: 50%;
         justify-content: center;
     }
 
@@ -18,8 +43,32 @@
         font-size: var(--font-size-h1);
         font-family: var(--font-style-login-light);
 
+        @include breakpoint(pxl) {
+            margin-top: 0;
+        }
+
+        @include breakpoint(lg) {
+            margin-top: 0;
+        }
+
         @include breakpoint(md) {
             font-size: 2.8rem;
+            margin-top: 0;
+        }
+
+        @include breakpoint(sm) {
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
+
+        @include breakpoint(xs) {
+            font-size: 2.2rem;
+            margin-top: 0;
+        }
+
+        @include breakpoint(xxs) {
+            font-size: 2.2rem;
+            margin-top: 0;
         }
     }
 
@@ -33,9 +82,24 @@
             font-size: 1rem;
             color: rgba(255, 255, 255, 0.566);
         }
+
+        @include breakpoint(sm) {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.566);
+        }
+
+        @include breakpoint(xs) {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.566);
+        }
+
+        @include breakpoint(xxs) {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.566);
+        }
     }
 
-    &__username {
+    &__email {
         margin-top: 8%;
     }
 
@@ -56,6 +120,24 @@
         font-size: 1rem;
 
         @include breakpoint(md) {
+            font-size: 0.9rem;
+            width: 70%;
+            text-align: center;
+        }
+
+        @include breakpoint(sm) {
+            font-size: 0.9rem;
+            width: 70%;
+            text-align: center;
+        }
+
+        @include breakpoint(xs) {
+            font-size: 0.9rem;
+            width: 70%;
+            text-align: center;
+        }
+
+        @include breakpoint(xxs) {
             font-size: 0.9rem;
             width: 70%;
             text-align: center;
@@ -83,10 +165,34 @@
             margin-top: 8%;
         }
 
+        @include breakpoint(sm) {
+            margin-top: 8%;
+        }
+
+        @include breakpoint(xs) {
+            margin-top: 8%;
+        }
+
+        @include breakpoint(xxs) {
+            margin-top: 8%;
+        }
+
         &__text {
             transition: all 0.3s;
 
             @include breakpoint(md) {
+                font-size: 0.9rem;
+            }
+
+            @include breakpoint(sm) {
+                font-size: 0.9rem;
+            }
+
+            @include breakpoint(xs) {
+                font-size: 0.9rem;
+            }
+
+            @include breakpoint(xxs) {
                 font-size: 0.9rem;
             }
         }
@@ -95,6 +201,18 @@
             transform: scale(1.5);
 
             @include breakpoint(md) {
+                transform: scale(1.3);
+            }
+
+            @include breakpoint(sm) {
+                transform: scale(1.3);
+            }
+
+            @include breakpoint(xs) {
+                transform: scale(1.3);
+            }
+
+            @include breakpoint(xxs) {
                 transform: scale(1.3);
             }
 
@@ -125,6 +243,24 @@
             height: 4.5%;
         }
 
+        @include breakpoint(sm) {
+            font-size: 1rem;
+            width: 60%;
+            height: 4.5%;
+        }
+
+        @include breakpoint(xs) {
+            font-size: 1rem;
+            width: 60%;
+            height: 4.5%;
+        }
+
+        @include breakpoint(xxs) {
+            font-size: 1rem;
+            width: 60%;
+            height: 4%;
+        }
+
         &:hover {
             background-color: #20738ff3;
         }
@@ -139,6 +275,28 @@
             font-size: 0.8rem;
             margin-bottom: 40%;
             font-weight: 800;
+            text-align: center;
+        }
+
+        @include breakpoint(sm) {
+            font-size: 0.8rem;
+            margin-bottom: 40%;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        @include breakpoint(xs) {
+            font-size: 0.8rem;
+            margin-bottom: 40%;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        @include breakpoint(xxs) {
+            font-size: 0.8rem;
+            margin-bottom: 40%;
+            font-weight: 800;
+            text-align: center;
         }
 
         &:hover {

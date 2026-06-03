@@ -8,20 +8,98 @@
     align-items: center;
     flex-direction: column;
 
+    @include breakpoint(pxl) {
+        width: 30%;
+    }
+
+    @include breakpoint(lg) {
+        width: 35%;
+    }
+
+    @include breakpoint(md) {
+        width: 35%;
+        justify-content: center;
+    }
+
+    @include breakpoint(sm) {
+        justify-content: center;
+        width: 45%;
+    }
+
+    @include breakpoint(xs) {
+        justify-content: center;
+        width: 55%;
+    }
+
+    @include breakpoint(xxs) {
+        justify-content: center;
+        width: 60%;
+    }
+
     &__title {
         margin-top: 70%;
         color: white;
         font-size: var(--font-size-h1);
         font-family: var(--font-style-login-light);
+        text-align: center;
+
+        @include breakpoint(md) {
+            font-size: 2.8rem;
+            margin-top: 0;
+        }
+
+        @include breakpoint(sm) {
+            margin-top: 0;
+            font-size: 2.8rem;
+        }
+
+        @include breakpoint(xs) {
+            margin-top: 0;
+            font-size: 2.8rem;
+        }
+
+        @include breakpoint(xxs) {
+            margin-top: 0;
+            font-size: 2.5rem;
+        }
     }
 
     &__subtitle {
         margin-top: 3%;
         font-size: var(--font-size-h5);
         color: rgba(135, 135, 135, 0.669);
+        text-align: center;
+
+        @include breakpoint(pxl) {
+            color: rgba(255, 255, 255, 0.566);
+        }
+
+        @include breakpoint(lg) {
+            color: rgba(255, 255, 255, 0.566);
+        }
+
+        @include breakpoint(md) {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.566);
+        }
+
+        @include breakpoint(sm) {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.566);
+        }
+
+        @include breakpoint(xs) {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.566);
+        }
+
+        @include breakpoint(xxs) {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.566);
+        }
     }
 
-    &__input-container{
+    &__input-container {
         width: 100%;
         height: 30%;
         display: flex;
@@ -30,21 +108,59 @@
         margin-top: 8%;
         gap: 5%;
 
+        @include breakpoint(md) {
+            gap: 8%;
+        }
+
+        @include breakpoint(sm) {
+            gap: 8%;
+        }
+
+        @include breakpoint(xs) {
+            gap: 8%;
+        }
+
+        @include breakpoint(xxs) {
+            gap: 8%;
+            margin-top: 12%;
+        }
+
         &__input {
             width: 60%;
             height: 20%;
             border-radius: 10px;
-            background-color:#2e41566d;
+            background-color: #2e41566d;
             backdrop-filter: blur(5px);
             border: 0;
             padding-left: 3%;
             outline: none;
             color: white;
             font-size: 1rem;
-    
-            &:focus{
+
+            @include breakpoint(md) {
+                height: 18%;
+                text-align: center;
+            }
+
+            @include breakpoint(sm) {
+                height: 18%;
+                text-align: center;
+            }
+
+            @include breakpoint(xs) {
+                height: 18%;
+                text-align: center;
+            }
+
+            @include breakpoint(xxs) {
+                height: 18%;
+                text-align: center;
+            }
+
+            &:focus {
                 border: 0;
-                &::placeholder{
+
+                &::placeholder {
                     transition: 0.5s;
                     color: white;
                 }
@@ -52,7 +168,7 @@
         }
     }
 
-    &__signup-btn{
+    &__signup-btn {
         margin-top: 8%;
         width: 62%;
         height: 5%;
@@ -66,30 +182,50 @@
         cursor: pointer;
         transition: all 0.3s;
 
-        &:hover{
+        @include breakpoint(md) {
+            height: 4.5%;
+        }
+
+        @include breakpoint(sm) {
+            height: 4.5%;
+        }
+
+        @include breakpoint(xs) {
+            height: 4.5%;
+        }
+
+        @include breakpoint(xxs) {
+            height: 4%;
+            font-size: 1rem;
+        }
+
+        &:hover {
             background-color: #20738ff3;
         }
     }
 
-    &__signup-status{
+    &__signup-status {
         text-align: center;
         display: block;
-        &.status-hidden{
+
+        &.status-hidden {
             opacity: 0;
             visibility: hidden;
         }
 
-        &.status-error{
-            &::before{
+        &.status-error {
+            &::before {
                 content: "The email already exists";
             }
+
             color: rgba(255, 0, 0, 0.767);
         }
 
-        &.status-successfull{
-            &::before{
+        &.status-successfull {
+            &::before {
                 content: "The user has been successfully created";
             }
+
             color: rgba(2, 195, 2, 0.832);
         }
     }

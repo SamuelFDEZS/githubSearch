@@ -1,4 +1,4 @@
-const nickContainer = document.querySelector('.header__user-container__nickname');
+const usernameContainer = document.querySelector('.header__user-container__username');
 let currentUser = JSON.parse(localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser'));
 const userContainer = document.querySelector('.header__user-container');
 const userIcon = document.querySelector('.header__user-container__user-icon');
@@ -26,8 +26,8 @@ const handleCurrentUser = () => {
 
     if (currentUser) {
         userIcon.classList.remove('login__element__hidden');
-        nickContainer.classList.remove('login__element__hidden');
-        nickContainer.innerHTML = currentUser.nickname;
+        usernameContainer.classList.remove('login__element__hidden');
+        usernameContainer.innerHTML = currentUser.username;
     } else {
         userIcon.classList.add('login__element__hidden');
         userContainer.classList.add('login__element__hidden');

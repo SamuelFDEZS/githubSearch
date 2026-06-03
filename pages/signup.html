@@ -10,20 +10,22 @@
 </head>
 
 <body class="signup">
+    <div class="screen-size"></div>
+
     <form class="signup-container">
         <h1 class="signup-container__title">Sign up</h1>
         <h4 class="signup-container__subtitle">Enter your credentials</h4>
 
         <div class="signup-container__input-container">
             <input type="email"
-                name="username"
-                class="signup-container__input-container__input signup-container__input-container__username"
-                placeholder="Username" required>
+                name="email"
+                class="signup-container__input-container__input signup-container__input-container__email"
+                placeholder="Email" required>
 
             <input type="text"
-                name="nickname"
+                name="username"
                 class="signup-container__input-container__input signup-container__input-container__nick"
-                placeholder="Nickname" required pattern="^\S{5,}$" minlength="4"
+                placeholder="Username" required pattern="^\S{5,}$" minlength="4"
                 title="Must be at least 5 characters and no spaces">
 
             <input type="password"

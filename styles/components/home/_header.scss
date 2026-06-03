@@ -67,7 +67,7 @@
         color: var(--font-text-color);
 
         @include breakpoint(sm) {
-            margin-left: 0;
+            margin-left: 1%;
         }
 
         @include breakpoint(xs) {
@@ -79,28 +79,32 @@
         }
 
         &__image {
-            width: 80%;
+            width: 35%;
             height: 100%;
             transform: scale(1.5);
 
             @include breakpoint(xl) {
-                width: 30%;
+                width: 45%;
+                height: 90%;
             }
 
             @include breakpoint(pxl) {
-                width: 35%;
+                width: 45%;
+                height: 90%;
             }
 
             @include breakpoint(lg) {
-                width: 40%;
+                width: 50%;
+                height: 90%;
             }
 
             @include breakpoint(md) {
-                width: 45%;
+                width: 50%;
+                height: 90%;
             }
 
             @include breakpoint(sm) {
-                width: 38%;
+                width: 50%;
                 height: 70%;
             }
 
@@ -323,11 +327,11 @@
 
         & button {
             width: 40%;
-            height: 65%;
+            height: 55%;
             background-color: var(--button-bg);
             outline: none;
             border: 0;
-            border-radius: 18px;
+            border-radius: 28px;
             transition: 0.3s;
             color: var(--font-text-color);
             font-size: 1.1rem;
@@ -417,7 +421,7 @@
         &:hover {
             cursor: pointer;
 
-            &>.header__user-container__nickname {
+            &>.header__user-container__username {
                 text-decoration: underline;
             }
 
@@ -433,7 +437,7 @@
             font-size: 1.5rem;
         }
 
-        &__nickname {
+        &__username {
             font-size: 1.5rem;
         }
 

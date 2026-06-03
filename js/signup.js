@@ -13,7 +13,7 @@ form.addEventListener('submit', (event) => {
     }
 
     if (users) {
-        userExists = users.some(user => user.username === formData.get('username'));
+        userExists = users.some(user => user.email === formData.get('email'));
         if (userExists) errorElement.classList.add('status-error');
     }
 

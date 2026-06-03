@@ -13,7 +13,7 @@ form.addEventListener('submit', (event) => {
         return acc;
     }, {});
 
-    const userIndex = userList.findIndex(user => user.username === formData.get('username'));
+    const userIndex = userList.findIndex(user => user.email === formData.get('email'));
 
     if (userIndex === -1 || userList[userIndex].password !== loginData.password) {
         loginStatus.classList.add('login-error-status');
