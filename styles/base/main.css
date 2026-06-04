@@ -3740,6 +3740,7 @@ body.user-repos {
 .repos__card__info-container__info-group {
   width: 70%;
   height: 80%;
+  align-self: center;
   margin-top: 1%;
   display: grid;
   justify-items: center;
