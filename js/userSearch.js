@@ -52,19 +52,22 @@ const getData = async (value, isSingleUser) => {
         let response = null;
         let data = null;
         let hasNextPage = null;
+
         response = await fetch(url);
         linkHeader = response.headers.get('Link');
         hasNextPage = linkHeader && linkHeader.includes('rel="next"');
 
         if (hasNextPage) {
             movePageRight.classList.add('visible');
-        } else {
+        } else if (response.total_count && !hasNextPage) {
             movePageRight.classList.remove('visible');
         }
 
         data = await response.json();
-        if (!data && !data.items) {
+        console.log(data);
+        if (data.items && !data.items.length) {
             searchResultContainer.innerHTML = 'User not found';
+            searchResultContainer.classList.add('error-message');
         }
         if (isSingleUser) return data || null;
         return data.items.length ? data : null;
@@ -110,7 +113,6 @@ const getUserSummary = async (username) => {
 };
 
 const createUserCards = async (data) => {
-    movePageContainer.classList.remove('visible');
     searchResultContainer.innerHTML = '<span class="loader"></span>';
     const userPromises = data.map(async (item) => {
         const username = item.login;
@@ -180,26 +182,26 @@ const createUserPopup = async (username) => {
             <article class="popup-container__info-container__item-group">
                 <p class="popup-container__info-container__item-group__item" id="followersCount">
                     <span class="fa-solid fa-user" style="color: #B197FC;"></span>
-                    <span class="item-title">Follower Count: </span>
+                    <span class="item-title">Followers: </span>
                     <span class="item-info">Loading...</span>
                 </p>
 
                 <p class="popup-container__info-container__item-group__item" id="reposCount">
                     <span class="fa-solid fa-database" style="color: #89ca6e;"></span>
-                    <span class="item-title">Repo Count: </span>
+                    <span class="item-title">Repos: </span>
                     <span class="item-info">Loading...</span>
                 </p>
             </article>
             <article class="popup-container__info-container__item-group">
                 <p class="popup-container__info-container__item-group__item" id="eventsCount">
                     <span class="fa-solid fa-calendar" style="color: #d58070;"></span>
-                    <span class="item-title">Event Count: </span>
+                    <span class="item-title">Events: </span>
                     <span class="item-info">Loading...</span>
                 </p>
 
                 <p class="popup-container__info-container__item-group__item" id="subscriptionsCount">
                     <span class="fa-solid fa-circle-plus" style="color: #FFD43B;"></span>
-                    <span class="item-title">Subscriptions Count: </span>
+                    <span class="item-title">Subscriptions: </span>
                     <span class="item-info">Loading...</span>
                 </p>
             </article>

@@ -1,15 +1,45 @@
 .move-page {
-    position: absolute;
+    position: relative;
     width: 10%;
     height: 10%;
-    right: 5%;
+    left: 88%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20%;
-    margin-top: 5%;
+    margin-top: 15%;
     opacity: 0;
     visibility: hidden;
+
+    @include breakpoint(xl) {
+        width: 13%;
+        left: 85%;
+    }
+    @include breakpoint(pxl) {
+        width: 13%;
+        left: 85%;
+    }
+    @include breakpoint(lg) {
+        width: 15%;
+        left: 82%;
+    }
+    @include breakpoint(md) {
+        width: 18%;
+        left: 78%;
+    }
+    @include breakpoint(sm) {
+        width: 22%;
+        left: 75%;
+    }
+    @include breakpoint(xs) {
+        width: 27%;
+        left: 68%;
+    }
+    @include breakpoint(xxs) {
+        width: 35%;
+        left: 55%;
+        gap: 10%;
+    }
 
     &.visible {
         opacity: 1;
@@ -17,9 +47,9 @@
     }
 
     &__button {
-        width: 30%;
-        height: 60%;
+        width: 50%;
         border: 0;
+        aspect-ratio: 1;
         border-radius: 50%;
         font-size: 2rem;
         background-color: #fff;
@@ -28,6 +58,36 @@
         transition: 0.2s ease;
         opacity: 0;
         visibility: hidden;
+
+        @include breakpoint(xl) {
+            width: 60%;
+        }
+
+        @include breakpoint(pxl) {
+            width: 80%;
+        }
+        @include breakpoint(lg) {
+            width: 80%;
+        }
+        @include breakpoint(md) {
+            width: 80%;
+            font-size: 1.7rem;
+
+        }
+        @include breakpoint(sm) {
+            width: 80%;
+            font-size: 1.5rem;
+
+        }
+        @include breakpoint(xs) {
+            width: 80%;
+            font-size: 1.3rem;
+        }
+        @include breakpoint(xxs) {
+            width: 80%;
+            font-size: 1.2rem;
+
+        }
 
         &.visible {
             opacity: 1;

@@ -18,6 +18,27 @@
         transition: all 0.2s;
         border-radius: 10px;
         color: black;
+        overflow: hidden;
+
+        @include breakpoint(lg) {
+            height: 15vh;
+        }
+
+        @include breakpoint(md) {
+            height: 14vh;
+        }
+
+        @include breakpoint(sm) {
+            height: 13vh;
+        }
+
+        @include breakpoint(xs) {
+            height: 12vh;
+        }
+
+        @include breakpoint(xxs) {
+            height: 9vh;
+        }
 
         &:hover {
             cursor: pointer;
@@ -29,11 +50,32 @@
         }
 
         &__image {
-            width: 10%;
-            height: 90%;
+            width: 13%;
             margin-left: 1%;
             object-fit: cover;
             object-position: 50% 70%;
+            aspect-ratio: 1;
+
+            @include breakpoint(lg) {
+                width: 16%;
+            }
+
+            @include breakpoint(md) {
+                width: 16%;
+            }
+
+            @include breakpoint(sm) {
+                width: 25%;
+            }
+
+            @include breakpoint(xs) {
+                width: 25%;
+            }
+
+            @include breakpoint(xxs) {
+                width: 26%;
+                object-fit: contain;
+            }
         }
 
         &__username {
@@ -42,7 +84,36 @@
             height: 80%;
             align-items: center;
             border-right: 2px solid black;
-            font-size: 2.5rem
+            font-size: 2.5rem;
+
+            @include breakpoint(lg) {
+                font-size: 2rem;
+            }
+
+            @include breakpoint(md) {
+                font-size: 1.7rem;
+            }
+
+            @include breakpoint(sm) {
+                font-size: 1.9rem;
+                flex: 1;
+                justify-content: center;
+                border: 0;
+            }
+
+            @include breakpoint(xs) {
+                font-size: 1.7rem;
+                flex: 1;
+                justify-content: center;
+                border: 0;
+            }
+
+            @include breakpoint(xxs) {
+                font-size: 1.5rem;
+                flex: 1;
+                justify-content: center;
+                border: 0;
+            }
         }
 
         &__info-container {
@@ -55,13 +126,46 @@
             align-items: center;
             justify-content: center;
 
+            @include breakpoint(md) {
+                gap: 20%;
+            }
+
+            @include breakpoint(sm) {
+                display: none;
+            }
+
+            @include breakpoint(xs) {
+                display: none;
+            }
+
+            @include breakpoint(xxs) {
+                display: none;
+            }
+
             &__item {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 gap: 5%;
                 font-size: 1.2rem;
+
+                &__title {
+                    @include breakpoint(md) {
+                        font-size: 1rem;
+                    }
+                }
+
+                &__info {
+                    @include breakpoint(md) {
+                        font-size: 1rem;
+                        margin-top: 10%;
+                    }
+                }
             }
         }
     }
+}
+
+.error-message {
+    color: red;
 }

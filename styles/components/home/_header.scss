@@ -24,12 +24,17 @@
     }
 
     &__burger {
+        width: 9%;
+        aspect-ratio: 1;
         position: absolute;
         border: 2px solid white;
         left: 50%;
         border-radius: 6px;
         transform: translateX(-50%);
         opacity: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         visibility: hidden;
         cursor: pointer;
         pointer-events: none;
@@ -53,6 +58,10 @@
             &:hover {
                 filter: brightness(0.8);
             }
+        }
+
+        & svg {
+            width: 100%;
         }
     }
 
@@ -404,6 +413,34 @@
         transition: all 0.3s;
         position: relative;
 
+        @include breakpoint(pxl) {
+            width: 18%;
+        }
+
+        @include breakpoint(lg) {
+            width: 19%;
+        }
+
+        @include breakpoint(md) {
+            width: 22%;
+            height: 50%;
+        }
+
+        @include breakpoint(sm) {
+            width: 15%;
+            height: 50%;
+        }
+
+        @include breakpoint(xs) {
+            width: 20%;
+            height: 50%;
+        }
+
+        @include breakpoint(xxs) {
+            width: 20%;
+            height: 50%;
+        }
+
         &::after {
             content: '';
             background: linear-gradient($gradient-1, $gradient-2);
@@ -435,14 +472,74 @@
 
         &__user-icon {
             font-size: 1.5rem;
+
+            @include breakpoint(pxl) {
+                font-size: 1.3rem;
+            }
+
+            @include breakpoint(lg) {
+                font-size: 1.3rem;
+            }
+
+            @include breakpoint(md) {
+                font-size: 1.2rem;
+            }
+
+            @include breakpoint(sm) {
+                font-size: 1.1rem;
+            }
+
+            @include breakpoint(xs) {
+                font-size: 1rem;
+            }
+
+            @include breakpoint(xxs) {
+                font-size: 1rem;
+            }
         }
 
         &__username {
             font-size: 1.5rem;
+
+            @include breakpoint(pxl) {
+                font-size: 1.3rem;
+            }
+
+            @include breakpoint(lg) {
+                font-size: 1.3rem;
+            }
+
+            @include breakpoint(md) {
+                font-size: 1.2rem;
+            }
+
+            @include breakpoint(sm) {
+                display: none;
+            }
+
+            @include breakpoint(xs) {
+                display: none;
+            }
+
+            @include breakpoint(xxs) {
+                display: none;
+            }
         }
 
         &__arrow {
             transition: all 0.2s;
+
+            @include breakpoint(sm) {
+                font-size: 0.8rem;
+            }
+
+            @include breakpoint(xs) {
+                font-size: 0.6rem;
+            }
+
+            @include breakpoint(xxs) {
+                font-size: 0.6rem;
+            }
 
             &::before {
                 opacity: 0;
@@ -482,6 +579,21 @@
                 justify-content: center;
                 transition: all 0.2s;
                 font-size: 1.3rem;
+
+                @include breakpoint(sm) {
+                    font-size: 1.1rem;
+                    height: 45%;
+                }
+
+                @include breakpoint(xs) {
+                    font-size: 1.1rem;
+                    height: 45%;
+                }
+
+                @include breakpoint(xxs) {
+                    font-size: 1.1rem;
+                    height: 45%;
+                }
 
                 &:first-child {
                     border-bottom: 1px solid white;
