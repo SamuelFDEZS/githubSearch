@@ -137,13 +137,25 @@
 }
 
 .input-error {
+    width: 100%;
     opacity: 0;
     visibility: hidden;
     display: block;
+    position: relative;
     font-size: 1.3rem;
     color: rgb(184, 2, 2);
     transition: all 0.3s;
-    margin-left: 18%;
+    text-align: center;
+
+    @include breakpoint(sm) {
+        font-size: 1.2rem;
+    }
+    @include breakpoint(xs) {
+        font-size: 1rem;
+    }
+    @include breakpoint(xxs) {
+        font-size: 1rem;
+    }
 
     &.error-visible {
         opacity: 1;

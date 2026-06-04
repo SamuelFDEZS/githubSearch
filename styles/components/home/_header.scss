@@ -41,6 +41,7 @@
         transition: 0.3s ease;
 
         @include breakpoint(xs) {
+            width: 8%;
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
@@ -275,6 +276,10 @@
 
                 @include breakpoint(xs) {
                     font-size: 0.8rem;
+                    text-shadow:
+                        0 0 5px rgba(255, 255, 255, 0.8),
+                        0 0 10px rgba(255, 255, 255, 0.6),
+                        0 0 20px rgba(255, 255, 255, 0.4);
 
                     &:hover {
                         text-decoration: underline;
@@ -285,6 +290,10 @@
 
                 @include breakpoint(xxs) {
                     font-size: 0.8rem;
+                    text-shadow:
+                        0 0 5px rgba(255, 255, 255, 0.8),
+                        0 0 10px rgba(255, 255, 255, 0.6),
+                        0 0 20px rgba(255, 255, 255, 0.4);
 
                     &:hover {
                         text-decoration: underline;

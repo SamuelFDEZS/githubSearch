@@ -16,7 +16,7 @@
     background: linear-gradient(220.55deg, #FF8570 0%, #418CB7 100%);
 
     @include breakpoint(xl) {
-        width: 40vw;
+        width: 30vw;
     }
 
     @include breakpoint(pxl) {

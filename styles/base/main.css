@@ -243,7 +243,13 @@ html {
   border-radius: 50%;
   animation: blast 1s ease-in infinite;
 }
-
+@media ((min-width: 576px) and (max-width: 767.98px)) {
+  .loader::before,
+  .loader::after {
+    width: 40em;
+    height: 40em;
+  }
+}
 .loader::after {
   font-size: 1px;
   background: #fff;
@@ -345,6 +351,7 @@ body.home p {
 }
 @media ((min-width: 401px) and (max-width: 575.98px)) {
   .header__burger {
+    width: 8%;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -599,6 +606,7 @@ body.home p {
 @media ((min-width: 401px) and (max-width: 575.98px)) {
   .header__nav__list__item {
     font-size: 0.8rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4);
   }
   .header__nav__list__item:hover {
     text-decoration: underline;
@@ -609,6 +617,7 @@ body.home p {
 @media (max-width: 400.98px) {
   .header__nav__list__item {
     font-size: 0.8rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4);
   }
   .header__nav__list__item:hover {
     text-decoration: underline;
@@ -2879,13 +2888,30 @@ body.user-search {
 }
 
 .input-error {
+  width: 100%;
   opacity: 0;
   visibility: hidden;
   display: block;
+  position: relative;
   font-size: 1.3rem;
   color: rgb(184, 2, 2);
   transition: all 0.3s;
-  margin-left: 18%;
+  text-align: center;
+}
+@media ((min-width: 576px) and (max-width: 767.98px)) {
+  .input-error {
+    font-size: 1.2rem;
+  }
+}
+@media ((min-width: 401px) and (max-width: 575.98px)) {
+  .input-error {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 400.98px) {
+  .input-error {
+    font-size: 1rem;
+  }
 }
 .input-error.error-visible {
   opacity: 1;
@@ -3096,7 +3122,7 @@ body.user-search {
 }
 @media ((min-width: 1451px) and (max-width: 1799.98px)) {
   .popup-container {
-    width: 40vw;
+    width: 30vw;
   }
 }
 @media ((min-width: 1200px) and (max-width: 1450.98px)) {
@@ -3541,12 +3567,51 @@ body.user-repos {
   border-radius: 50%;
   cursor: pointer;
 }
+@media ((min-width: 576px) and (max-width: 767.98px)) {
+  .back-btn {
+    font-size: 2.2rem;
+    padding: 21px;
+  }
+}
+@media ((min-width: 401px) and (max-width: 575.98px)) {
+  .back-btn {
+    font-size: 1.8rem;
+    padding: 20px;
+  }
+}
+@media (max-width: 400.98px) {
+  .back-btn {
+    padding: 18px;
+    font-size: 1.3rem;
+  }
+}
 
 .username {
   text-align: center;
   margin-top: 1%;
   font-size: 3rem;
 }
+@media ((min-width: 768px) and (max-width: 991.98px)) {
+  .username {
+    font-size: 2.5rem;
+  }
+}
+@media ((min-width: 576px) and (max-width: 767.98px)) {
+  .username {
+    font-size: 2.3rem;
+  }
+}
+@media ((min-width: 401px) and (max-width: 575.98px)) {
+  .username {
+    font-size: 2.1rem;
+  }
+}
+@media (max-width: 400.98px) {
+  .username {
+    font-size: 2rem;
+  }
+}
+
 .repos {
   width: 100%;
   display: flex;
@@ -3577,12 +3642,12 @@ body.user-repos {
 }
 @media ((min-width: 576px) and (max-width: 767.98px)) {
   .repos {
-    margin-top: 18%;
+    margin-top: 22%;
   }
 }
 @media ((min-width: 401px) and (max-width: 575.98px)) {
   .repos {
-    margin-top: 20%;
+    margin-top: 28%;
   }
 }
 @media (max-width: 400.98px) {
@@ -3615,7 +3680,7 @@ body.user-repos {
 }
 @media (max-width: 400.98px) {
   .repos__card {
-    height: 25vh;
+    height: 30vh;
   }
 }
 .repos__card:hover {
@@ -3711,7 +3776,7 @@ body.user-repos {
 }
 @media (max-width: 400.98px) {
   .repos__card__button {
-    width: 5%;
+    width: 9%;
   }
 }
 .repos__card__button:hover {
@@ -3723,6 +3788,11 @@ body.user-repos {
 @media ((min-width: 401px) and (max-width: 575.98px)) {
   .repos__card__button__icon {
     font-size: 1.1rem;
+  }
+}
+@media (max-width: 400.98px) {
+  .repos__card__button__icon {
+    font-size: 1rem;
   }
 }
 .repos__card__info-container {
@@ -3760,6 +3830,10 @@ body.user-repos {
     margin-left: 8%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 8%;
+    gap: 8%;
   }
 }
 .repos__card__info-container__info-group__column {
@@ -3942,20 +4016,6 @@ body.repo-search p {
 }
 .reposearch-container__mode-container__modes__mode:hover {
   filter: brightness(0.8);
-}
-
-.input-error {
-  opacity: 0;
-  visibility: hidden;
-  display: block;
-  font-size: 1.3rem;
-  color: rgb(184, 2, 2);
-  transition: all 0.3s;
-  margin-left: 25%;
-}
-.input-error.error-visible {
-  opacity: 1;
-  visibility: visible;
 }
 
 .reposearch-results {

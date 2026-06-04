@@ -7,6 +7,21 @@
     padding: 23px;
     border-radius: 50%;
     cursor: pointer;
+
+    @include breakpoint(sm) {
+        font-size: 2.2rem;
+        padding: 21px;
+    }
+
+    @include breakpoint(xs) {
+        font-size: 1.8rem;
+        padding: 20px;
+    }
+
+    @include breakpoint(xxs) {
+        padding: 18px;
+        font-size: 1.3rem;
+    }
 }
 
 .username {
@@ -15,6 +30,19 @@
     font-size: 3rem;
 
     @include breakpoint(md) {
+        font-size: 2.5rem;
+    }
+
+    @include breakpoint(sm) {
+        font-size: 2.3rem;
+    }
+
+    @include breakpoint(xs) {
+        font-size: 2.1rem;
+    }
+
+    @include breakpoint(xxs) {
+        font-size: 2rem;
     }
 }
 
@@ -43,11 +71,11 @@
     }
 
     @include breakpoint(sm) {
-        margin-top: 18%;
+        margin-top: 22%;
     }
 
     @include breakpoint(xs) {
-        margin-top: 20%;
+        margin-top: 28%;
     }
 
     @include breakpoint(xxs) {
@@ -74,8 +102,9 @@
         @include breakpoint(xs) {
             height: 12vh;
         }
+
         @include breakpoint(xxs) {
-            height: 25vh;
+            height: 30vh;
         }
 
 
@@ -141,22 +170,27 @@
             @include breakpoint(pxl) {
                 width: 4%;
             }
+
             @include breakpoint(lg) {
                 width: 4%;
             }
+
             @include breakpoint(md) {
                 width: 6%;
             }
+
             @include breakpoint(sm) {
                 width: 7%;
             }
+
             @include breakpoint(xs) {
                 width: 9%;
                 bottom: 0;
                 right: 0;
             }
+
             @include breakpoint(xxs) {
-                width: 5%;
+                width: 9%;
             }
 
             &:hover {
@@ -168,6 +202,10 @@
 
                 @include breakpoint(xs) {
                     font-size: 1.1rem;
+                }
+
+                @include breakpoint(xxs) {
+                    font-size: 1rem;
                 }
             }
         }
@@ -206,6 +244,10 @@
                     margin-left: 8%;
                     display: flex;
                     flex-direction: column;
+                    align-items: center;
+                    justify-content: space-around;
+                    margin-top: 8%;
+                    gap: 8%;
                 }
 
                 &__column {

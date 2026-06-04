@@ -148,17 +148,3 @@
         }
     }
 }
-
-.input-error{
-    opacity: 0;
-    visibility: hidden;
-    display: block;
-    font-size: 1.3rem;
-    color: rgb(184, 2, 2);
-    transition: all 0.3s;
-    margin-left: 25%;
-    &.error-visible{
-        opacity: 1;
-        visibility: visible;
-    }
-}
