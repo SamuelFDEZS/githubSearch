@@ -8,74 +8,35 @@
     color: black;
 
     &__placeholder {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        left: 20%;
-        opacity: 0.5;
-        font-size: 1.3rem;
-        transition: all 0.3s;
-        width: 8%;
-        white-space: nowrap;
-
-        @include breakpoint(xl) {
-            width: 10%;
-        }
-        @include breakpoint(pxl) {
-            width: 12%;
-        }
-        @include breakpoint(lg) {
-            left: 18%;
-            width: 13%;
-        }
-
-        @include breakpoint(md) {
-            left: 22%;
-            width: 16%;
-            font-size: 1.2rem;
-        }
-
-        @include breakpoint(sm) {
-            left: 22%;
-            width: 18%;
-            font-size: 1.1rem;
-        }
-        @include breakpoint(xs) {
-            left: 17%;
-            width: 24%;
-            font-size: 1.1rem;
-        }
-        @include breakpoint(xxs) {
-            left: 18%;
-            width: 30%;
-            font-size: 1rem;
-        }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: clamp(5rem, 20vw, 30rem);
+            opacity: 0.5;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            width: clamp(10rem, 12vw, 13rem);
+            white-space: nowrap;
+            pointer-events: none;
     }
 
     &__input {
         width: 60%;
-        height: 65%;
+        height: clamp(3rem, 5vw, 4rem);
         background-color: rgb(229, 229, 229);
         border: 0;
         outline: none;
         padding-left: 2%;
         border-radius: 10px;
-        font-size: 1.5rem;
+        font-size: clamp(1rem, 2.8vw, 1.5rem);
         display: block;
         transition: all 0.2s;
 
-        @include breakpoint(sm) {
-            font-size: 1.4rem;
-        }
-        @include breakpoint(xs) {
-            font-size: 1.3rem;
+        @include breakpoint(xxs) {
+            text-align: center;
         }
 
-        @include breakpoint(xxs) {
-            height: 55%;
-            font-size: 1.1rem;
-        }
         &:focus {
             border-top: 4px solid #8f44fd;
             border-left: 4px solid #8f44fd;
@@ -83,7 +44,7 @@
         }
 
         &~.search-container__placeholder.up {
-            transform: translate(0, -3vh);
+            transform: translate(0, -4vh);
             color: white;
             opacity: 1;
             background-color: rgb(59, 59, 59);
@@ -93,38 +54,22 @@
     }
 
     &__button {
-        width: 5%;
-        height: 65%;
+        width: clamp(3rem, 10vw, 5rem);
+        height: clamp(3rem, 5vw, 4rem);
         border-radius: 15px;
         outline: none;
         border: 1px solid black;
         transition: all 0.2s;
         background-color: rgb(229, 229, 229);
 
-        @include breakpoint(lg) {
-            width: 7%;
-        }
-        @include breakpoint(md) {
-            width: 10%;
-        }
-        @include breakpoint(sm) {
-            width: 10%;
-        }
-        @include breakpoint(xs) {
-            width: 13%;
-        }
-        @include breakpoint(xxs) {
-            width: 15%;
-            height: 55%;
-        }
-
         &__icon {
             font-size: 2rem;
 
-            @include breakpoint(xs){
+            @include breakpoint(xs) {
                 font-size: 1.5rem;
             }
-            @include breakpoint(xxs){
+
+            @include breakpoint(xxs) {
                 font-size: 1.3rem;
             }
         }
@@ -150,9 +95,11 @@
     @include breakpoint(sm) {
         font-size: 1.2rem;
     }
+
     @include breakpoint(xs) {
         font-size: 1rem;
     }
+
     @include breakpoint(xxs) {
         font-size: 1rem;
     }

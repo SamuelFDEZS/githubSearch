@@ -44,6 +44,19 @@
         width: 100%;
         gap: 5%;
 
+        @include breakpoint(sm) {
+            flex-direction: column;
+            align-items: center;
+        }
+        @include breakpoint(xs) {
+            flex-direction: column;
+            align-items: center;
+        }
+        @include breakpoint(xxs) {
+            flex-direction: column;
+            align-items: center;
+        }
+
         &__content {
             width: 45%;
             height: 60vh;
@@ -58,15 +71,15 @@
             }
 
             @include breakpoint(sm) {
-                gap: 5%;
+                width: 80%;
             }
 
             @include breakpoint(xs) {
-                gap: 5%;
+                width: 80%;
             }
 
             @include breakpoint(xxs) {
-                gap: 5%;
+                width: 80%;
             }
 
             &__title {
@@ -93,16 +106,17 @@
 
                 @include breakpoint(sm) {
                     font-size: 1.3rem;
+                    text-align: center;
                 }
 
                 @include breakpoint(xs) {
                     font-size: 1.3rem;
-                    white-space: wrap;
+                    text-align: center;
                 }
 
                 @include breakpoint(xxs) {
                     font-size: 1.3rem;
-                    white-space: wrap;
+                    text-align: center;
                 }
             }
 
@@ -130,17 +144,20 @@
 
                 @include breakpoint(sm) {
                     font-size: 1rem;
-                    height: 50%;
+                    line-height: 2rem;
+                    text-align: center;
                 }
 
                 @include breakpoint(xs) {
-                    font-size: 0.9rem;
-                    height: 50%;
+                    font-size: 1rem;
+                    line-height: 2rem;
+                    text-align: center;
                 }
 
                 @include breakpoint(xxs) {
-                    font-size: 0.9rem;
-                    height: 50%;
+                    font-size: 1rem;
+                    line-height: 2rem;
+                    text-align: center;
                 }
             }
 
@@ -157,17 +174,15 @@
                 }
 
                 @include breakpoint(sm) {
-                    margin-top: 25%;
+                    margin-top: 0;
                 }
 
                 @include breakpoint(xs) {
-                    margin-top: 35%;
-                    gap: 10%;
+                    margin-top: 0;
                 }
 
                 @include breakpoint(xxs) {
-                    margin-top: 35%;
-                    gap: 10%;
+                    margin-top: 0;
                 }
 
                 &__button {
@@ -250,15 +265,17 @@
 
             @include breakpoint(sm) {
                 height: 60vh;
+                width: 80%;
             }
 
             @include breakpoint(xs) {
-                height: 40vh;
+                height: 60vh;
+                width: 80%;
             }
 
             @include breakpoint(xxs) {
-                height: 35vh;
-                align-self: center;
+                height: 60vh;
+                width: 80%;
             }
         }
 
@@ -266,10 +283,34 @@
             & .benefit__item__content {
                 &__title {
                     text-align: right;
+
+                    @include breakpoint(sm) {
+                        text-align: center;
+                    }
+
+                    @include breakpoint(xs) {
+                        text-align: center;
+                    }
+
+                    @include breakpoint(xxs) {
+                        text-align: center;
+                    }
                 }
 
                 &__description {
                     text-align: right;
+
+                    @include breakpoint(sm) {
+                        text-align: center;
+                    }
+
+                    @include breakpoint(xs) {
+                        text-align: center;
+                    }
+
+                    @include breakpoint(xxs) {
+                        text-align: center;
+                    }
                 }
             }
         }
@@ -277,18 +318,55 @@
         &--second {
             flex-direction: row-reverse;
 
+            @include breakpoint(sm) {
+                flex-direction: column;
+            }
+
+            @include breakpoint(xs) {
+                flex-direction: column;
+            }
+
+            @include breakpoint(xxs) {
+                flex-direction: column;
+            }
+
             & .benefit__item__content {
                 margin-right: 0;
                 margin-left: 5%;
                 margin-top: 15%;
                 align-self: center;
 
+
                 &__title {
                     text-align: left;
+
+                    @include breakpoint(sm) {
+                        text-align: center;
+                    }
+
+                    @include breakpoint(xs) {
+                        text-align: center;
+                    }
+
+                    @include breakpoint(xxs) {
+                        text-align: center;
+                    }
                 }
 
                 &__description {
                     text-align: left;
+
+                    @include breakpoint(sm) {
+                        text-align: center;
+                    }
+
+                    @include breakpoint(xs) {
+                        text-align: center;
+                    }
+
+                    @include breakpoint(xxs) {
+                        text-align: center;
+                    }
                 }
             }
         }

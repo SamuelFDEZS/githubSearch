@@ -9,12 +9,23 @@ const menuItems = document.querySelectorAll('.header__nav__list__item');
 const restrictedMenuItems = [menuItems[1], menuItems[2]];
 
 const setCurrentUser = (value) => {
-    currentUser = value;
+    currentUser = {
+        ...currentUser,
+        ...value
+    };
+    saveCurrentUser();
     handleCurrentUser();
 };
 
-const handleCurrentUser = () => {
-    // Check if user is logged to navigate
+const saveCurrentUser = () => {
+    if (localStorage.getItem('currentUser')) {
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    } else {
+        sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+    }
+}
+
+const initializeRestrictedMenu = () => {
     restrictedMenuItems.forEach((item) => {
         item.addEventListener('click', (event) => {
             if (!currentUser) {
@@ -23,7 +34,10 @@ const handleCurrentUser = () => {
             }
         });
     });
+}
+initializeRestrictedMenu();
 
+const handleCurrentUser = () => {
     if (currentUser) {
         userIcon.classList.remove('login__element__hidden');
         usernameContainer.classList.remove('login__element__hidden');

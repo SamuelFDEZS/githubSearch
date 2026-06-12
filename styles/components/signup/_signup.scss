@@ -214,18 +214,10 @@
         }
 
         &.status-error {
-            &::before {
-                content: "The email already exists";
-            }
-
             color: rgba(255, 0, 0, 0.767);
         }
 
         &.status-successfull {
-            &::before {
-                content: "The user has been successfully created";
-            }
-
             color: rgba(2, 195, 2, 0.832);
         }
     }

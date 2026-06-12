@@ -1,5 +1,6 @@
-/<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="../styles/base/main.css">
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
 </head>
+
 <body class="body-help">
     <header class="header">
         <a href="../index.html" class="header__link">
@@ -14,11 +16,17 @@
             <h1 class="header__link__title">Inquiro</h1>
         </a>
 
+        <div class="header__burger"><svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 6h18M3 12h18M3 18h18" />
+            </svg></div>
+
         <div class="header__filter"></div>
 
         <nav class="header__nav">
             <ul class="header__nav__list">
-                <li class="header__nav__list__item"><a href="../index.html" class="header__nav__list__item__link">Home</a>
+                <li class="header__nav__list__item"><a href="../index.html"
+                        class="header__nav__list__item__link">Home</a>
                 </li>
                 <li class="header__nav__list__item"><a href="./userSearch.html"
                         class="header__nav__list__item__link">Users</a></li>
@@ -48,40 +56,94 @@
 
     <main class="configurations">
         <aside class="configurations__menu">
-            <button class="configurations__menu__option">Profile</button>
-            <button class="configurations__menu__option">Logout</button>
+            <div class="configurations__menu__picture-container">
+                <img src="../assets/images/user-icon-image.png" alt="User Profile Picture"
+                    class="configurations__menu__picture-container__profile-picture">
+            </div>
+
+            <div class="configurations__menu__username-container">
+                <h2 class="configurations__menu__username-container__username"></h2>
+            </div>
+            <div class="configurations__menu__option-container">
+                <ul class="configurations__menu__option-container__list">
+                    <li class="configurations__menu__option-container__list__item"><a href="./configurations.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="8" r="5" fill="currentColor" />
+                                    <path d="M20 21a8 8 0 1 0-16 0" />
+                                    <path fill="currentColor" d="M12 13a8 8 0 0 0-8 8h16a8 8 0 0 0-8-8" />
+                                </g>
+                            </svg> <span>Profile Settings</span></a></li>
+                </ul>
+            </div>
+
+            <button class="configurations__menu__option configurations__menu__option--logout">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2">
+                        <path d="M14 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2v-2" />
+                        <path d="M9 12h12l-3-3m0 6l3-3" />
+                    </g>
+                </svg>
+                <span class="configurations__menu__option--logout-text">Logout</span>
+            </button>
         </aside>
 
         <section class="configurations__info">
+
+            <h2 class="configurations__info__title">User Configuration</h2>
+            <p class="configurations__info__subtitle">Manage your account settings and preferences</p>
             <form class="configurations__info__fields-container" onsubmit="false">
-                <article class="configurations__info__fields-container__field">
-                    <h4 class="configurations__info__fields-container__field__title">Email</h4>
-                    <input type="email" id="configurations-email" class="configurations__info__fields-container__field__input" name="email" required>
-                </article>
 
-                <article class="configurations__info__fields-container__field">
-                    <h4 class="configurations__info__fields-container__field__title">Username</h4>
-                    <input type="text" id="configurations-username" class="configurations__info__fields-container__field__input" name="username" required pattern="^\S{5,}$" minlength="5"
-                title="Must be at least 5 characters and no spaces">
-                </article>
+                <main class="configurations__info__fields-container__main">
 
-                <article class="configurations__info__fields-container__field">
-                    <h4 class="configurations__info__fields-container__field__title">Password</h4>
-                    <input type="password" id="configurations-password" class="configurations__info__fields-container__field__input" name="password" required>
-                </article>
+                    <article class="configurations__info__fields-container__main__field">
+                        <label for="configurations-email"
+                            class="configurations__info__fields-container__main__field__title">Email
+                            Address</label>
+                        <input type="email" id="configurations-email"
+                            class="configurations__info__fields-container__main__field__input" name="email" required>
+                    </article>
 
-                <article class="configurations__info__fields-container__field">
-                    <h4 class="configurations__info__fields-container__field__title">Phone</h4>
-                    <input type="tel" id="configurations-phone" class="configurations__info__fields-container__field__input" name="phone" maxlength="9" minlength="9" pattern="\d{9}" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                </article>
+                    <article class="configurations__info__fields-container__main__field">
+                        <label for="configurations-username"
+                            class="configurations__info__fields-container__main__field__title">Username</label>
+                        <input type="text" id="configurations-username"
+                            class="configurations__info__fields-container__main__field__input" name="username" required
+                            pattern="^\S{5,}$" minlength="5" title="Must be at least 5 characters and no spaces">
+                    </article>
+
+                    <article class="configurations__info__fields-container__main__field__button">
+                        <label for="configurations-button"
+                            class="configurations__info__fields-container__main__field__title">Password</label>
+                        <input type="button" id="configurations-pass-button"
+                            class="configurations__info__fields-container__main__field__button__input" name="button" value="Change Password" required>
+                    </article>
+
+                    <article class="configurations__info__fields-container__main__field">
+                        <label for="configurations-phone"
+                            class="configurations__info__fields-container__main__field__title">Phone
+                            Number</label>
+                        <input type="tel" id="configurations-phone"
+                            class="configurations__info__fields-container__main__field__input" name="phone"
+                            maxlength="9" minlength="9" pattern="\d{9}"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    </article>
+                </main>
+
 
                 <div class="operation-status">
                     <span class="operation-status__text"></span>
                 </div>
+
                 <div class="configurations__info__fields-container__button-container">
-                <button class="configurations__info__fields-container__button-container__button">Discard Changes</button>
-                <button type="submit" class="configurations__info__fields-container__button-container__button">Save Changes</button>
-            </div>
+                    <button class="configurations__info__fields-container__button-container__button discard">Discard
+                        Changes</button>
+                    <button type="submit"
+                        class="configurations__info__fields-container__button-container__button save">Save
+                        Changes</button>
+                </div>
             </form>
         </section>
     </main>
@@ -131,7 +193,8 @@
 
     <script src="https://kit.fontawesome.com/6785b831dc.js" crossorigin="anonymous"></script>
     <script src="../js/currentUser.js"></script>
-    <script src="../js/configurations.js"></script>
+    <script type ="module" src="../js/configurations.js"></script>
     <script src="../js/burgerMenu.js"></script>
 </body>
+
 </html>

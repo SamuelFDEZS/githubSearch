@@ -1,40 +1,59 @@
+import API_URL from './config/api.js';
+
 const errorElement = document.querySelector('.signup-container__signup-status');
+
 const form = document.querySelector('.signup-container');
-let userExists = false;
-let formData = null;
-let users = [];
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', async (event) => {
     event.preventDefault();
-    formData = new FormData(form);
 
-    if (localStorage.getItem('users') !== null) {
-        users = JSON.parse(localStorage.getItem('users')) || [];
-    }
+    errorElement.classList.remove(
+        'status-error',
+        'status-successfull'
+    );
 
-    if (users) {
-        userExists = users.some(user => user.email === formData.get('email'));
-        if (userExists) errorElement.classList.add('status-error');
-    }
 
-    if (!userExists) {
+    const formData = new FormData(form);
+
+    const userData = {
+        username: formData.get('username'),
+        email: formData.get('email'),
+        password: formData.get('password'),
+        phone: formData.get('phone'),
+    };
+
+    try {
+
+        const response = await fetch(`${API_URL}/user/register`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            errorElement.textContent = result.message;
+            errorElement.classList.remove('status-successfull');
+            errorElement.classList.add('status-error');
+            errorElement.classList.remove('status-hidden');
+            return;
+        }
+        
+        errorElement.textContent = result.message;
         errorElement.classList.add('status-successfull');
-        errorElement.classList.remove('status-error');
-
-        const userData = Array.from(formData.entries()).reduce((acc, [key, value]) => {
-            acc[key] = value;
-            return acc;
-        }, {});
-
-        users.push(userData);
-
-        localStorage.setItem('users', JSON.stringify(users));
-        localStorage.setItem('currentUser', JSON.stringify(userData));
-
+        errorElement.classList.remove('status-hidden');
+        
         setTimeout(() => {
-            window.location.href = '../index.html';
+            window.location.href = '../pages/login.html';
         }, 3000);
-    }
+    } catch (error) {
+        console.error(error);
 
-    errorElement.classList.remove('status-hidden');
+        errorElement.innerHTML = 'Could not connect to the server';
+        errorElement.classList.remove('status-hidden');
+        errorElement.classList.add('status-error');
+    }
 });

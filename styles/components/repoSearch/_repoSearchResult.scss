@@ -1,6 +1,6 @@
 .reposearch-results {
-    margin-top: 3%;
     width: 100%;
+    margin-top: 3%;
     overflow: visible;
     min-height: 100vh;
     display: grid;
@@ -9,7 +9,24 @@
     justify-items: center;
     position: relative;
 
-    &__incorrect-format{
+    @include breakpoint(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(sm) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    @include breakpoint(xs) {
+        grid-template-columns: 1fr;
+    }
+
+    @include breakpoint(xxs) {
+        grid-template-columns: 1fr;
+    }
+
+    &__incorrect-format {
         position: absolute;
         left: 50%;
         transform: translateY(-50%);
@@ -18,15 +35,31 @@
 
     &__card {
         background: linear-gradient(220.55deg, #FFBB89 0%, #7B6AE0 100%);
-        width: 60%;
-        min-height: 50vh;
-        max-height: 55vh;
+        width: clamp(19rem, 30vw, 24rem);
+        height: auto;
         margin-top: 20%;
+        padding-bottom: 3rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         border-radius: 10px;
         transition: 0.3s ease;
+
+        @include breakpoint(md) {
+            width: 40vw;
+        }
+
+        @include breakpoint(sm) {
+            flex: 1;
+        }
+
+        @include breakpoint(xs) {
+            width: 85vw;
+        }
+
+        @include breakpoint(xxs) {
+            flex: 1;
+        }
 
         &:hover {
             cursor: pointer;
@@ -36,26 +69,39 @@
 
         &__image {
             margin-top: 5%;
-            border-radius: 5px;
-            width: 250px;
-            height: 250px;
+            border-radius: 15px;
+            width: 70%;
+            aspect-ratio: 1/1;
         }
 
         &__title {
+            width: 100%;
+            overflow-wrap: anywhere;
+            word-break: break-word;
             margin-top: 5%;
+            font-size: clamp(1.4rem, 2vw, 1.8rem);
+            text-align: center;
+
+            @include breakpoint(xs) {
+                font-size: 1.5rem;
+            }
+
+            @include breakpoint(xxs) {
+                font-size: 1.5rem;
+            }
         }
 
         &__info-container {
             margin-top: 8%;
             width: 80%;
-            height: 40%;
+            height: auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: auto auto;
             grid-template-areas:
                 "field0 field1 field2"
                 "field3 . field4";
-            gap: 5%;
+            gap: 2rem;
             justify-items: center;
             align-items: center;
 
@@ -89,13 +135,23 @@
                 }
 
                 &__title {
-                    font-size: 1.1rem;
+                    font-size: clamp(1rem, 1.6vw, 1.2rem);
                     text-align: center;
                     white-space: nowrap;
+
+                    @include breakpoint(xs) {
+                        font-size: 1.2rem;
+                    }
                 }
 
                 &__value {
                     margin-top: 10%;
+                    font-size: clamp(0.8rem, 1.6vw, 1.2rem);
+                    text-align: center;
+
+                    @include breakpoint(xs) {
+                        font-size: 1.1rem;
+                    }
                 }
             }
         }

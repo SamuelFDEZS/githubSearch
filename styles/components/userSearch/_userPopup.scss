@@ -1,7 +1,9 @@
 .popup-container {
     border: 3px solid white;
-    width: 30vw;
-    height: 70vh;
+    width: clamp(22rem, 65vw, 35rem);
+    height: auto;
+    padding-bottom: 1.5rem;
+    box-sizing: border-box;
     position: fixed;
     z-index: 6;
     border-radius: 10px;
@@ -15,36 +17,6 @@
     align-items: center;
     background: linear-gradient(220.55deg, #FF8570 0%, #418CB7 100%);
 
-    @include breakpoint(xl) {
-        width: 30vw;
-    }
-
-    @include breakpoint(pxl) {
-        width: 45vw;
-    }
-
-    @include breakpoint(lg) {
-        width: 50vw;
-    }
-
-    @include breakpoint(md) {
-        width: 58vw;
-    }
-
-    @include breakpoint(sm) {
-        width: 65vw;
-    }
-
-    @include breakpoint(xs) {
-        width: 75vw;
-        height: 60vh;
-    }
-
-    @include breakpoint(xxs) {
-        width: 80vw;
-        height: 65vh;
-    }
-
     &.show-popup {
         opacity: 1;
         visibility: visible;
@@ -56,30 +28,13 @@
         top: 1%;
         font-size: 2.8rem;
         cursor: pointer;
-
-        @include breakpoint(xs) {
-            font-size: 2.1rem;
-        }
-        @include breakpoint(xxs) {
-            font-size: 2rem;
-        }
     }
 
     &__title {
         text-align: center;
-        margin-top: 2%;
+        margin-top: 1rem;
         margin-bottom: 2%;
-        font-size: 2rem;
-
-        @include breakpoint(sm) {
-            font-size: 1.8rem;
-        }
-        @include breakpoint(xs) {
-            font-size: 1.6rem;
-        }
-        @include breakpoint(xxs) {
-            font-size: 1.6rem;
-        }
+        font-size: clamp(1.6rem, 4vw, 2rem);
     }
 
     &__image {
@@ -93,184 +48,76 @@
 
     &__info-container {
         width: 90%;
-        height: 35%;
-        margin-top: 2%;
+        height: auto;
+        margin-top: 2rem;
         display: flex;
-        gap: 20%;
+        gap: clamp(3rem, 11vw, 7rem);
         justify-content: center;
         align-items: center;
 
-        @include breakpoint(sm) {
-            flex-direction: column;
-            gap: 0;
-            margin-top: 5%;
-        }
-
-        @include breakpoint(xs) {
-            flex-direction: column;
-            gap: 0;
-            margin-top: 5%;
-        }
-
-        @include breakpoint(xxs) {
-            flex-direction: column;
-            gap: 0;
-            margin-top: 5%;
-        }
-
         &__item-group {
-            height: 80%;
             display: flex;
-            gap: 2.3rem;
             justify-content: space-around;
             flex-direction: column;
             font-size: 1.3rem;
             white-space: nowrap;
-
-            @include breakpoint(sm) {
-                gap: 0;
-                justify-content: space-around;
-                align-items: center;
-            }
-
-            @include breakpoint(xs) {
-                gap: 0;
-                justify-content: space-around;
-                align-items: center;
-            }
-
-            @include breakpoint(xxs) {
-                gap: 0;
-                justify-content: space-around;
-                align-items: center;
-            }
+            gap: 4.3rem;
 
             &__item {
+                display: flex;
                 & span:first-child {
-                    font-size: 1.7rem;
+                    font-size: clamp(1.2rem, 4vw, 1.7rem);
                     margin-right: 2%;
-
-                    @include breakpoint(md) {
-                        font-size: 1.5rem;
-                    }
-
-                    @include breakpoint(xs) {
-                        font-size: 1.3rem;
-                    }
-
-                    @include breakpoint(xxs) {
-                        font-size: 1.1rem;
-                    }
                 }
 
                 & .item-title {
                     font-weight: bold;
-                    font-size: 1.4rem;
-
-                    @include breakpoint(md) {
-                        font-size: 1.2rem;
-                    }
-
-                    @include breakpoint(xs) {
-                        font-size: 1.2rem;
-                    }
-
-                    @include breakpoint(xxs) {
-                        font-size: 1rem;
-                    }
+                    font-size: clamp(1rem, 2.5vw, 1.2rem);
                 }
 
                 & .item-info {
                     white-space: nowrap;
-
-                    @include breakpoint(xs) {
-                        font-size: 1.1rem;
-                    }
-
-                    @include breakpoint(xxs) {
-                        font-size: 1.1rem;
-                    }
+                    font-size: clamp(1.1rem, 4vw, 1.3rem);
                 }
             }
         }
     }
 
     &__button-group {
-        margin-top: 7%;
-        margin-bottom: 3%;
-        width: 90%;
-        height: 10%;
+        margin-top: 4rem;
+        width: 80%;
+        height: auto;
         display: flex;
         justify-content: space-around;
+        gap: clamp(1.5rem, 5vw, 4rem);
 
-        @include breakpoint(md) {
-            margin-top: 15%;
-            margin-bottom: 0;
-        }
         @include breakpoint(sm) {
-            margin-top: 25%;
-            margin-bottom: 0;
+            width: 90%;
         }
 
         @include breakpoint(xs) {
-            margin-top: 35%;
-            margin-bottom: 0;
+            width: 98%;
         }
 
         @include breakpoint(xxs) {
-            margin-top: 15%;
-            margin-bottom: 0;
+            width: 98%;
         }
 
         &__link {
             display: block;
-            width: 40%;
-            height: 100%;
-
-            @include breakpoint(md) {
-                height: 85%;
-                width: 43%;
-            }
-
-            @include breakpoint(sm) {
-                height: 85%;
-                width: 43%;
-            }
-
-            @include breakpoint(xs) {
-                height: 85%;
-                width: 43%;
-            }
-
-            @include breakpoint(xxs) {
-                height: 85%;
-                width: 43%;
-            }
+            flex: 1;
 
             &__button {
                 width: 100%;
-                height: 100%;
+                min-height: clamp(3rem, 7vw, 3.5rem);
                 outline: none;
                 border: 0;
-                border-radius: 25px;
+                border-radius: 2rem;
                 background: linear-gradient(220.55deg, #8FFF85 0%, #39A0FF 100%);
                 box-shadow: 0px -18px 13px 0px rgba(0, 0, 0, 0.1);
                 cursor: pointer;
                 transition: all 0.3s;
-                font-size: 1rem;
-
-                @include breakpoint(sm) {
-                    font-size: 0.9rem;
-                }
-
-                @include breakpoint(xs) {
-                    font-size: 0.9rem;
-                }
-
-                @include breakpoint(xxs) {
-                    font-size: 0.9rem;
-                    padding: 0 10px 0 10px;
-                }
+                font-size: clamp(0.9rem, 2.8vw, 1rem);
 
                 &:hover {
                     filter: brightness(0.8);
@@ -295,5 +142,35 @@
     &.show-filter {
         z-index: 5;
         backdrop-filter: brightness(0.5);
+    }
+}
+
+.item__loader {
+    width: clamp(0.4rem, 2vw, 0.7rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: block;
+    position: relative;
+    margin-left: 1.5rem;
+    color: #FFF;
+    box-sizing: border-box;
+    animation: animloader 1s linear infinite alternate;
+}
+
+@keyframes animloader {
+    0% {
+        box-shadow: -12px -4px, 0px 4px, 12px -4px;
+    }
+
+    33% {
+        box-shadow: -12px 4px, 0px -4px, 12px 4px;
+    }
+
+    66% {
+        box-shadow: -12px -4px, 0px 4px, 12px -4px;
+    }
+
+    100% {
+        box-shadow: -12px 4px, 0px -4px, 12px 4px;
     }
 }

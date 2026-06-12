@@ -1,13 +1,14 @@
-.repo-popup{
+.repo-popup {
     border: 3px solid white;
-    width: 60vh;
-    height: 70vh;
+    width: clamp(28rem, 65vw, 40rem);
+    height: auto;
     position: fixed;
     z-index: 6;
     border-radius: 10px;
     color: #232323;
     left: 50%;
     top: 50%;
+    padding-bottom: 2.5rem;
     opacity: 0;
     visibility: hidden;
     transform: translate(-50%, -50%);
@@ -16,57 +17,119 @@
     align-items: center;
     background: linear-gradient(220.55deg, #FF8570 0%, #418CB7 100%);
     gap: 5%;
-    &.show-popup{
+
+    @include breakpoint(xs) {
+        width: 90vw;
+    }
+    @include breakpoint(xxs) {
+        width: 90vw;
+    }
+
+    &__exit-popup {
+        position: absolute;
+        right: 2%;
+        top: 1%;
+        font-size: clamp(2rem, 5vw, 3rem);
+        cursor: pointer;
+    }
+
+    &.show-popup {
         opacity: 1;
         visibility: visible;
     }
 
-    &__title{
+    &__title {
         margin-top: 5%;
-        font-size: 2.8rem;
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        text-align: center;
+
+        @include breakpoint(xs) {
+            width: 75%;
+        }
+        @include breakpoint(xxs) {
+            width: 75%;
+        }
     }
 
-    &__description{
+    &__description {
         width: 90%;
         text-align: center;
         line-height: 1.5em;
     }
 
-    &__info-title{
+    &__info-title {
         margin-top: 8%;
-        font-size: 2rem;
+        font-size: clamp(1.5rem, 3vw, 2rem);
     }
 
-    &__repoinfo-container{
+    &__repoinfo-container {
         width: 100%;
-        height: 50%;
+        height: auto;
         display: flex;
         justify-content: center;
-        gap: 15%;
+        gap: clamp(3rem, 8vw, 7rem);
 
-        &__data{
-            margin-top: 5%;
+        @include breakpoint(xs) {
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            margin-top: 2rem;
+        }
+        @include breakpoint(xxs) {
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            margin-top: 2rem;
+        }
+
+        &__data {
+            margin-top: 5rem;
             width: 30%;
-            height: 60%;
+            min-height: 30vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            gap: 15%;
+            gap: 1rem;
 
-            &__field{
-                display: flex;
-                gap: 5%;
+            @include breakpoint(xs) {
+                width: 80%;
+                margin-top: 0;
+                gap: 0;
                 align-items: center;
+                min-height: 20vh;
+            }
+            @include breakpoint(xxs) {
+                width: 80%;
+                margin-top: 0;
+                gap: 0;
+                align-items: center;
+                min-height: 20vh;
+            }
 
-                &__icon{
-                    font-size: 2rem;
+            &__field {
+                display: flex;
+                gap: 0.5rem;
+                align-items: center;
+                flex: 1;
+
+                &__icon {
+                    font-size: clamp(1.5rem, 3vw, 2rem);
                 }
 
-                &__text{
+                &__text {
                     display: flex;
                     gap: 5px;
                     white-space: nowrap;
-                    & span:first-of-type{
+
+                    @include breakpoint(xs) {
+                        font-size: 1.2rem;
+                    }
+
+                    @include breakpoint(xxs) {
+                        font-size: 1.1rem;
+                    }
+
+                    & span:first-of-type {
                         font-weight: bold;
                         white-space: nowrap;
                     }
@@ -75,16 +138,17 @@
         }
     }
 
-    &__buttons-container{
+    &__buttons-container {
         width: 100%;
-        height: 15%;
+        height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 17%;
-        &__button{
+
+        &__button {
             width: 30%;
-            height: 70%;
+            height: clamp(3rem, 7vw, 3.5rem);;
             outline: none;
             border-radius: 10px;
             cursor: pointer;
@@ -97,12 +161,25 @@
             transition: 0.3s ease;
             text-decoration: none;
             color: #000;
+            margin-top: 4rem;
 
-            &:hover{
+            @include breakpoint(sm) {
+                font-size: 1rem;
+            }
+            @include breakpoint(xs) {
+                width: 35%;
+                font-size: 1rem;
+            }
+            @include breakpoint(xxs) {
+                width: 35%;
+                font-size: 1rem;
+            }
+
+            &:hover {
                 filter: brightness(0.8);
             }
 
-            &:active{
+            &:active {
                 scale: 0.9;
             }
         }

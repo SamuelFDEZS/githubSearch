@@ -1,211 +1,581 @@
 .configurations {
-    width: 100%;
-    height: 88vh;
+    width: 80vw;
+    min-height: 85vh;
+    margin-top: 3rem;
     display: flex;
-    justify-content: space-between;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center;
+    align-items: center;
+
+    @include breakpoint(sm) {
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    @include breakpoint(xs) {
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    @include breakpoint(xxs) {
+        width: 95vw;
+        flex-direction: column;
+        gap: .2rem;
+    }
+
 
     &__menu {
-        width: 15%;
-        border-right: 3px solid white;
-        border-top: 3px solid white;
-        border-bottom: 3px solid white;
+        flex: 1;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
+        padding-top: 2rem;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: radial-gradient(circle at top right, #1a1c2cae, #0c0e12ab);
+        border-radius: 8px;
+
+        @include breakpoint(sm) {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.541);
+        }
+
+        @include breakpoint(xs) {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.541);
+        }
+
+        @include breakpoint(xxs) {
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.541);
+        }
+
+
+
+        &__picture-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            margin-bottom: 1rem;
+
+
+            padding: 1rem;
+            border: 3px solid transparent;
+
+            background:
+                linear-gradient(rgba(15, 15, 30, 0.9),
+                    rgba(15, 15, 30, 0.9)) padding-box,
+                linear-gradient(90deg,
+                    #00e5ff,
+                    #765cff,
+                    #ff4ecd,
+                    #00e5ff) border-box;
+
+            background-size:
+                100% 100%,
+                300% 100%;
+
+            animation:
+                border-flow 4s linear infinite,
+                pulse 1.8s ease-in-out infinite;
+
+            &__profile-picture {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                filter: invert(80%)
+            }
+        }
+
+        &__username-container {
+            font-size: 1.8rem;
+            letter-spacing: 0.1rem;
+            padding: 0.5rem 1rem;
+        }
+
+        &__option-container {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            margin-top: 2.5rem;
+
+            &__list {
+                width: 100%;
+                padding: 0.5rem 1rem;
+
+                &__item {
+                    width: 100%;
+                    padding: .7rem 0;
+                    border: 2px solid rgba(0, 242, 255, 0.3);
+                    cursor: pointer;
+                    border-radius: 8px;
+                    background-color: rgba(0, 58, 61, 0.66);
+                    transition: background-color 0.3s ease;
+
+                    & a {
+                        text-decoration: none;
+                        color: var(--font-text-color);
+                        font-family: var(--font-style-regular);
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                        font-size: 1.1rem;
+
+                        & svg {
+                            margin-left: 1rem;
+                        }
+                    }
+                }
+
+            }
+
+        }
 
         &__option {
-            width: 70%;
-            height: 5%;
-            border: 0;
+            width: 80%;
+            padding: .7rem 0;
+            border: 2px solid rgba(255, 180, 171, 0.3);
             outline: none;
-            background: transparent;
-            color: white;
-            font-family: var(--font-style-semiBold);
-            font-size: 1.4rem;
-            border: 1px solid white;
             cursor: pointer;
-            transition: 0.3s ease;
-            position: relative;
-            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.621);
+            border-radius: 8px;
 
-            &:first-child{
-                text-decoration: underline;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 9.5rem;
+
+            & svg {
+                font-size: 1.2rem;
+                color: rgb(255, 180, 171);
             }
 
-            &::before {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                z-index: -1;
-                height: 100%;
-                opacity: 0;
-                visibility: hidden;
-                background: linear-gradient(220.55deg, #8A88FB 0%, #D079EE 100%);
-                transition: 0.3s ease;
-                border-radius: 10px;
-            }
 
-            &:hover {
-                scale: 1.05;
+            &--logout {
+                margin-bottom: 2rem;
 
-                &::before {
-                    opacity: 1;
-                    visibility: visible;
+                &-text {
+                    font-family: var(--font-style-regular);
+                    color: var(--font-text-color);
+                    font-size: 1.1rem;
+                    color: rgb(255, 180, 171);
                 }
             }
 
-            &:first-child {
-                margin-top: 15%;
-            }
-
-            &:last-child {
-                margin-bottom: 20%;
+            &:hover {
+                background-color: rgba(255, 179, 171, 0.139);
             }
         }
     }
 
     &__info {
-        width: 100%;
-        height: 100%;
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        background: radial-gradient(circle at top right, #1a1c2cae, #0c0e12ab);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+
+
+        @include breakpoint(sm) {
+            width: 93%;
+            border: 1px solid rgba(255, 255, 255, 0.541);
+        }
+
+        @include breakpoint(xs) {
+            width: 93%;
+            border: 1px solid rgba(255, 255, 255, 0.541);
+        }
+
+        @include breakpoint(xxs) {
+            width: 93%;
+            border: 1px solid rgba(255, 255, 255, 0.541);
+        }
+
+
+
+
+        &__title {
+            font-size: 2.2rem;
+            letter-spacing: 0.07rem;
+            padding: 0.5rem 1rem;
+
+            @include breakpoint(sm) {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
+            @include breakpoint(xs) {
+                font-size: 1.8rem;
+                text-align: center;
+                margin-top: 1rem;
+
+            }
+
+            @include breakpoint(xxs) {
+                font-size: 1.6rem;
+                text-align: center;
+                margin-top: 1rem;
+            }
+        }
+
+        &__subtitle {
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+
+            @include breakpoint(sm) {
+                font-size: 1.1rem;
+                text-align: center;
+            }
+
+            @include breakpoint(xs) {
+                font-size: 1.1rem;
+                text-align: center;
+            }
+
+            @include breakpoint(xxs) {
+                font-size: 1rem;
+                text-align: center;
+            }
+        }
 
         &__fields-container {
-            width: 100%;
-            height: 98%;
+            position: relative;
+            flex: 1;
+            margin-top: 2rem;
             display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 10%;
-            position: relative;
+            padding-bottom: 3rem;
 
-            &__field {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 50%;
-                height: 15%;
-                gap: 20%;
 
-                &:first-child {
-                    margin-top: 3%;
+            &__main {
+                width: 100%;
+
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                row-gap: 8rem;
+                column-gap: 2rem;
+                justify-items: center;
+
+                @include breakpoint(xs) {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 3rem;
                 }
 
-                &__title {
-                    font-size: 1.4rem;
+                @include breakpoint(xxs) {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 3rem;
                 }
 
-                &__input {
-                    width: 35%;
-                    padding-left: 2%;
-                    padding-right: 2%;
-                    height: 37%;
-                    font-size: 1.3rem;
-                    outline: none;
-                    border-radius: 10px;
-                    background: linear-gradient(220.55deg, #EAEAEA 0%, #8B8B8B 100%);
-                    transition: background 0.3s;
 
-                    &:focus {
-                        background: white;
+                &__field {
+                    width: 80%;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    @include breakpoint(xs) {
+                        width: 60%;
+                        text-align: center;
+                    }
+
+                    @include breakpoint(xxs) {
+                        width: 60%;
+                        text-align: center;
+                    }
+
+                    &__title {
+                        font-size: 1.1rem;
+                        color: rgb(116, 245, 255);
+                    }
+
+                    &__input {
+                        width: 100%;
+                        min-height: 3.5rem;
+                        padding: 0.5rem;
+                        border-radius: 4px;
+                        border: 2px solid rgba(255, 255, 255, 0.3);
+                        background-color: rgb(251, 251, 251);
+                        outline: none;
+                        font-size: 1rem;
+                        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+                        @include breakpoint(xs) {
+                            text-align: center;
+                            min-height: 2.5rem;
+                        }
+
+                        @include breakpoint(xxs) {
+                            text-align: center;
+                            min-height: 2.5rem;
+
+                        }
+
+                        &:focus {
+                            border-color: rgba(255, 255, 255, 0.6);
+                            box-shadow: 0 0 8px rgb(255, 255, 255);
+                        }
+                    }
+
+                    &__button {
+                        width: 80%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+
+                        @include breakpoint(xs) {
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                        @include breakpoint(xxs) {
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                        &__input {
+                            max-width: 70%;
+                            text-align: center;
+                            color: #ffffff;
+                            font-size: 1rem;
+                            outline: none;
+                            border: 1px solid white;
+                            background-color: rgba(74, 74, 74, 0.443);
+                            padding: 1rem;
+                            border-radius: 6px;
+                            cursor: pointer;
+                            transition: background-color 0.3s ease;
+
+                            @include breakpoint(xs) {
+                                min-width: 30%;
+                                max-width: 90%;
+                            }
+
+                            @include breakpoint(xxs) {
+                                min-width: 30%;
+                                max-width: 90%;
+                            }
+
+                            &:hover {
+                                background-color: rgba(74, 74, 74, 0.792);
+                            }
+                        }
+                    }
+
+
+
+                    &.password {
+                        position: relative;
+
+                        & svg {
+                            position: absolute;
+                            right: 5%;
+                            bottom: 20%;
+                            font-size: 1.2rem;
+                            z-index: 2;
+                            cursor: pointer;
+                            color: black;
+                            opacity: 0;
+                            visibility: hidden;
+
+                            @include breakpoint(xs) {
+                                bottom: 12%;
+                            }
+
+                            &.visible {
+                                opacity: 1;
+                                visibility: visible;
+                            }
+                        }
                     }
                 }
             }
+
 
             &__button-container {
-                width: 100%;
-                height: 10%;
+                min-width: 45%;
                 display: flex;
+                margin-left: auto;
+                margin-right: 5%;
                 justify-content: center;
-                align-items: center;
-                justify-content: space-around;
+                margin-top: 3rem;
+                gap: 1rem;
+
+
+                @include breakpoint(pxl) {
+                    min-width: 50%;
+                }
+
+                @include breakpoint(lg) {
+                    min-width: 60%;
+                }
+
+                @include breakpoint(md) {
+                    min-width: 80%;
+                }
+
+                @include breakpoint(sm) {
+                    min-width: 60%;
+                }
+
+                @include breakpoint(xs) {
+                    min-width: 90%;
+                }
+
+                @include breakpoint(xxs) {
+                    min-width: 90%;
+
+                }
 
                 &__button {
-                    position: relative;
-                    width: 10%;
-                    height: 80%;
+                    flex: 1;
+                    height: 8vh;
                     outline: none;
+                    border-radius: 8rem;
+                    font-size: 1rem;
                     cursor: pointer;
-                    border-radius: 25px;
-                    font-size: 1.1rem;
-                    background: white;
-                    transition: all 0.3s;
-                    border: 1px solid black;
-                    &:first-child{
-                        &::before {
-                            content: '';
-                            position: absolute;
-                            left: 0;
-                            top: 0;
-                            width: 100%;
-                            z-index: -1;
-                            height: 100%;
-                            opacity: 0;
-                            visibility: hidden;
-                            background: linear-gradient(220.55deg, #FF0000 0%, #470000 100%);
-                            transition: all 0.3s ease;
-                            border-radius: 25px;
-                        }
+                    border: 0;
 
-                        &:hover{
-                            color: #fff;
+                    @include breakpoint(xs) {
+                        font-size: 0.9rem;
+                        height: 6vh;
+                    }
+
+                    @include breakpoint(xxs) {
+                        font-size: 0.9rem;
+                        height: 6vh;
+                    }
+
+                    &.discard {
+                        background: transparent;
+                        transition: 0.3s ease;
+                        border: 2px solid rgb(58, 73, 75);
+                        color: white;
+
+                        &:hover {
+                            background: rgba(51, 53, 57, 0.459);
                         }
                     }
 
-                    &:last-child{
-                        &::before {
-                            content: '';
-                            position: absolute;
-                            left: 0;
-                            top: 0;
-                            width: 100%;
-                            z-index: -1;
-                            height: 100%;
-                            opacity: 0;
-                            visibility: hidden;
-                            background: linear-gradient(220.55deg, #8A88FB 0%, #D079EE 100%);
-                            transition: all 0.3s ease;
-                            border-radius: 25px;
-                        }
-                    }
+                    &.save {
+                        background: linear-gradient(135deg,
+                                rgb(0, 242, 255) 0%,
+                                rgb(125, 1, 177) 100%);
 
-                    &:hover {
-                        scale: 1.05;
+                        box-shadow:
+                            0 0 8px rgba(0, 242, 255, 0.5),
+                            0 0 16px rgba(0, 242, 255, 0.25);
 
-                        &::before {
-                            opacity: 1;
-                            visibility: visible;
+                        transition:
+                            box-shadow 0.3s ease,
+                            transform 0.3s ease;
+
+                        &:hover {
+                            box-shadow:
+                                0 0 12px rgba(0, 242, 255, 0.75),
+                                0 0 24px rgba(0, 242, 255, 0.45),
+                                0 0 32px rgba(125, 1, 177, 0.25);
+
+                            transform: translateY(-2px);
                         }
                     }
                 }
-
-
             }
+
         }
     }
 }
 
-.operation-status{
-    position: absolute;
-    width: 50%;
-    height: 5%;
-    bottom: 12%;
-    right: 50%;
-    transform: translateX(50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.operation-status {
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    justify-self: center;
+    margin-top: 2rem;
+    text-align: center;
+
+    @include breakpoint(sm) {
+        line-height: 150%;
+    }
+
+    @include breakpoint(xs) {
+        line-height: 150%;
+    }
+
+    @include breakpoint(xxs) {
+        font-size: 1rem;
+        line-height: 150%;
+
+    }
 
     &__text {
-        font-size: 1.7rem;
-
-        &.error{
-            color: rgb(225, 0, 0);
+        &.success {
+            color: rgba(0, 255, 170, 0.8);
         }
 
-        &.success{
-            color: rgb(2, 254, 2);
+        &.error {
+            color: rgba(255, 100, 100, 0.8);
         }
+    }
+
+}
+
+@keyframes border-flow {
+    0% {
+        background-position:
+            0 0,
+            0% 50%;
+    }
+
+    100% {
+        background-position:
+            0 0,
+            300% 50%;
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 8px rgba(118, 92, 255, 0.35);
+    }
+
+    50% {
+        transform: scale(1.035);
+        box-shadow:
+            0 0 14px rgba(0, 229, 255, 0.55),
+            0 0 24px rgba(255, 78, 205, 0.35);
+    }
+}
+
+.pass-popup__container__form__operation-status {
+    min-height: 1.1rem;
+    margin: 0;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+
+    &.error {
+        color: #ff8f8f;
+    }
+
+    &.success {
+        color: #91f1ad;
     }
 }

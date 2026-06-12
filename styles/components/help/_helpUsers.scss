@@ -1,23 +1,29 @@
 .help__info {
     &__container {
         &__image--userSearch {
+            max-width: 90vw;
+            min-height: 40vh;
+            max-height: 50vh;
             border: 2px solid white;
             border-radius: 10px;
-            width: 65%;
 
-            &--sixth{
+            &--sixth {
                 width: 50%;
             }
-            &--seventh{
+
+            &--seventh {
                 width: 40%;
             }
-            &--tenth{
+
+            &--tenth {
                 width: 50%;
             }
-            &--eleventh{
+
+            &--eleventh {
                 width: 50%;
             }
-            &--twelfth{
+
+            &--twelfth {
                 width: 50%;
             }
         }

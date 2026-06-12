@@ -183,26 +183,26 @@ const createUserPopup = async (username) => {
                 <p class="popup-container__info-container__item-group__item" id="followersCount">
                     <span class="fa-solid fa-user" style="color: #B197FC;"></span>
                     <span class="item-title">Followers: </span>
-                    <span class="item-info">Loading...</span>
+                    <span class="item-info"><span class="item__loader"></span></span>
                 </p>
 
                 <p class="popup-container__info-container__item-group__item" id="reposCount">
                     <span class="fa-solid fa-database" style="color: #89ca6e;"></span>
                     <span class="item-title">Repos: </span>
-                    <span class="item-info">Loading...</span>
+                    <span class="item-info"><span class="item__loader"></span></span>
                 </p>
             </article>
             <article class="popup-container__info-container__item-group">
                 <p class="popup-container__info-container__item-group__item" id="eventsCount">
                     <span class="fa-solid fa-calendar" style="color: #d58070;"></span>
                     <span class="item-title">Events: </span>
-                    <span class="item-info">Loading...</span>
+                    <span class="item-info"><span class="item__loader"></span></span>
                 </p>
 
                 <p class="popup-container__info-container__item-group__item" id="subscriptionsCount">
                     <span class="fa-solid fa-circle-plus" style="color: #FFD43B;"></span>
                     <span class="item-title">Subscriptions: </span>
-                    <span class="item-info">Loading...</span>
+                    <span class="item-info"><span class="item__loader"></span></span>
                 </p>
             </article>
         </div>

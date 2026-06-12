@@ -16,8 +16,8 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 48em;
-    height: 48em;
+    width: clamp(28em, 10vw, 48em);
+    aspect-ratio: 1;
     background-image:
         radial-gradient(circle 10px, #FFF 100%, transparent 0),
         radial-gradient(circle 10px, #FFF 100%, transparent 0),
@@ -33,17 +33,6 @@
     font-size: 0.5px;
     border-radius: 50%;
     animation: blast 1s ease-in infinite;
-
-    @include breakpoint(sm) {
-        width: 40em;
-        height: 40em;
-    }
-    @include breakpoint(xs) {
-
-    }
-    @include breakpoint(xxs) {
-
-    }
 }
 
 .loader::after {

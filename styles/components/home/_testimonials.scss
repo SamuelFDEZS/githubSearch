@@ -4,7 +4,7 @@
     margin-top: 20vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 
     &__title {
         width: 45%;
@@ -12,103 +12,68 @@
         line-height: 125%;
         text-align: center;
         align-self: center;
-
-        @include breakpoint(xl) {
-            font-size: 3rem;
-        }
-
-        @include breakpoint(pxl) {
-            font-size: 2.8rem;
-        }
-
-        @include breakpoint(lg) {
-            font-size: 2.8rem;
-            width: 55%;
-        }
-
-        @include breakpoint(md) {
-            font-size: 2.5rem;
-            width: 60%;
-        }
-
-        @include breakpoint(sm) {
-            font-size: 2.2rem;
-            width: 80%;
-        }
-
-        @include breakpoint(xs) {
-            font-size: 2.2rem;
-            width: 80%;
-        }
-
-        @include breakpoint(xxs) {
-            font-size: 2rem;
-            width: 80%;
-        }
+        font-size: clamp(2rem, 5vw, 3rem);
     }
 
     &__group {
-        width: 100%;
-        display: flex;
-        gap: 5vh;
-        justify-content: space-around;
-        align-items: center;
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        place-items: center;
+        align-items: stretch;
+        gap: 2rem;
+        margin-top: 8rem;
+
+        @include breakpoint(md) {
+            width: 100%;
+        }
+
+        @include breakpoint(sm) {
+            width: 100%;
+        }
 
         @include breakpoint(xs) {
-            flex-direction: column;
+            width: 90%;
+            grid-template-columns: 1fr;
         }
 
         @include breakpoint(xxs) {
-            flex-direction: column;
-            margin-top: 15%;
+            width: 90%;
+            grid-template-columns: 1fr;
         }
 
         &__card {
-            margin-top: 5%;
-            width: 35%;
-            height: 60vh;
+            width: 80%;
+            min-height: clamp(20rem, 55vh, 32rem);
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            box-sizing: border-box;
             background-color: #d7e6ee;
-            color: black;
-            position: relative;
             border-radius: 10px;
+            color: black;
             overflow-y: auto;
-
-            @include breakpoint(xl) {
-                width: 32%;
-            }
-
-            @include breakpoint(pxl) {
-                width: 32%;
-            }
-
-            @include breakpoint(lg) {
-                width: 40%;
-                height: 55vh;
-            }
+            padding-bottom: 3rem;
 
             @include breakpoint(md) {
-                width: 43%;
-                height: 50vh;
+                width: 90%;
             }
 
             @include breakpoint(sm) {
-                width: 43%;
-                height: 50vh;
-            }
-
-            @include breakpoint(xs) {
-                width: 70%;
-                height: auto;
+                width: 90%;
             }
 
             @include breakpoint(xxs) {
-                width: 70%;
-                height: auto;
+                width: 90%;
             }
 
             &__content {
-                margin-left: 5%;
                 margin-top: 6%;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
 
                 @include breakpoint(pxl) {
                     margin-left: 0;
@@ -133,6 +98,7 @@
                 &__subtitle {
                     font-size: var(--font-size-h5);
                     width: 90%;
+                    text-align: center;
 
                     @include breakpoint(xl) {
                         font-size: 1.5rem;
@@ -185,6 +151,7 @@
                 &__stars {
                     width: 100%;
                     margin-top: 1%;
+                    text-align: center;
 
                     @include breakpoint(xl) {
                         margin-top: 3%;
@@ -231,6 +198,7 @@
                     word-spacing: 2px;
                     line-height: 135%;
                     font-size: var(--font-size-medium);
+                    text-align: center;
 
                     @include breakpoint(xl) {
                         font-size: 1.4rem;
@@ -292,9 +260,9 @@
                 }
 
                 &__name {
-                    position: absolute;
-                    bottom: 5%;
+                    margin-top: auto;
                     font-size: var(--font-size-h6);
+                    padding-top: 2rem;
 
                     @include breakpoint(pxl) {
                         margin-left: 5%;
@@ -331,5 +299,9 @@
                 }
             }
         }
+    }
+
+    &__group+&__group {
+        margin-top: clamp(8rem, 10vw, 10rem);
     }
 }

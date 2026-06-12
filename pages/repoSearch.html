@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <link rel="stylesheet" href="../styles/base/main.css">
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
 </head>
+
 <body class="repo-search">
+
     <header class="header">
         <a href="../index.html" class="header__link">
             <img src="../assets/images/Inquiro_logo.png" alt="" class="header__link__image">
@@ -16,9 +19,16 @@
 
         <div class="header__filter"></div>
 
+        <div class="header__burger"><svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 6h18M3 12h18M3 18h18" />
+            </svg></div>
+
+
         <nav class="header__nav">
             <ul class="header__nav__list">
-                <li class="header__nav__list__item"><a href="../index.html" class="header__nav__list__item__link">Home</a>
+                <li class="header__nav__list__item"><a href="../index.html"
+                        class="header__nav__list__item__link">Home</a>
                 </li>
                 <li class="header__nav__list__item"><a href="./userSearch.html"
                         class="header__nav__list__item__link">Users</a></li>
@@ -48,25 +58,150 @@
 
     <section class="reposearch-container">
         <aside class="reposearch-container__mode-container">
-            <h3 class="reposearch-container__mode-container__title">Search mode</h3>
-            <ul class="reposearch-container__mode-container__modes">
-                <li class="reposearch-container__mode-container__modes__mode">Precise Search</li>
-                <li class="reposearch-container__mode-container__modes__mode">Approx Search</li>
-            </ul>
+            <article class="reposearch-container__mode-container__item">
+
+                <h3 class="reposearch-container__mode-container__item__title">Search mode</h3>
+                <ul class="reposearch-container__mode-container__item__modes">
+                    <li class="reposearch-container__mode-container__item__modes__mode">Precise Search</li>
+                    <li class="reposearch-container__mode-container__item__modes__mode">Approx Search</li>
+                </ul>
+            </article>
         </aside>
-        <input type="text" class="reposearch-container__input" maxlength="39">
-        <span class="reposearch-container__placeholder">Repo search</span>
-        <button class="reposearch-container__button"><span
-                class="fa-solid fa-magnifying-glass reposearch-container__button__icon"></span></button>
+        <div class="reposearch-container__box">
+
+            <input type="text" class="reposearch-container__box__input" maxlength="39">
+            <span class="reposearch-container__box__placeholder">Repo search</span>
+            <button class="reposearch-container__box__button"><span
+                    class="fa-solid fa-magnifying-glass reposearch-container__box__button__icon"></span></button>
+        </div>
     </section>
     <span class="input-error"></span>
+
+    <section class="reposearch-filters">
+        <main class="reposearch-filters__options">
+
+            <div class="reposearch-filters__options__option">
+
+                <label for="language-filter">Language</label>
+                <select class="reposearch-filters__options__option__item" name="language-filter" id="language-filter">
+                    <option value="">Any language</option>
+
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="TypeScript">TypeScript</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="C#">C#</option>
+                    <option value="C++">C++</option>
+                    <option value="Go">Go</option>
+                    <option value="Rust">Rust</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Ruby">Ruby</option>
+                    <option value="Swift">Swift</option>
+                    <option value="Kotlin">Kotlin</option>
+                    <option value="Dart">Dart</option>
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="Shell">Shell</option>
+                </select>
+            </div>
+
+            <div class="reposearch-filters__options__option">
+
+
+                <label for="stars-filter">Stars</label>
+                <select class="reposearch-filters__options__option__item" name="stars-filter" id="stars-filter">
+                    <option value="">Any</option>
+                    <option value="">0-10</option>
+                    <option value="">11-100</option>
+                    <option value="">101-1000</option>
+                    <option value="">1001+</option>
+                </select>
+            </div>
+            <div class="reposearch-filters__options__option">
+
+
+                <label for="date-filter">Date</label>
+                <select class="reposearch-filters__options__option__item" name="date-filter" id="date-filter">
+                    <option value="">Any Time</option>
+
+                    <option value="week">Last Week</option>
+                    <option value="month">Last Month</option>
+                    <option value="3months">Last 3 Months</option>
+                    <option value="6months">Last 6 Months</option>
+                    <option value="year">Last Year</option>
+                    <option value="2years">Last 2 Years</option>
+                    <option value="5years">Last 5 Years</option>
+                </select>
+            </div>
+            <div class="reposearch-filters__options__option">
+
+
+                <label for="topic-filter">Topic</label>
+                <select class="reposearch-filters__options__option__item" name="topic-filter" id="topic-filter">
+                    <option value="">Any topic</option>
+
+                    <option value="react">React</option>
+                    <option value="vue">Vue</option>
+                    <option value="angular">Angular</option>
+                    <option value="nodejs">Node.js</option>
+                    <option value="express">Express</option>
+                    <option value="typescript">TypeScript</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="docker">Docker</option>
+                    <option value="api">API</option>
+                    <option value="frontend">Frontend</option>
+                    <option value="backend">Backend</option>
+                    <option value="fullstack">Fullstack</option>
+                    <option value="portfolio">Portfolio</option>
+                    <option value="ai">AI</option>
+                    <option value="machine-learning">Machine Learning</option>
+                </select>
+            </div>
+            <div class="reposearch-filters__options__option">
+
+
+                <label for="license-filter">License</label>
+                <select class="reposearch-filters__options__option__item" name="license-filter" id="license-filter">
+                    <option value="">Any</option>
+                    <option value="mit">MIT License</option>
+                    <option value="gpl-3.0">GPLv3 License</option>
+                    <option value="apache-2.0">Apache License 2.0</option>
+                    <option value="bsd-3-clause">BSD 3-Clause License</option>
+                    <option value="mpl-2.0">MPL 2.0 License</option>
+                    <option value="unlicense">The Unlicense</option>
+                </select>
+            </div>
+
+            <div class="reposearch-filters__options__option">
+
+
+                <label for="sort-filter">Sort by</label>
+                <select class="reposearch-filters__options__option__item" name="sort-filter" id="sort-filter">
+                    <option value="">Best Match</option>
+                    <option value="stars">Most stars</option>
+                    <option value="forks">Most forks</option>
+                    <option value="updated">Recently updated</option>
+                </select>
+            </div>
+            <div class="reposearch-filters__options__option">
+
+                <label for="order-filter">Order</label>
+                <select class="reposearch-filters__options__option__item" name="order-filter" id="order-filter">
+                    <option value="desc">Descending</option>
+                    <option value="asc">Ascending</option>
+                </select>
+            </div>
+        </main>
+    </section>
 
     <section class="reposearch-results"></section>
     <div class="repo-popup"></div>
     <div class="grey-filter"></div>
     <section class="move-page">
-        <button class="move-page__button move-page__button--left"><span class="fa-solid fa-angle-left" style="color: #0d0d0d;"></span></button>
-        <button class="move-page__button move-page__button--right visible"><span class="fa-solid fa-angle-right" style="color: #0d0d0d;"></span></button>
+        <button class="move-page__button move-page__button--left"><span class="fa-solid fa-angle-left"
+                style="color: #0d0d0d;"></span></button>
+        <button class="move-page__button move-page__button--right visible"><span class="fa-solid fa-angle-right"
+                style="color: #0d0d0d;"></span></button>
     </section>
 
     <footer class="footer">
@@ -117,4 +252,5 @@
     <script src="../js/burgerMenu.js"></script>
 
 </body>
+
 </html>

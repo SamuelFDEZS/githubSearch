@@ -1,0 +1,158 @@
+.reposearch-filters {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+
+    &__options {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        padding: 1rem;
+
+        @include breakpoint(pxl) {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 1.5rem;
+            min-width: 50rem;
+            place-items: center;
+        }
+
+        @include breakpoint(lg) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 1.5rem;
+            min-width: 50rem;
+            place-items: center;
+        }
+        @include breakpoint(md) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 1.5rem;
+            min-width: 50rem;
+            place-items: center;
+        }
+        @include breakpoint(sm) {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 2rem;
+            min-width: 25rem;
+            place-items: center;
+        }
+        @include breakpoint(xs) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 1.5rem;
+            min-width: 25rem;
+            place-items: center;
+        }
+        @include breakpoint(xxs) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 1.5rem;
+            min-width: 25rem;
+            place-items: center;
+        }
+
+
+        &__option {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.25rem, 0.5vw, 0.75rem);
+
+            @include breakpoint(pxl) {
+                width: 14rem;
+            }
+            @include breakpoint(lg) {
+                width: 14rem;
+            }
+            @include breakpoint(md) {
+                width: 14rem;
+            }
+            @include breakpoint(sm) {
+                width: 10rem;
+            }
+            @include breakpoint(xs) {
+                width: 8rem;
+            }
+            @include breakpoint(xxs) {
+                width: 8rem;
+            }
+
+            &:last-child {
+                @include breakpoint(pxl) {
+                    grid-column: 1 / -1;
+                    justify-self: center;
+                }
+                @include breakpoint(lg) {
+                    grid-column: 1 / -1;
+                    justify-self: center;
+                }
+                @include breakpoint(md) {
+                    grid-column: 1 / -1;
+                    justify-self: center;
+                }
+                @include breakpoint(sm) {
+                    grid-column: 1 / -1;
+                    justify-self: center;
+                }
+                @include breakpoint(xs) {
+                    grid-column: 1 / -1;
+                    justify-self: center;
+                }
+                @include breakpoint(xxs) {
+                    grid-column: 1 / -1;
+                    justify-self: center;
+                }
+            }
+
+            & label {
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+
+            &__item {
+                padding: clamp(0.5rem, 1vw, 0.75rem) clamp(1rem, 2vw, 1.5rem);
+                border-radius: 35px;
+                border: 1px solid #ccc;
+                background-color: #f9f9f9;
+                font-size: 1rem;
+                outline: none;
+                background-color: rgba(255, 255, 255, 0.155);
+                color: rgb(226, 226, 231);
+                transition: 0.3s ease;
+                cursor: pointer;
+
+                & option {
+                    background-color: #f9f9f9;
+                    color: #333;
+                }
+
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.25);
+                }
+
+                &:focus {
+                    border-color: #007bff;
+                    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+                    outline: none;
+                }
+            }
+        }
+    }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(1);
+}

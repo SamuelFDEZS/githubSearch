@@ -9,6 +9,41 @@ $breakpoints: (
     "xxl": "min-width: 1800px",
 );
 
+
+@mixin laptop-scaled {
+    @media (min-width: 1400px) and (max-height: 1000px) {
+        @content;
+    }
+}
+
+@mixin mobile-scaled {
+    @media (min-width: 1400px) and (max-height: 1000px) {
+        @content;
+    }
+}
+
+$height-breakpoints: (
+    "short": "min-heighmax-height: 750px",
+    "medium": "max-height: 900px",
+    "high": "max-height: 1200px",
+    "xhigh": "max-height: 1500px",
+    "xxhigh": "max-height: 1800px"
+);
+
+@mixin height-breakpoint($size) {
+    $value: map-get($height-breakpoints, $size);
+
+    @if $value {
+        @media (#{$value}) {
+            @content;
+        }
+    }
+
+    @else {
+        @error "Height breakpoint '#{$size}' doesn't exist";
+    }
+}
+
 @mixin breakpoint($size) {
     $my-map: map-get($breakpoints, $size);
 

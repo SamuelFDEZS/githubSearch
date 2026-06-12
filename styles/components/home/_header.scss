@@ -3,7 +3,7 @@
     height: 10vh;
     display: flex;
     position: relative;
-    z-index: 5;
+    z-index: 10;
     justify-content: space-between;
     align-items: center;
 
@@ -89,44 +89,9 @@
         }
 
         &__image {
-            width: 35%;
-            height: 100%;
+            width: clamp(3.5rem, 10vw, 6.5rem);
+            aspect-ratio: 1/1;
             transform: scale(1.5);
-
-            @include breakpoint(xl) {
-                width: 45%;
-                height: 90%;
-            }
-
-            @include breakpoint(pxl) {
-                width: 45%;
-                height: 90%;
-            }
-
-            @include breakpoint(lg) {
-                width: 50%;
-                height: 90%;
-            }
-
-            @include breakpoint(md) {
-                width: 50%;
-                height: 90%;
-            }
-
-            @include breakpoint(sm) {
-                width: 50%;
-                height: 70%;
-            }
-
-            @include breakpoint(xs) {
-                width: 80%;
-                height: 60%;
-            }
-
-            @include breakpoint(xxs) {
-                width: 80%;
-                height: 60%;
-            }
         }
 
         &__title {
@@ -196,7 +161,7 @@
             border: 3px solid white;
             left: 50%;
             top: 7vh;
-            z-index: 5;
+            z-index: 10;
             background-color: rgba(20, 20, 20, 0.7);
             backdrop-filter: blur(10px);
             transform: translate(-50%, 0);
@@ -219,7 +184,7 @@
             border: 3px solid white;
             left: 50%;
             top: 7vh;
-            z-index: 5;
+            z-index: 10;
             background-color: rgba(20, 20, 20, 0.7);
             backdrop-filter: blur(10px);
             transform: translate(-50%, 0);

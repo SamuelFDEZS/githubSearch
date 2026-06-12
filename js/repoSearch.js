@@ -1,5 +1,5 @@
+import API_URL from './config/api.js';
 import { GITHUB_TOKEN } from './token.js';
-
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
@@ -11,21 +11,31 @@ window.addEventListener('load', () => {
     searchInput.value = '';
 });
 
-const placeholder = document.querySelector('.reposearch-container__placeholder');
-const searchInput = document.querySelector('.reposearch-container__input');
-const searchButton = document.querySelector('.reposearch-container__button');
+const placeholder = document.querySelector('.reposearch-container__box__placeholder');
+const searchInput = document.querySelector('.reposearch-container__box__input');
+const searchButton = document.querySelector('.reposearch-container__box__button');
 const errorMessage = document.querySelector('.input-error');
-const searchModeContainer = document.querySelector('.reposearch-container__mode-container');
+const searchModeContainer = document.querySelector('.reposearch-container__mode-container__item');
 const repoPopupContainer = document.querySelector('.repo-popup');
-const searchModeContainerTitle = searchModeContainer.querySelector('.reposearch-container__mode-container__title');
-const individualModes = Array.from(searchModeContainer.querySelectorAll('.reposearch-container__mode-container__modes__mode'));
+const searchModeContainerTitle = searchModeContainer.querySelector('.reposearch-container__mode-container__item__title');
+const individualModes = Array.from(searchModeContainer.querySelectorAll('.reposearch-container__mode-container__item__modes__mode'));
 const movePageContainer = document.querySelector('.move-page');
 const movePageLeft = document.querySelector('.move-page__button--left');
 const movePageRight = document.querySelector('.move-page__button--right');
-const searchModes = document.querySelector('.reposearch-container__mode-container__modes');
+const searchModes = document.querySelector('.reposearch-container__mode-container__item__modes')
 const greyFilter = document.querySelector('.grey-filter');
 const repoSearchResults = document.querySelector('.reposearch-results');
 const repoRegex = /^[a-zA-Z0-9](?:[-/]?[a-zA-Z0-9]){0,38}$/;
+
+// Filters ------------------------------------------------
+const languageFilter = document.querySelector('#language-filter');
+const licenseFilter = document.querySelector('#license-filter');
+const starsFilter = document.querySelector('#stars-filter');
+const dateFilter = document.querySelector('#date-filter');
+const topicFilter = document.querySelector('#topic-filter');
+const sortFilter = document.querySelector('#sort-filter');
+const orderFilter = document.querySelector('#order-filter');
+// --------------------------------------------------------
 
 let isCorrectInput = null;
 let searchMode = 'approxsearch';
@@ -93,18 +103,21 @@ const fieldToCapital = (field) => {
 };
 
 const getData = async (searchValue, repoName, isSingleRepo) => {
+    let url = '';
+
     if (isSingleRepo) {
-    // repoName = 'owner/repo'
         const [owner, repo] = repoName.split('/');
-        url = `https://github-search-backend-lfukydtyf-samuelfdezs-projects.vercel.app/api/repo?owner=${owner}&repo=${repo}`;
+        url = `${API_URL}/api/repo?owner=${owner}&repo=${repo}`;
     } else if (searchMode === 'precisesearch') {
         if (searchValue.length !== 2) {
             repoSearchResults.innerHTML = '<span class="reposearch-results__incorrect-format">Incorrect format</span>';
             return;
         }
-        url = `https://github-search-backend-lfukydtyf-samuelfdezs-projects.vercel.app/api/repo?owner=${searchValue[0]}&repo=${searchValue[1]}`;
+
+        url = `${API_URL}/api/repo?owner=${searchValue[0]}&repo=${searchValue[1]}`;
     } else {
-        url = `https://github-search-backend-lfukydtyf-samuelfdezs-projects.vercel.app/api/search-repos?q=${searchValue[0]}&per_page=30&page=${resultPage}`;
+        const params = getRepositoryFilters();
+        url = `${API_URL}/api/search-repos?${params.toString()}`;
     }
 
     try {
@@ -112,7 +125,9 @@ const getData = async (searchValue, repoName, isSingleRepo) => {
         let hasNextPage = null;
 
         if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+
         const data = await response.json();
+
         linkHeader = response.headers.get('Link');
         hasNextPage = linkHeader && linkHeader.includes('rel="next"');
 
@@ -121,7 +136,9 @@ const getData = async (searchValue, repoName, isSingleRepo) => {
         } else {
             movePageRight.classList.remove('visible');
         }
+
         if (isSingleRepo) return data;
+
         return (data && data.items) || [data];
     } catch (error) {
         console.error('Error fetching: ', error);
@@ -137,7 +154,7 @@ const createRepoCards = (data) => {
         const repoInfo = [
             { title: 'Created', value: time },
             { title: 'Language', value: item.language },
-            { title: 'Has Downloads', value: fieldToCapital(item.has_downloads) },
+            { title: 'Downloads', value: fieldToCapital(item.has_downloads) },
             { title: 'Visibility', value: fieldToCapital(item.visibility) },
             { title: 'Homepage', value: item.homepage ? 'Yes' : 'No' }
         ];
@@ -203,7 +220,7 @@ const createRepoPopUp = async (repoName) => {
     const lastUpdated = formatDate(diffDays, diffHours);
 
     repoPopupContainer.innerHTML = `
-    <span class="fa-solid fa-xmark popup-container__exit-popup"></span>
+    <span class="fa-solid fa-xmark repo-popup__exit-popup"></span>
     <h3 class="repo-popup__title">${singleRepoData.full_name}</h3>
     <p class="repo-popup__description">${singleRepoData.description || 'No description'}</p>
     <h4 class="repo-popup__info-title">Detailed info</h4>
@@ -272,7 +289,7 @@ const createRepoPopUp = async (repoName) => {
     repoPopupContainer.classList.add('show-popup');
     greyFilter.classList.add('show-filter');
 
-    const exitIcon = document.querySelector('.popup-container__exit-popup');
+    const exitIcon = document.querySelector('.repo-popup__exit-popup');
 
     exitIcon.addEventListener('mouseover', () => exitIcon.classList.add('fa-beat-fade'));
 
@@ -303,6 +320,44 @@ const nextPage = () => {
     searchRepo();
 };
 
+const getRepositoryFilters = () => {
+    const params = new URLSearchParams();
+
+    params.set('search', searchInput.value.trim());
+    params.set('perPage', '30');
+    params.set('page', String(resultPage));
+
+    if (languageFilter.value) {
+        params.set('language', languageFilter.value);
+    }
+
+    if (starsFilter.value) {
+        params.set('stars', starsFilter.value);
+    }
+
+    if (dateFilter.value) {
+        params.set('date', dateFilter.value);
+    }
+
+    if (topicFilter.value) {
+        params.set('topic', topicFilter.value);
+    }
+
+    if (licenseFilter.value) {
+        params.set('license', licenseFilter.value);
+    }
+
+    if (sortFilter.value) {
+        params.set('sort', sortFilter.value);
+    }
+
+    if (orderFilter.value) {
+        params.set('order', orderFilter.value);
+    }
+
+    return params;
+};
+
 const init = () => {
     searchInput.addEventListener('focus', handleSearchEvents);
     searchInput.addEventListener('blur', handleSearchEvents);
@@ -310,6 +365,12 @@ const init = () => {
     searchInput.addEventListener('keydown', triggerSearchByEnter);
     searchButton.addEventListener('click', searchRepo);
     searchModeContainer.addEventListener('click', handleSearchModeClick);
+
+    document.addEventListener('click', (event) => {
+        const clickedOutside = !searchModeContainer.contains(event.target);
+
+        if (clickedOutside) searchModes.classList.remove('open')
+    });
     individualModes.forEach((note) => {
         note.addEventListener('click', selectSearchMode);
     });
