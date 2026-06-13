@@ -1,5 +1,3 @@
-import { GITHUB_TOKEN } from './token.js';
-
 const searchBox = document.querySelector('#search-box');
 const mainContainer = document.querySelector('.main');
 const headers = {
