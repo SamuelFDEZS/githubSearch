@@ -7,6 +7,7 @@ const userArrow = document.querySelector('.header__user-container__arrow');
 const userMenu = document.querySelector('.header__user-container__user-menu');
 const menuItems = document.querySelectorAll('.header__nav__list__item');
 const restrictedMenuItems = [menuItems[1], menuItems[2]];
+const benefitsButtons = Array.from((document.querySelectorAll('.benefit__item__content__button-container__button')));
 
 const setCurrentUser = (value) => {
     currentUser = {
@@ -34,6 +35,17 @@ const initializeRestrictedMenu = () => {
             }
         });
     });
+
+    benefitsButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            if (!currentUser) {
+                event.preventDefault();
+                window.location.href = '/pages/login.html';
+            }
+        })
+    })
+
+
 }
 initializeRestrictedMenu();
 

@@ -5215,6 +5215,7 @@ body.body-help {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -5224,6 +5225,32 @@ body.body-help {
   background-color: white;
   color: black;
   z-index: 9;
+  padding: 1rem;
+}
+@media ((min-width: 992px) and (max-width: 1199.98px)) {
+  .logout-confirmation {
+    min-width: 50vw;
+  }
+}
+@media ((min-width: 768px) and (max-width: 991.98px)) {
+  .logout-confirmation {
+    min-width: 50vw;
+  }
+}
+@media ((min-width: 576px) and (max-width: 767.98px)) {
+  .logout-confirmation {
+    min-width: 65vw;
+  }
+}
+@media ((min-width: 401px) and (max-width: 575.98px)) {
+  .logout-confirmation {
+    min-width: 70vw;
+  }
+}
+@media (max-width: 400.98px) {
+  .logout-confirmation {
+    min-width: 80vw;
+  }
 }
 .logout-confirmation__title {
   width: 100%;
