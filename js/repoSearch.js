@@ -1,4 +1,5 @@
 import API_URL from './config/api.js';
+
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }

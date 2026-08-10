@@ -4389,7 +4389,7 @@ body.body-help p {
   align-items: center;
   padding: 1rem 0;
   gap: 0;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 .help__menu__list__item {
   font-size: 1.5rem;

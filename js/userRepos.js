@@ -1,3 +1,5 @@
+import API_URL from './config/api.js';
+
 window.onload = () => {
     init();
 };
@@ -17,7 +19,7 @@ const changeUserTitle = (username) => {
 };
 
 const getUserRepos = async (username) => {
-    const response = await fetch(`https://api.github.com/users/${username}/repos`);
+    const response = await fetch(`${API_URL}/api/user-repos?user=${username}`);
     const data = await response.json();
     return data;
 };
@@ -29,7 +31,7 @@ const getRepoName = (event) => {
     return repoName.textContent;
 };
 const getSingleRepo = async (repoName) => {
-    const response = await fetch(`https://api.github.com/repos/${username}/${repoName}`);
+    const response = await fetch(`${API_URL}/api/repo?user=${username}&name=${repoName}`);
 
     const data = await response.json();
     return data;

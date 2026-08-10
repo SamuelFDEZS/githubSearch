@@ -275,6 +275,10 @@ const handleSeePassword = () => {
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
+    const token =
+        localStorage.getItem('token') ||
+        sessionStorage.getItem('token');
+
     const formData = new FormData(form);
 
     const userData = {
@@ -287,7 +291,9 @@ form.addEventListener('submit', async (event) => {
         const response = fetch(`${API_URL}/user/me`, {
             method: 'PATCH',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
+
             },
             body: JSON.stringify({
                 username: userData.username,
